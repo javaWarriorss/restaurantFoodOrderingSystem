@@ -25,7 +25,7 @@ public class CustomerService {
         }
     }
 
-    public  Customer verifyUser(Customer customerLoginRequest) throws Exception{
+    public  Customer verifyCustomer(Customer customerLoginRequest) throws Exception{
         Customer foundCustomer=this.customerRepository.findCustomerByEmailAndPassword(customerLoginRequest.getEmail(),customerLoginRequest.getPassword());
         if (foundCustomer == null){
             throw new Exception("Email or password incorrect");

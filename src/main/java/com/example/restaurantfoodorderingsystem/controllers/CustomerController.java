@@ -57,7 +57,7 @@ private  final CustomerAddressService customerAddressService;
     @PostMapping("/login")
     public String handleUserLogin(Customer customer){
         try {
-            Customer loggedInCustomer =customerService.verifyUser(customer);
+            Customer loggedInCustomer =customerService.verifyCustomer(customer);
             return "redirect:customerPageAfterLogin/" +loggedInCustomer.getId();
 
         }catch (Exception e){
