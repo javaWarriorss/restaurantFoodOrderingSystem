@@ -5,6 +5,42 @@
     <title>Title</title>
 </head>
 <body>
+<section>
+    <a href="/login">LOGIN PAGE</a>
+    <a href="/register">Register</a>
+</section>
+
+<section>
+    <form action="/login" method="post">
+        <h4> ENTER EMAIL AND PASSWORD TO CONTINUE</h4>
+        <div >
+            <label> Email</label> <br>
+            <input type="text" name="email" placeholder="Email" REQUIRED>
+        </div><br>
+
+        <div>
+            <label> Password </label><br>
+            <input type="password" name="password" placeholder="Password" REQUIRED>
+        </div><br>
+
+        <div>
+            <button type="submit">Login</button>
+        </div>
+
+        <div>
+            <p>
+                <span th:if="${message == 'signup_success'}">
+                  Registration successful. Please enter your details to login
+                </span>
+                <span th:if="${message == 'login_failed'}">
+                   Unable to login with this email and password
+                </span>
+            </p>
+        </div>
+
+    </form>
+</section>
+
 
 </body>
 </html>
