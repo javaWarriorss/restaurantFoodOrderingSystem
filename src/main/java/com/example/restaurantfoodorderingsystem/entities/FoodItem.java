@@ -19,4 +19,5 @@ public class FoodItem {
     private Integer price;
     private String category; // for example breakfast, dinner, special offer etc.
     private String type; // salads, pancakes, main dishes
+    private String foodPictureUrl;
 }
