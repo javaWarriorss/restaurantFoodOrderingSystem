@@ -29,6 +29,7 @@ private  final CustomerAddressService customerAddressService;
 
     // REPAIR NEEDED: IT SENDS CUSTOMERADDRESS ANYWAY IF EMAILS ARE THE SAME,
     // BUT CUSTOMER DATA IS NOT SENDING IN TABLE WHICH IS CORRECT IN CASE WHEN EMAILS ARE THE SAME
+    
     @PostMapping("/register")
     public String handleCustomerRegistration( Model model,Customer customer, CustomerAddress customerAddress){
         try {
