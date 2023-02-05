@@ -12,12 +12,15 @@ import lombok.NoArgsConstructor;
 
 public class FoodItem {
     @Id // mark class as entity
-    @GeneratedValue(strategy = GenerationType.AUTO) //  generate value and specify how counting should happen using strategy
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
     private String foodName;
     private String description;
     private Integer price;
     private String category; // for example breakfast, dinner, special offer etc.
     private String type; // salads, pancakes, main dishes
+
     private String foodPictureUrl;
+
 }
