@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
 </head>
 <body>
+<header>
 
+</header>
+<h2>ADD INFORMATION ABOUT MEAL</h2>
+<section class="add-meal">
+
+    <div class="form-container">
+        <form action="/addMeal" method="post">
+
+            <div class="input-box-1">
+                <input class="block" name="name" type="text" placeholder="Meal name">
+            </div>
+
+            <div>
+            <label>Choose type:</label>
+            <select name="options">
+                <option value="option1">Meat main dishes</option>
+                <option value="option2">Fish main dishes</option>
+                <option value="option3">Side and vegetable dishes</option>
+                <option value="option4">Soups</option>
+                <option value="option5">Salads</option>
+                <option value="option6">Pancakes</option>
+                <option value="option7">Burgers</option>
+                <option value="option8">Snacks</option>
+                <option value="option9">Sauces</option>
+                <option value="option10">Bread</option>
+                <option value="option11">Desserts</option>
+                <option value="option12">Bakery</option>
+                <option value="option13">Drinks</option>
+                <option value="option14"></option>
+            </select>
+            </div>
+
+            <div class="input-box-2">
+                <input class="block" name="description" type="text" placeholder="Description">
+            </div>
+
+            <div class="input-box-4">
+                <input class="block" name="price" type="text" placeholder="Price">
+            </div>
+
+            <div class="input-box-5">
+                <span class="inStock">In stock</span><input class="checkbox" type="checkbox" name="inStock">
+            </div>
+
+            <div class="input-box-6">
+                <button class="button" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</section>
 </body>
 </html>

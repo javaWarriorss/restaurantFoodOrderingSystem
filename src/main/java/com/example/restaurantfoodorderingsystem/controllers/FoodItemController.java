@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class FoodItemController {
 
+
+
     @GetMapping("customerPageAfterLogin/{customerId}")
     public String displayPageAfterLogin(
             @PathVariable Integer customerId, Model model
@@ -15,4 +17,11 @@ public class FoodItemController {
         model.addAttribute("customerId",customerId);
         return "customerPageAfterLogin";
     }
+
+
+    @GetMapping("/addMeal")
+    public String addNewMeal(){
+        return "adminAddMeal";
+    }
+
 }
