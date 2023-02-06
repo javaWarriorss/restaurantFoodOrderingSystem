@@ -9,6 +9,7 @@ import java.util.ArrayList;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer,Integer> {
     Customer findCustomerByEmailAndPassword(String email, String password);
+    Customer findCustomerByEmail(String email);
     @Override
     ArrayList<Customer> findAll();
 }

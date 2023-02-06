@@ -38,5 +38,8 @@ public class CustomerService {
         return  this.customerRepository.findById(customerId).orElseThrow();
     }
 
+    public Customer findCustomerByEmail(String customerEmail) throws Exception{
+        return  this.customerRepository.findCustomerByEmail(customerEmail);
+    }
 
 }
