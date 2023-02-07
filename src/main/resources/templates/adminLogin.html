@@ -19,15 +19,19 @@
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" required>
+        <input type="text" style="-webkit-text-security: circle" id="password" name="password" required>
       </div>
       <div>
         <button type="submit">Login</button>
       </div>
       <div>
         <p>
-          <span th:if="${message == 'login_success'}"></span>
-          <span th:if="${message == 'login_failed'}"></span>
+            <span th:if="${message == 'login_success'}">
+                 "Registration successful. Now you can login."
+            </span>
+            <span th:if="${message == 'login_failed'}">
+                 "Login is failed. Please check your id or password and try again."
+            </span>
         </p>
       </div>
     </form>

@@ -17,12 +17,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //    @GeneratedValue()
     @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "cutomer_id")
     private Customer customer;
-    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "foodItem_id")
     private FoodItem foodItem;
     private Integer quantity;
     //    private Double price;
