@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Registration</title>
+</head>
+<body>
+<header>
+  <h3>Admin Registration</h3>
+</header>
+<main>
+  <form th:action="@{/adminRegister}" method="post" th:object="${admin}">
+    <div>
+      <label th:for="${admin.getFirstName()}">First name</label>
+      <input type="text" name="firstName" required th:field="*{firstName}" />
+    </div>
+    <div>
+      <label th:for="${admin.getLastName()}">Last name</label>
+      <input type="text" name="lastName" required th:field="*{lastName}">
+    </div>
+    <div>
+      <label th:for="${admin.getEmail()}">Email</label>
+      <input type="email" name="email" required th:field="*{email}">
+    </div>
+    <div>
+      <label th:for="${admin.getPassword()}">Password</label>
+      <input type="password" name="password" minlength="6" required th:field="*{password}">
+    </div>
+    <div>
+      <button class="button">Create Admin</button>
+    </div>
+
+    <div>
+
+    </div>
+    <p>
+      <span th:if="${message == 'signup_failes'}">
+        <label th:if="${error}" th:text="${error}"></label>
+      </span>
+    </p>
+  </form>
+</main>
+
+</body>
+</html>

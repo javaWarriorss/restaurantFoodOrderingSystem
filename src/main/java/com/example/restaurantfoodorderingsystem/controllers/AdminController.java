@@ -2,6 +2,8 @@ package com.example.restaurantfoodorderingsystem.controllers;
 
 import com.example.restaurantfoodorderingsystem.entities.Admin;
 import com.example.restaurantfoodorderingsystem.services.AdminService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +19,22 @@ public class AdminController {
     }
 
     @GetMapping("/adminRegister")
-    public String createAdminRegistrationForm(Model model){
-        model.addAttribute("admin", new Admin());
+    public String createAdminRegistrationForm(){
         return "adminRegister";
     }
 
     @PostMapping("/adminRegister")
-    public String createAdminAccount(@ModelAttribute Admin admin) throws Exception {
-        this.adminService.createAdmin(admin);
-        return "redirect:/adminLogin";
+    public String createAdminAccount(Admin admin, Model model) {
+        try {
+            this.adminService.createAdmin(admin);
+        }catch (Exception e){
+            model.addAttribute("message", "signup_failes");
+            System.out.println(e);
+            model.addAttribute("error", e.getMessage());
+            model.addAttribute("admin", admin);
+            return "adminRegister";
+        }
+        return "redirect:adminLogin?message=signup_success";
     }
     @GetMapping("/adminLogin")
     public String adminLoginPage(
@@ -37,9 +46,14 @@ public class AdminController {
     }
 
     @PostMapping("/adminLogin")
-    public String handleAdminLogin(Admin admin){
+    public String handleAdminLogin(Admin admin, HttpServletResponse response){
         try{
             Admin loggedInAdmin = adminService.verifyAdmin(admin);
+            Cookie cookie = new Cookie("adminId", loggedInAdmin.getAdminId().toString());
+
+            response.addCookie(cookie);
+            response.addCookie(new Cookie("adminIsLoggedIn", "true"));
+
             return "redirect:adminProfileView/"+ loggedInAdmin.getAdminId();
         }catch (Exception e){
 
