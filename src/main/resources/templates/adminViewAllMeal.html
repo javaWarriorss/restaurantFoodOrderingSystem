@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Add New Meal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    <link href="/styleFoodItemTable.css" rel="stylesheet" >
 
+</head>
+
+<body>
+<header>
+    <li><a class="nav-link" href="/adminViewAllMeal">View all meals</a></li>
+</header>
+
+
+
+<section class="table-section">
+    <!--table-->
+    <table class="foodItem-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Delete product</th>
+            <th>Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="foodItem:${foodItemList}">
+            <td th:text="${foodItem.id}"></td>
+            <td th:text="${foodItem.foodPhotoUrl}"></td>
+            <td th:text="${foodItem.foodName}"></td>
+            <td th:text="${foodItem.description}"></td>
+            <td th:text="${foodItem.category}"></td>
+            <td th:text="${foodItem.type}"></td>
+            <td th:text="${foodItem.price}"></td>
+            <td th:text="${foodItem.inStock}"></td>
+            <td><a class="delete-edit-link" th:href="'/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit">DELETE</span></a></td>
+            <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId()}"><span class="delete-edit">EDIT</span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 </body>
+
 </html>

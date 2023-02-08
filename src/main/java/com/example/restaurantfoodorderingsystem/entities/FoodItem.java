@@ -17,11 +17,16 @@ public class FoodItem {
     private Long id;
     private String foodName;
     private String description;
-    private Integer price;
+    private Double price;
     private String category; // for example breakfast, dinner, special offer etc.
     private String type; // salads, pancakes, main dishes
     private boolean inStock;
-    private String foodPictureUrl;
+    private String foodPhotoUrl;
+
+//    @Column(nullable = true, length = 64)
+//    private String photos;
+
+
 
 
 }
