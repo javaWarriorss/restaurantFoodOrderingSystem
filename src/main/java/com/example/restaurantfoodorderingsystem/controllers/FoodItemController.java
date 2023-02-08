@@ -51,7 +51,7 @@ public class FoodItemController {
 
 
     @GetMapping("/adminViewAllMeal") //
-    public String showAllProducts(Model model) {
+    public String showAllMeal(Model model) {
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
         return "adminViewAllMeal";
     }
@@ -77,6 +77,13 @@ public class FoodItemController {
         return "redirect:/adminViewAllMeal";
     }
 
+
+// in progress
+    @GetMapping("/adminViewByType/{foodItemType}")
+    public String showAllMealsByType(@PathVariable(name="foodItemType") String foodItemType, Model model) {
+        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMealByType";
+    }
 
 
 }

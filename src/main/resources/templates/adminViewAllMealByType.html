@@ -24,9 +24,7 @@
 <section class="add-meal">
     <div class="form-container">
         <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
-        <form th:action="@{/updateMeal/{foodItemId}(foodItemId=${foodItem.id})}" method="post">
-            <P>Sort:</P>
-            <a class="sort-by-type" th:href="'/edit' + ${foodItem.getId()}"><span class="delete-edit">EDIT</span></a>
+        <form th:action="@{/adminViewByType/{foodItemType}(foodItemType=${foodItem.type})}" method="post">
             <input type="hidden" name="id" th:value="${foodItem.id}"/>
             <div class="input-box-1">
                 <input class="block" name="foodName" type="text" placeholder="Meal name" th:value="${foodItem.foodName}">
