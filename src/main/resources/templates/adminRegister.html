@@ -11,20 +11,20 @@
 <main>
   <form th:action="@{/adminRegister}" method="post" th:object="${admin}">
     <div>
-      <label th:for="${admin.getFirstName()}">First name</label>
-      <input type="text" name="firstName" required th:field="*{firstName}" />
+      <label for="firstName">First name</label>
+      <input class="input_field" id="firstName" type="text" name="firstName" required th:value="${admin?.getFirstName()}" />
     </div>
     <div>
-      <label th:for="${admin.getLastName()}">Last name</label>
-      <input type="text" name="lastName" required th:field="*{lastName}">
+      <label for="lastName">Last name</label>
+      <input id="lastName" type="text" name="lastName" required th:value="${admin?.getLastName()}" />
     </div>
     <div>
-      <label th:for="${admin.getEmail()}">Email</label>
-      <input type="email" name="email" required th:field="*{email}">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" required th:value="${admin?.getEmail()}" />
     </div>
     <div>
-      <label th:for="${admin.getPassword()}">Password</label>
-      <input type="password" name="password" minlength="6" required th:field="*{password}">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" minlength="6" required th:value="${admin?.getPassword()}" />
     </div>
     <div>
       <button class="button">Create Admin</button>
@@ -34,7 +34,7 @@
 
     </div>
     <p>
-      <span th:if="${message == 'signup_failes'}">
+      <span th:if="${message == 'signup_failed'}">
         <label th:if="${error}" th:text="${error}"></label>
       </span>
     </p>
