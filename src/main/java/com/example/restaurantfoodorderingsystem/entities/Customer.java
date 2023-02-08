@@ -21,7 +21,9 @@ public class Customer {
     @Column(unique = true)
     private String email;
     private String password;
+    private String photos;
     @OneToOne
     private CustomerAddress customerAddress;
+
 
 }

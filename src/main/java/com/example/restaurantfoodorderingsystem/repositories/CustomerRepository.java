@@ -12,4 +12,6 @@ public interface CustomerRepository extends CrudRepository<Customer,Integer> {
     Customer findCustomerByEmail(String email);
     @Override
     ArrayList<Customer> findAll();
+
+
 }

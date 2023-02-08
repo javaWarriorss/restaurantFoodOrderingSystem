@@ -20,10 +20,19 @@ public class CustomerService {
         try {
             customer.setCustomerAddress(customerAddress);
             this.customerRepository.save(customer);
+
         } catch (Exception e) {
                     throw new Exception("Email already exists");
         }
     }
+    public void createCustomer(Customer customer) throws Exception {
+        try {
+            this.customerRepository.save(customer);
+        } catch (Exception e) {
+            throw new Exception("Email already exists");
+        }
+    }
+
 
     public  Customer verifyCustomer(Customer customerLoginRequest) throws Exception{
         Customer foundCustomer=this.customerRepository.findCustomerByEmailAndPassword(customerLoginRequest.getEmail(),customerLoginRequest.getPassword());
@@ -42,4 +51,8 @@ public class CustomerService {
         return  this.customerRepository.findCustomerByEmail(customerEmail);
     }
 
+//   public Customer updateCustomerById(Integer customerId){
+//        return this.customerRepository.
+//
+//    }
 }

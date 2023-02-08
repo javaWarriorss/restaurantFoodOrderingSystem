@@ -8,10 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CustomerController {
@@ -30,20 +28,17 @@ private  final CustomerAddressService customerAddressService;
 
     // REPAIR NEEDED: needs to show better warning on html if emails are the same
     @PostMapping("/register")
-    public String handleCustomerRegistration(Model model,  Customer customer, CustomerAddress customerAddress,BindingResult result) {
+    public String handleCustomerRegistration(Customer customer, BindingResult result, Model model, CustomerAddress customerAddress) {
        try {
-
            Customer existingCustomer = customerService.findCustomerByEmail(customer.getEmail());
            if(existingCustomer != null && existingCustomer.getEmail() != null && !existingCustomer.getEmail().isEmpty()){
                result.rejectValue("email", null,
                        "There is already an account registered with the same email");
            }
-
-           if(result.hasErrors()){
-               model.addAttribute("customer", customer);
-               return "/register";
-           }
-
+          // if(result.hasErrors()){
+          //     model.addAttribute("customer", customer);
+           //    return "/register";
+          // }
             this.customerAddressService.createCustomerAddress(customerAddress);
             this.customerService.createCustomer(customer,customerAddress);
 
@@ -53,7 +48,6 @@ private  final CustomerAddressService customerAddressService;
             model.addAttribute("customer",customer);
             return "register";
         }
-
         return "redirect:login?message=signup_success";
     }
 
@@ -68,10 +62,10 @@ private  final CustomerAddressService customerAddressService;
 
 
     @PostMapping("/login")
-    public String handleUserLogin(Customer customer){
+    public String handleCustomerLogin(Customer customer){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
-            return "redirect:customerPageAfterLogin/" +loggedInCustomer.getId();
+            return "redirect:menuAfterLogin/" +loggedInCustomer.getId();
 
         }catch (Exception e){
             return "redirect:login?message=login_failed&error=" +e.getMessage();
