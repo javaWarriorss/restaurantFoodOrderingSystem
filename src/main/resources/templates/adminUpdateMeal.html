@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    <link href="/styleFoodItemTable.css" rel="stylesheet" >
+
+
+</head>
+<body>
+<header>
+    <nav>
+        <a class="nav-link" href="/adminViewAllMeal">View all Meals</a>
+    </nav>
+</header>
+
+<h2>UPDATE INFORMATION ABOUT MEAL</h2>
+
+<!--<h5 th:if="${foodItem.isBlank()}">There are no meals to display</h5>-->
+
+<section class="add-meal">
+    <div class="form-container">
+        <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
+        <form th:action="@{/updateMeal/{foodItemId}(foodItemId=${foodItem.id})}" method="post">
+            <P>Sort:</P>
+            <a class="sort-by-type" th:href="'/edit' + ${foodItem.getId()}"><span class="delete-edit">EDIT</span></a>
+            <input type="hidden" name="id" th:value="${foodItem.id}"/>
+            <div class="input-box-1">
+                <input class="block" name="foodName" type="text" placeholder="Meal name" th:value="${foodItem.foodName}">
+            </div>
+
+            <div>
+                <label>Choose category:</label>
+                <select name="category" th:field="*{foodItem.category}">
+                    <option value="Breakfast" th:value="'Breakfast'">Breakfast</option>
+                    <option value="Business Lunch" th:value="'Business Lunch'">Business Lunch</option>
+                    <option value="Dinner" th:value="'Dinner'">Dinner</option>
+                    <option value="Special offer" th:value="'Special Offer'">Special Offer</option>
+                </select>
+            </div>
+
+
+            <div>
+                <label>Choose type:</label>
+                <select name="type"th:field="*{foodItem.type}" >
+                    <option value="Meat main dishes" th:value="'Meat main dishes'">Meat main dishes</option>
+                    <option value="Fish main dishes" th:value="'Fish main dishes'">Fish main dishes</option>
+                    <option value="Side and vegetable dishes" th:value="'Side and vegetable dishes'">Side and vegetable dishes</option>
+                    <option value="Soups" th:value="'Soups'">Soups</option>
+                    <option value="Salads" th:value="'Salads'">Salads</option>
+                    <option value="Pancakes"th:value="'Pancakes'" >Pancakes</option>
+                    <option value="Burgers" th:value="'Burgers'">Burgers</option>
+                    <option value="Snacks" th:value="'Snacks'">Snacks</option>
+                    <option value="Sauces" th:value="'Sauces'">Sauces</option>
+                    <option value="Bread" th:value="'Bread'">Bread</option>
+                    <option value="Desserts" th:value="'Desserts'" >Desserts</option>
+                    <option value="Bakery" th:value="'Bakery'">Bakery</option>
+                    <option value="Drinks" th:value="'Drinks'">Drinks</option>
+                </select>
+            </div>
+
+            <div class="input-box-2">
+                <input class="block" name="description" type="text" placeholder="Description" th:value="${foodItem.description}">
+            </div>
+
+            <div class="input-box-4">
+                <input class="block" name="price" type="number" placeholder="Price" th:value="${foodItem.price}">
+            </div>
+
+            <div class="input-box-5">
+                <span class="inStock">In stock</span><input class="checkbox" type="checkbox" name="inStock" th:checked="${foodItem.inStock}">
+            </div>
+
+            <div class="input-box-6">
+                <input class="block" name="foodPhotoUrl" type="url" placeholder="Add picture" th:value="${foodItem.foodPhotoUrl}" >
+            </div>
+
+            <div class="input-box-7">
+                <button class="button" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</section>
+</body>
+</html>
