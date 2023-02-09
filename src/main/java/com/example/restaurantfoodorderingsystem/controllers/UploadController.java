@@ -42,13 +42,11 @@ import java.nio.file.Paths;
             this.fileService = fileService;
         }
 
-
-        public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
+//        public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
 
         @GetMapping("/uploadimage") public String displayUploadForm() {
             return "uploadImage";
         }
-
 
 
 
@@ -61,36 +59,11 @@ import java.nio.file.Paths;
 //            System.out.println(file.getOriginalFilename());
 //            Files.write(fileNameAndPath, file.getBytes());
 //            System.out.println(file.getBytes());
+
             model.addAttribute("msg", "Uploaded images: " + file.getOriginalFilename());
             return "uploadImage";
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-//        public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
-//
-//        @GetMapping("/uploadimage") public String displayUploadForm() {
-//            return "imageupload/index";
-//        }
-//
-//        @PostMapping("/upload") public String uploadImage(Model model, @RequestParam("image") MultipartFile file) throws IOException {
-//            StringBuilder fileNames = new StringBuilder();
-//            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
-//            fileNames.append(file.getOriginalFilename());
-//            Files.write(fileNameAndPath, file.getBytes());
-//            model.addAttribute("msg", "Uploaded images: " + fileNames.toString());
-//            return "imageupload/index";
-//        }
-//    }
 
 
 
