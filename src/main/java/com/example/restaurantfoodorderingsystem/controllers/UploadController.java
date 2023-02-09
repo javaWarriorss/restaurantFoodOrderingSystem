@@ -49,7 +49,6 @@ import java.nio.file.Paths;
         }
 
 
-
         @PostMapping("/upload") public String uploadImage(Model model, @RequestParam("image") MultipartFile file) throws IOException {
             this.fileService.save(file);
 

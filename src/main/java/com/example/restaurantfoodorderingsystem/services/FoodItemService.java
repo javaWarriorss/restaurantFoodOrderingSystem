@@ -35,11 +35,6 @@ public class FoodItemService {
         return this.foodItemRepository.findFoodItemById(foodItemId);
     }
 
-    public FoodItem getAllFoodItemsByType(String foodItemType){
-        return this.foodItemRepository.findFoodItemByTypeOrderByTypeAsc(foodItemType);
-    }
-
-
 
     public FoodItem updateFoodItemById(Long id, FoodItem updatedFoodItem) {
         FoodItem foodItem = foodItemRepository.findById(id).orElse(null); // this will return object, which may not contain a food item, so we check
@@ -55,5 +50,71 @@ public class FoodItemService {
         foodItem.setFoodPhotoUrl(updatedFoodItem.getFoodPhotoUrl());
         return foodItemRepository.save(foodItem);
     }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeMainDish(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeFishDish(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeVegetableDish(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeSideDish(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeSoups(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeSalads(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+
+    }
+
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByPancakes(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByBurgers(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeSnacks(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeSauces(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeBread(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeDesserts(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeBakery(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByTypeDrinks(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
+    }
+
+
 
 }

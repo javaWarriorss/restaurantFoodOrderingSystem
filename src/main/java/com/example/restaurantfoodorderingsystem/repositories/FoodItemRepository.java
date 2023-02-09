@@ -21,14 +21,10 @@ public interface FoodItemRepository extends CrudRepository<FoodItem, Long> {
 
 
 
-    FoodItem findFoodItemByType(String type);
-
-//    ArrayList<FoodItem> findByAndSort(String category, Sort sort);
-
-
 //User findByUserNameAndPasswordOrderById(String userName, String password);
 
 
-    FoodItem findFoodItemByTypeOrderByTypeAsc(String type);
+    ArrayList<FoodItem> findFoodItemByType(String type);
+
 
 }
