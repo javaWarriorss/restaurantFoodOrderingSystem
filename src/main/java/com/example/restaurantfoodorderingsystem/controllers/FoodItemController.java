@@ -83,7 +83,7 @@ public class FoodItemController {
 @GetMapping("/meatMainDishes")
 public String showAllMeatMainDishes(Model model) {
     String foodItemType = "Meat main dishes";
-    model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeMainDish(foodItemType));
+    model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
     return "adminViewAllMeal";
 }
 
@@ -91,14 +91,14 @@ public String showAllMeatMainDishes(Model model) {
     @GetMapping("/fishMainDishes")
     public String showAllFishMainDishes(Model model) {
         String foodItemType = "Fish main dishes";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeFishDish(foodItemType));
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
 
     @GetMapping("/vegetableDishes")
     public String showAllVegetableDishes(Model model) {
         String foodItemType = "Vegetable dishes";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeVegetableDish(foodItemType));
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
 
@@ -106,7 +106,7 @@ public String showAllMeatMainDishes(Model model) {
     @GetMapping("/sideDishes")
     public String showAllSideDishes(Model model) {
         String foodItemType = "Side dishes";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeSideDish(foodItemType));
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
 
@@ -114,16 +114,82 @@ public String showAllMeatMainDishes(Model model) {
     @GetMapping("/soups")
     public String showAllSoups(Model model) {
         String foodItemType = "Soups";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeSoups(foodItemType));
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
 
     @GetMapping("/salads")
     public String showAllSalads(Model model) {
         String foodItemType = "Salads";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByTypeSalads(foodItemType));
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
+
+    @GetMapping("/pancakes")
+    public String showAllPancakes(Model model) {
+        String foodItemType = "Burgers";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+
+    @GetMapping("/burgers")
+    public String showAllBurgers(Model model) {
+        String foodItemType = "Burgers";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/snacks")
+    public String showAllSnacks(Model model) {
+        String foodItemType = "Snacks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/sauces")
+    public String showAllSauces(Model model) {
+        String foodItemType = "Sauces";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/bread")
+    public String showAllBread(Model model) {
+        String foodItemType = "Bread";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/desserts")
+    public String showAllDesserts(Model model) {
+        String foodItemType = "Desserts";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/bakery")
+    public String showAllBakery(Model model) {
+        String foodItemType = "Bakery";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+    @GetMapping("/drinks")
+    public String showAllDrinks(Model model) {
+        String foodItemType = "Drinks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
+
+    @GetMapping("/cutlery")
+    public String showAllCutlery(Model model) {
+        String foodItemType = "Cutlery";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "adminViewAllMeal";
+    }
+
 
 
 
