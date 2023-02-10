@@ -35,11 +35,6 @@ public class FoodItemService {
         return this.foodItemRepository.findFoodItemById(foodItemId);
     }
 
-    public FoodItem getAllFoodItemsByType(String foodItemType){
-        return this.foodItemRepository.findFoodItemByTypeOrderByTypeAsc(foodItemType);
-    }
-
-
 
     public FoodItem updateFoodItemById(Long id, FoodItem updatedFoodItem) {
         FoodItem foodItem = foodItemRepository.findById(id).orElse(null); // this will return object, which may not contain a food item, so we check
@@ -54,6 +49,11 @@ public class FoodItemService {
         foodItem.setInStock(updatedFoodItem.isInStock());
         foodItem.setFoodPhotoUrl(updatedFoodItem.getFoodPhotoUrl());
         return foodItemRepository.save(foodItem);
+    }
+
+
+    public ArrayList<FoodItem> getAllFoodItemsByType(String foodItemType){
+        return this.foodItemRepository.findFoodItemByType(foodItemType);
     }
 
 }

@@ -23,10 +23,4 @@ public class FoodItem {
     private boolean inStock;
     private String foodPhotoUrl;
 
-//    @Column(nullable = true, length = 64)
-//    private String photos;
-
-
-
-
 }
