@@ -26,6 +26,6 @@ public class AdminService {
     }
 
     public Admin findAdminById(Long adminId) throws Exception{
-        return this.adminRepository.findById(adminId);
+        return this.adminRepository.findAdminById(adminId);
     }
 }
