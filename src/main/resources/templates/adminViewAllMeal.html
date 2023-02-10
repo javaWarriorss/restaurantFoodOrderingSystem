@@ -62,7 +62,8 @@
 <!--        <tr th:each="foodItem : ${foodItemList}" th:if="${foodItem.category == 'Meat main dishes'}">-->
         <tr th:each="foodItem:${foodItemList}">
             <td th:text="${foodItem.id}"></td>
-            <td th:text="${foodItem.foodPhotoUrl}"></td>
+<!--            <td th:text="${foodItem.foodPhotoUrl}"></td>-->
+            <td><img th:src="${foodItem.getFoodPhotoUrl()}" width="100px"/></td>
             <td th:text="${foodItem.foodName}"></td>
             <td th:text="${foodItem.description}"></td>
             <td th:text="${foodItem.category}"></td>

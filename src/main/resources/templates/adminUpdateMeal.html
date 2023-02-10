@@ -25,6 +25,16 @@
 <!--<h5 th:if="${foodItem.isBlank()}">There are no meals to display</h5>-->
 
 <section class="add-meal">
+    <div>
+     <span>
+          <img th:src="${foodItem.getFoodPhotoUrl()}"
+               width="120px"
+               th:style="'border: 2px solid black'"/>
+        </span>
+    </div>
+
+
+
     <div class="form-container">
         <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
         <form th:action="@{/updateMeal/{foodItemId}(foodItemId=${foodItem.id})}" method="post">
@@ -87,6 +97,7 @@
 
         </form>
     </div>
+
 
 </section>
 </body>
