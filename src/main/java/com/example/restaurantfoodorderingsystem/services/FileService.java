@@ -15,7 +15,8 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 @Service
 public class FileService {
-    private final Path root = Paths.get("./uploads");
+//    private final Path root = Paths.get("./uploads");
+       private final Path root = Paths.get(""); // I changed this part
 
 
     public void init() {
@@ -25,7 +26,6 @@ public class FileService {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
     }
-
 
     public void save(MultipartFile file) {
         try {
@@ -39,7 +39,6 @@ public class FileService {
             throw new RuntimeException(e.getMessage());
         }
     }
-
 
     public Resource load(String filename) {
         try {
@@ -55,7 +54,6 @@ public class FileService {
             throw new RuntimeException("Error: " + e.getMessage());
         }
     }
-
 
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(root.toFile());
