@@ -26,12 +26,18 @@ public class FoodItemController {
 
     // Kristine method
     @GetMapping("menuAfterLogin/{customerId}")
-    public String displayPageAfterLogin(@PathVariable Integer customerId, Model model){
+    public String displayPageAfterLogin(
+            @PathVariable Integer customerId, Model model){
         model.addAttribute("customerId",customerId);
         return "menuAfterLogin";
     }
+    @GetMapping("menuAfterLogin/{customerId}/contactUs")
+    public String displayContactUs(@PathVariable Integer customerId, Model model){
+        model.addAttribute("customerId",customerId);
+        return "contactUs";
+    }
 
-
+//____________________________________________________________
 
     @GetMapping("/adminAddMeal")
     public String showAddMealPage(){
