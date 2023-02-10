@@ -18,7 +18,7 @@ public class Customer {
     private String lastName;
     private String dateOfBirth;
     private Integer phoneNumber;
- //   @Column(unique = true)
+    @Column(unique = true)
     private String email;
     private String password;
     @OneToOne

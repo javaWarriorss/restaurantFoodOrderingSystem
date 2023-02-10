@@ -39,11 +39,14 @@ public class CustomerService {
         }
     }
 
-    public Customer updateCustomerById(Integer id, Customer updatedCustomer) {
-        Customer customer = customerRepository.findById(id).orElse(null); // this will return object, which may not contain a food item, so we check
-        if (customer == null) {
-            return null;
-        }
+    public Customer updateCustomerById(Integer id, Customer updatedCustomer) throws Exception {
+        Customer customer = customerRepository.findById(id).orElseThrow();
+
+       // how to show on email that its taken ?
+//        if () {
+//            throw new Exception("this email is already taken");
+//        }
+
         customer.setFirstName(updatedCustomer.getFirstName());
         customer.setLastName(updatedCustomer.getLastName());
         customer.setDateOfBirth(updatedCustomer.getDateOfBirth());
