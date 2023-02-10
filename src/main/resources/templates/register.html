@@ -5,13 +5,10 @@
     <title>Register</title>
 </head>
 <body>
-<section>
-    <a href="/login">LOGIN PAGE</a>
-    <a href="/register">Register</a>
-</section>
+<header th:insert="~{fragments/header.html :: header}"></header>
 <main>
 
-    <form action="/register" method="post">
+    <form action="/register"  method="post">
         <div>
             <label> First Name</label><br>
             <input type="text" name="firstName" required th:value="${customer?.getFirstName()}">

@@ -24,4 +24,5 @@ public class Customer {
     @OneToOne
     private CustomerAddress customerAddress;
 
+
 }

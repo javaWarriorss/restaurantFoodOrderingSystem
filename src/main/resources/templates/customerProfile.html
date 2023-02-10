@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="/profilePic.css">
+</head>
+
+
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+<h1>My Profile</h1>
+
+<section>
+    <a href="#" th:href="@{/menuAfterLogin/{id}/address (id=${customerId})}"> Address</a>
+</section>
+
+<div class="profile-pic">
+    <label class="-label" for="file">
+        <span class="glyphicon glyphicon-camera"></span>
+        <span>Change Image</span>
+    </label>
+    <input class="inputPic" id="file" type="file" onchange="loadFile(event)"/>
+    <img src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg"  id="output" width="200" />
+    <script type="text/javascript" src="profile.js"></script>
+</div>
+
+
+<section >
+    <form  th:action="@{/menuAfterLogin/{id}/profile (id=${customerId})}" method="post" >
+        <input type="hidden" name="id" th:value="${customerId}"/>
+
+        <div>
+            <label> First Name</label><br>
+            <input type="text" name="firstName" th:value="${customer.firstName}">
+        </div>
+        <div>
+            <label> Last Name</label><br>
+            <input type="text" name="lastName" minlength="4"th:value="${customer.lastName}">
+        </div>
+        <div>
+            <label> Date of birth</label><br>
+            <input type="date" name="dateOfBirth" th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
+        </div>
+        <div>
+            <label> Phone Number</label><br>
+            <input type="text" name="phoneNumber" minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
+        </div>
+        <div>
+            <label> Email</label><br>
+            <input  type="email" name="email" th:value="${customer.email}">
+        </div>
+        <div>
+            <label> Password</label><br>
+            <input type="password" name="password"  minlength="4" th:value="${customer.password}">
+        </div>
+
+        <input type="hidden" name="customerAddress" th:value="${customerId}"/>
+        <div>
+            <button type="submit" value="Submit">Update</button>
+        </div>
+    </form>
+
+</section>
+
+
+
+
+
+</body>
+</html>
