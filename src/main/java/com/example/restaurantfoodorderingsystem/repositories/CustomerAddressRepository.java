@@ -8,5 +8,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface CustomerAddressRepository extends CrudRepository<CustomerAddress,Integer> {
-
+    CustomerAddress findAllById (Integer customerId);
+    @Override
+    ArrayList<CustomerAddress> findAll();
 }

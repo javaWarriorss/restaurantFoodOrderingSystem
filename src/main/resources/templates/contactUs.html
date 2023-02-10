@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contact</title>
+    <link rel="stylesheet" href="/contactUsStyles.css">
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
+<div class="main">
+    <div class="container">
+        <form action="contactUs.html" method="post">
+            <h2>Contact Us</h2>
+            <label for="email">Email</label>
+            <input id="email" name="email" placeholder="Enter email" type="email" required>
+
+            <label for="text">Text</label>
+            <textarea id="text" name="text" placeholder="Write something.." style="height:200px"></textarea>
+            <input type="submit" value="Send">
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

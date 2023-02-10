@@ -5,16 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<section>
-    <a href="#" th:href="@{/menuAfterLogin/{id} (id=${customerId})}">Menu2</a>
-    <a href="/contactUs">CONTACT US</a>
-    <a href="/cart"> &#128722;</a>
-    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">Profile</a>
-    <a href="/index.html">Logout</a>
-    <hr>
-</section>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
-<h1> Hello Menu</h1>
+<h1> Hello Menu, here we display our tasty foods, from admin table :)</h1>
 
 </body>
 </html>

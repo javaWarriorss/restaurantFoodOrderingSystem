@@ -5,44 +5,43 @@
     <title>Hello to profile</title>
 </head>
 <body>
-<section>
-    <a href="#" th:href="@{/menuAfterLogin/{id} (id=${customerId})}">Menu</a>
-    <a href="/contactUs">CONTACT US</a>
-    <a href="/cart"> &#128722;</a>
-    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">Profile</a>
-    <a href="/index.html">Logout</a>
-    <hr>
-</section>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 <h1>My Profile</h1>
 
+<section>
+    <a href="#" th:href="@{/menuAfterLogin/{id}/address (id=${customerId})}"> Address</a>
+</section>
+
 <section >
-    <form  th:action="@{/menuAfterLogin/{id}/profile (id=${customerId})}" th:object="${customerId}" method="post" >
+    <form  th:action="@{/menuAfterLogin/{id}/profile (id=${customerId})}" method="post" >
+        <input type="hidden" name="id" th:value="${customerId}"/>
+
         <div>
             <label> First Name</label><br>
-            <input type="text" name="firstName" required >
+            <input type="text" name="firstName" th:value="${customer.firstName}">
         </div>
         <div>
             <label> Last Name</label><br>
-            <input type="text" name="lastName" minlength="4" required >
+            <input type="text" name="lastName" minlength="4"th:value="${customer.lastName}">
         </div>
         <div>
             <label> Date of birth</label><br>
-            <input type="date" name="dateOfBirth" required >    <!-- needs to set min age! -->
+            <input type="date" name="dateOfBirth" th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
         </div>
         <div>
             <label> Phone Number</label><br>
-            <input type="text" name="phoneNumber" minlength="7" maxlength="8" required oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
+            <input type="text" name="phoneNumber" minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
         </div>
         <div>
             <label> Email</label><br>
-            <input type="email" name="email" required>
+            <input type="email" name="email" th:value="${customer.email}">
         </div>
         <div>
             <label> Password</label><br>
-            <input type="password" name="password"  minlength="4" required>
+            <input type="password" name="password"  minlength="4" th:value="${customer.password}">
         </div>
 
-
+        <input name="customerAddress" th:value="${customer.getCustomerAddress()}"/>
         <div>
             <button type="submit" value="Submit">Update</button>
         </div>
