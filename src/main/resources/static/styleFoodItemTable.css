@@ -1,0 +1,36 @@
+
+/* LIGA */
+/*FoodItem table*/
+
+.table-section{
+    height: 100vh;
+}
+.foodItem-table{
+    margin: 4rem auto 0;
+    width: 90%;
+    border-collapse: collapse; /* remove the default spacing between table cells */
+}
+
+.foodItem-table th, .foodItem-table td {
+    width: 10%;
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 2rem;
+}
+
+.foodItem-table th {
+    background-color: #c2c4c6;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    width: auto;
+}
+
+.foodItem-table tr:nth-child(even) { /* every even-number column, set color */
+    background-color: #f9f9f9;
+}
+
+.th{
+    text-align: center;
+}

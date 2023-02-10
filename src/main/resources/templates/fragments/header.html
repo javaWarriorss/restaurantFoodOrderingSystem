@@ -1,0 +1,19 @@
+<div th:fragment="header">
+  <section>
+    <a href="/login">LOGIN PAGE</a>
+    <a href="/register">Register</a>
+    <hr>
+  </section>
+</div>
+
+
+<div th:fragment="headerAfterLogin">
+  <section>
+    <a href="#" th:href="@{/menuAfterLogin/{id} (id=${customerId})}">Menu</a>
+    <a href="#" th:href="@{/menuAfterLogin/{id}/contactUs (id=${customerId})}">CONTACT US</a>
+    <a href="/cart"> &#128722;</a>
+    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">Profile</a>
+    <a href="/index.html">Logout</a>
+    <hr>
+  </section>
+</div>

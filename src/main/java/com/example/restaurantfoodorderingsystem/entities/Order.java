@@ -19,7 +19,7 @@
 //    private Long id;
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    private Customer customer;
-//    private FoodItem foodItem;
+// //   private FoodItem foodItem;
 //    private Integer quantity;
 //    //    private Double price;
 //    private String note;
