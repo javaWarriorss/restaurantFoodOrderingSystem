@@ -7,10 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface AdminRepository extends CrudRepository {
+public interface AdminRepository extends CrudRepository<Admin, Long> {
     Admin findByIdAndPassword(Long id, String password);
-    Admin findById(Long adminId);
-
+//    Admin findAdminById(Long adminId);
     @Override
     ArrayList<Admin> findAll();
 }
