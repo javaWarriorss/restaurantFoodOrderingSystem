@@ -1,19 +1,12 @@
 package com.example.restaurantfoodorderingsystem.controllers;
 
 import com.example.restaurantfoodorderingsystem.entities.FoodItem;
-import com.example.restaurantfoodorderingsystem.repositories.FoodItemRepository;
 import com.example.restaurantfoodorderingsystem.services.FoodItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 @Controller
 public class FoodItemController {
@@ -190,6 +183,20 @@ public String showAllMeatMainDishes(Model model) {
         return "adminViewAllMeal";
     }
 
+
+    // Menu Page
+
+//    @GetMapping("/menu")
+//    public String showMenuPage(){
+//        return "menu";
+//    }
+
+
+    @GetMapping("/menu") //
+    public String showMenuAllMeals(Model model) {
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
+        return "menu";
+    }
 
 
 
