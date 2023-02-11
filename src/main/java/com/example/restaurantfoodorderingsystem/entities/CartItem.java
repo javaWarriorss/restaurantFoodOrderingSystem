@@ -18,9 +18,5 @@ public class CartItem {
     private Double totalPrice;
     //    private Integer orderId;
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
-    @OneToOne
-    @PrimaryKeyJoinColumn(name = "foodItem_id", referencedColumnName = "id")
     private FoodItem foodItem;
 }

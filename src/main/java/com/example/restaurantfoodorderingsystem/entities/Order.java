@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -18,14 +17,13 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @CreationTimestamp
     private Timestamp createdAt;
     private Integer totalAmount;
-    //    @OneToMany
-//    @ForeignKey
-//    private Customer customerId;
-    private boolean status;
+    @OneToOne
+    private Customer customer;
+    private Boolean status;
     //    status: confirmed/pending??
-    @OneToMany
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private List<CartItem> cartItems;
+    @OneToOne
+    private CartItem cartItems;
 }
