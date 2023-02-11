@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Meal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    <link href="/cssStyles/styleFoodItemTable.css" rel="stylesheet" >
+
+</head>
+
+<body>
+<header>
+    <div class="nav-box">
+        <a class="nav-link-add-meal" href="/adminAddMeal">Add meal</a>
+    </div>
+
+</header>
+
+<section class="table-section">
+<div class="flex-box">
+<div class="flex-links">
+
+    <a class="nav-link-view-all" href="/adminViewAllMeal">View all meals</a>
+    <a href="/meatMainDishes" class="menu-item">Meat main dishes</a>
+    <a href="/fishMainDishes" class="menu-item">Fish main dishes</a>
+    <a href="/vegetableDishes" class="menu-item">Vegetable dishes</a>
+    <a href="/sideDishes" class="menu-item">Side dishes</a>
+    <a href="/soups" class="menu-item">Soups</a>
+    <a href="/salads" class="menu-item">Salads</a>
+    <a href="/pancakes" class="menu-item">Pancakes</a>
+    <a href="/burgers" class="menu-item">Burgers</a>
+    <a href="/snacks" class="menu-item">Snacks</a>
+    <a href="/sauces" class="menu-item">Sauces</a>
+    <a href="/bread" class="menu-item">Bread</a>
+    <a href="/desserts" class="menu-item">Desserts</a>
+    <a href="/bakery" class="menu-item">Bakery</a>
+    <a href="/drinks" class="menu-item">Drinks</a>
+    <a href="/cutlery" class="menu-item">Cutlery</a>
+</div>
+
+    <div>
+        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>
+    <!--table-->
+    <table class="foodItem-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Delete product</th>
+            <th>Update</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <tr th:each="foodItem : ${foodItemList}" th:if="${foodItem.category == 'Meat main dishes'}">-->
+        <tr th:each="foodItem:${foodItemList}">
+            <td th:text="${foodItem.id}"></td>
+<!--            <td th:text="${foodItem.foodPhotoUrl}"></td>-->
+            <td><img th:src="${foodItem.getFoodPhotoUrl()}" width="100px"/></td>
+            <td th:text="${foodItem.foodName}"></td>
+            <td th:text="${foodItem.description}"></td>
+            <td th:text="${foodItem.category}"></td>
+            <td th:text="${foodItem.type}"></td>
+            <td th:text="${foodItem.price}"></td>
+            <td th:text="${foodItem.inStock}"></td>
+            <td><a class="delete-edit-link" th:href="'/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit">DELETE</span></a></td>
+            <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId}"><span class="delete-edit">EDIT</span></a></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</section>
+</body>
+</html>

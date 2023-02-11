@@ -1,18 +1,12 @@
 package com.example.restaurantfoodorderingsystem.controllers;
 
 import com.example.restaurantfoodorderingsystem.entities.FoodItem;
-import com.example.restaurantfoodorderingsystem.repositories.FoodItemRepository;
 import com.example.restaurantfoodorderingsystem.services.FoodItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @Controller
 public class FoodItemController {
@@ -29,12 +23,12 @@ public class FoodItemController {
     public String displayPageAfterLogin(
             @PathVariable Integer customerId, Model model){
         model.addAttribute("customerId",customerId);
-        return "menuAfterLogin";
+        return "customer/menuAfterLogin";
     }
     @GetMapping("menuAfterLogin/{customerId}/contactUs")
     public String displayContactUs(@PathVariable Integer customerId, Model model){
         model.addAttribute("customerId",customerId);
-        return "contactUs";
+        return "customer/contactUs";
     }
 
 //____________________________________________________________

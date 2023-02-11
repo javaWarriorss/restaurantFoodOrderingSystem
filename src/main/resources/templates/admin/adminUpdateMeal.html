@@ -6,14 +6,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
-    <link href="/styleFoodItemTable.css" rel="stylesheet" >
+    <link href="/cssStyles/styleFoodItemTable.css" rel="stylesheet" >
 
 
 </head>
 <body>
 <header>
     <nav>
-        <a class="nav-link" href="/adminViewAllMeal">View all Meals</a>
+        <div class="nav-box">
+            <a class="nav-link-view-all" href="/adminViewAllMeal">View all Meals</a>
+        </div>
+
     </nav>
 </header>
 
@@ -22,11 +25,19 @@
 <!--<h5 th:if="${foodItem.isBlank()}">There are no meals to display</h5>-->
 
 <section class="add-meal">
+    <div>
+     <span>
+          <img th:src="${foodItem.getFoodPhotoUrl()}"
+               width="120px"
+               th:style="'border: 2px solid black'"/>
+        </span>
+    </div>
+
+
+
     <div class="form-container">
         <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
         <form th:action="@{/updateMeal/{foodItemId}(foodItemId=${foodItem.id})}" method="post">
-            <P>Sort:</P>
-            <a class="sort-by-type" th:href="'/edit' + ${foodItem.getId()}"><span class="delete-edit">EDIT</span></a>
             <input type="hidden" name="id" th:value="${foodItem.id}"/>
             <div class="input-box-1">
                 <input class="block" name="foodName" type="text" placeholder="Meal name" th:value="${foodItem.foodName}">
@@ -48,7 +59,8 @@
                 <select name="type"th:field="*{foodItem.type}" >
                     <option value="Meat main dishes" th:value="'Meat main dishes'">Meat main dishes</option>
                     <option value="Fish main dishes" th:value="'Fish main dishes'">Fish main dishes</option>
-                    <option value="Side and vegetable dishes" th:value="'Side and vegetable dishes'">Side and vegetable dishes</option>
+                    <option value="Vegetable dishes" th:value="'Vegetable dishes'">Vegetable dishes</option>
+                    <option value="Side dishes" th:value="'Side dishes'">Side dishes</option>
                     <option value="Soups" th:value="'Soups'">Soups</option>
                     <option value="Salads" th:value="'Salads'">Salads</option>
                     <option value="Pancakes"th:value="'Pancakes'" >Pancakes</option>
@@ -59,6 +71,7 @@
                     <option value="Desserts" th:value="'Desserts'" >Desserts</option>
                     <option value="Bakery" th:value="'Bakery'">Bakery</option>
                     <option value="Drinks" th:value="'Drinks'">Drinks</option>
+                    <option value="Cutlery" th:value="'Cutlery'">Cutlery</option>
                 </select>
             </div>
 
@@ -84,6 +97,7 @@
 
         </form>
     </div>
+
 
 </section>
 </body>

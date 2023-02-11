@@ -1,6 +1,9 @@
 
 /* LIGA */
 /*FoodItem table*/
+body{
+    font-size: 1.2rem;
+}
 
 .table-section{
     height: 100vh;
@@ -16,15 +19,15 @@
     padding: 0.8rem;
     text-align: center;
     border: 1px solid #ddd;
-    font-size: 2rem;
+    /*font-size: 1.5rem;*/
 }
 
 .foodItem-table th {
     background-color: #c2c4c6;
-    font-weight: 500;
-    font-size: 2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
     text-align: center;
-    width: auto;
+    /*width: auto;*/
 }
 
 .foodItem-table tr:nth-child(even) { /* every even-number column, set color */
@@ -33,4 +36,22 @@
 
 .th{
     text-align: center;
+}
+
+.flex-box{
+    display:flex;
+}
+
+.flex-links{
+    display:flex;
+    flex-direction: column;
+}
+.menu-item{
+    margin-bottom: 0.5rem;
+}
+.nav-box{
+    margin-bottom: 2rem;
+}
+.nav-link-view-all{
+    margin-bottom: 1rem;
 }
