@@ -190,11 +190,6 @@ public String showAllMeatMainDishes(Model model) {
 
     // Menu Page
 
-//    @GetMapping("/menu")
-//    public String showMenuPage(){
-//        return "menu";
-//    }
-
 
     @GetMapping("/menu") //
     public String showMenuAllMeals(Model model) {
