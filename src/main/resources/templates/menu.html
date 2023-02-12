@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Meal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
+    <link href="/styleFoodItemTable.css" rel="stylesheet" >
+
+</head>
+
+<body>
+<header>
+<h1>Menu</h1>
+</header>
+
+<section class="cart-section">
+    <div class="flex-box">
+        <div class="flex-links">
+<!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
+            <a href="/menuMeatMainDishes" class="menu-item">Meat main dishes</a>
+            <a href="/menuFishMainDishes" class="menu-item">Fish main dishes</a>
+            <a href="/menuVegetableDishes" class="menu-item">Vegetable dishes</a>
+            <a href="/menuSideDishes" class="menu-item">Side dishes</a>
+            <a href="/menuSoups" class="menu-item">Soups</a>
+            <a href="/menuSalads" class="menu-item">Salads</a>
+            <a href="/menuPancakes" class="menu-item">Pancakes</a>
+            <a href="/menuBurgers" class="menu-item">Burgers</a>
+            <a href="/menuSnacks" class="menu-item">Snacks</a>
+            <a href="/menuSauces" class="menu-item">Sauces</a>
+            <a href="/menuBread" class="menu-item">Bread</a>
+            <a href="/menuDesserts" class="menu-item">Desserts</a>
+            <a href="/menuBakery" class="menu-item">Bakery</a>
+            <a href="/menuDrinks" class="menu-item">Drinks</a>
+            <a href="/menuCutlery" class="menu-item">Cutlery</a>
+        </div>
+
+
+<!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
+<div class="food-item-cart-container">
+        <div th:each="foodItem:${foodItemList}" class="food-item-cart">
+            <div class="dish-img">
+                <img th:src="${foodItem.getFoodPhotoUrl()}" width="100px" alt="food image"/>
+            </div>
+            <div class="dish-title">
+                <h6 th:text="${foodItem.foodName}"></h6>
+            </div>
+            <div>
+                <p th:text="${foodItem.description}"></p>
+            </div>
+            <div>
+                <p>Price: <span th:text="${foodItem.price}"></span></p>
+            </div>
+             <div>
+                 <button>Buy now</button>
+             </div>
+        </div>
+    </div>
+    </div>
+</section>
+</body>
+</html>
