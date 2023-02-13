@@ -23,12 +23,12 @@ public class FoodItemController {
     public String displayPageAfterLogin(
             @PathVariable Integer customerId, Model model){
         model.addAttribute("customerId",customerId);
-        return "menuAfterLogin";
+        return "customer/menuAfterLogin";
     }
     @GetMapping("menuAfterLogin/{customerId}/contactUs")
     public String displayContactUs(@PathVariable Integer customerId, Model model){
         model.addAttribute("customerId",customerId);
-        return "contactUs";
+        return "customer/contactUs";
     }
 
 //____________________________________________________________
