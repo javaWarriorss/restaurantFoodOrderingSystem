@@ -1,24 +1,22 @@
 package com.example.restaurantfoodorderingsystem.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Data
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    private Customer customer;
+    private Cart cart;
     @ManyToOne
     private FoodItem foodItem;
     private Integer quantity;
-
 }
