@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,6 +52,11 @@ import java.nio.file.Paths;
 
         @PostMapping("/upload") public String uploadImage(Model model, @RequestParam("image") MultipartFile file) throws IOException {
             this.fileService.save(file);
+
+            String uploadDirectory = new File("src/main/resources/templates/uploads").getAbsolutePath();
+            Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
+            Files.write(fileNameAndPath, file.getBytes());
+
 
 //            StringBuilder fileNames = new StringBuilder();
 //            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
