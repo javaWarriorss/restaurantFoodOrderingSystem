@@ -5,10 +5,8 @@ import com.example.restaurantfoodorderingsystem.entities.CustomerAddress;
 import com.example.restaurantfoodorderingsystem.services.CustomerAddressService;
 import com.example.restaurantfoodorderingsystem.services.CustomerService;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -23,7 +21,7 @@ private  final CustomerAddressService customerAddressService;
 
     @GetMapping("/register")
     public String showRegistrationPage(){
-        return "register";
+        return "customer/register";
     }
 
     // REPAIR NEEDED: needs to show better warning on html if emails are the same
@@ -46,7 +44,7 @@ private  final CustomerAddressService customerAddressService;
             model.addAttribute("message","signup_failed");
             model.addAttribute("error",e.getMessage());
             model.addAttribute("customer",customer);
-            return "register";
+            return "customer/register";
         }
         return "redirect:login?message=signup_success";
     }
@@ -57,7 +55,7 @@ private  final CustomerAddressService customerAddressService;
     ){
         model.addAttribute("message", message);
 
-        return "login";
+        return "customer/login";
     }
 
 
@@ -65,10 +63,10 @@ private  final CustomerAddressService customerAddressService;
     public String handleCustomerLogin(Customer customer){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
-            return "redirect:menuAfterLogin/" +loggedInCustomer.getId();
+            return "redirect:/menuAfterLogin/" +loggedInCustomer.getId();
 
         }catch (Exception e){
-            return "redirect:login?message=login_failed&error=" +e.getMessage();
+            return "redirect:/login?message=login_failed&error=" +e.getMessage();
         }  
 
     }
