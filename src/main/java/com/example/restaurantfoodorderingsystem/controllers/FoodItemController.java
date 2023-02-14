@@ -31,7 +31,7 @@ public class FoodItemController {
     public String addNewFoodItem(FoodItem foodItem){
         this.foodItemService.createFoodItem(foodItem);
 
-        return "redirect:admin/adminAddMeal";
+        return "redirect:/adminAddMeal";
     }
 
 
@@ -46,7 +46,7 @@ public class FoodItemController {
     @GetMapping("/adminViewAllMeal/delete/{foodItemId}")
     public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId) {
         this.foodItemService.deleteItemById(foodItemId);
-        return "redirect:/admin/adminViewAllMeal?message=product_deleted";
+        return "redirect:/adminViewAllMeal?message=product_deleted";
     }
 
     @GetMapping("/edit{foodItemId}")
@@ -60,7 +60,7 @@ public class FoodItemController {
     public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem) {
         this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
         this.foodItemService.createFoodItem(updatedFoodItem);
-        return "redirect:admin/adminViewAllMeal";
+        return "redirect:/adminViewAllMeal";
     }
 
 
@@ -246,7 +246,7 @@ public String showAllMeatMainDishes(Model model) {
     @GetMapping("menu/{customerId}/menuPancakes")
     public String showMenuAllPancakes(@PathVariable Integer customerId,Model model) {
         model.addAttribute("customerId",customerId);
-        String foodItemType = "Burgers";
+        String foodItemType = "Pancakes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
