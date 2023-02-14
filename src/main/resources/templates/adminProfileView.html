@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="/static/adminProfileStyle.css"/>
   <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
 <body>
+
 <header>
 </header>
+
 <div class="sidebar">
   <div class="sidebar-logo">
     <h2><span class="logo">Restaurant</span></h2>
@@ -38,6 +40,7 @@
       </li>
     </ul>
   </div>
+</div>
 
   <div class="main-content">
     <header>
@@ -49,25 +52,27 @@
       </h2>
 
       <div class="admin-wrapper">
-        <img src="" width="40px" height="40px" alt="">
+        <img src="/static/pic.jpg" width="60px" height="60px" alt="">
         <div>
-          <h4>Marija Lazutina</h4>
+          <h4>
+            <span th:text="${admin.getFirstName()}"></span>
+            <span th:text="${admin.getLastName()}"></span>
+          </h4>
           <small>Admin</small>
         </div>
-
       </div>
-
     </header>
 
     <main>
-      <div class="dashboard-cards">
+      <div class="cards">
         <div class="card-single">
+
           <div>
             <h1>20</h1>
             <span>Customers</span>
           </div>
           <div>
-            <span class="fa-solid fa-user"s></span>
+            <span class="fa-solid fa-users"></span>
           </div>
         </div>
 
@@ -77,12 +82,30 @@
             <span>Orders</span>
           </div>
           <div>
-            <span class="fa-solid fa-file-pen"></span>
+            <span class="fa-solid fa-cart-arrow-down"></span>
           </div>
         </div>
-
-
       </div>
+
+      <div class="recent-grid">
+        <div class="orders">
+          <div class="card">
+            <div class="card-header">
+              <h2>All Orders</h2>
+              <button>Sell all
+              <span class="fa-solid fa-arrow-right"></span>
+              </button>
+            </div>
+
+            <div class="card-body">
+              <table width="100%">
+<!--Here will be table All orders-->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
   </div>
 </div>

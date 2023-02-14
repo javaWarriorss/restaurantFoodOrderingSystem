@@ -1,98 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+:root{
+    --green: #94d82d;
+    --light-green: #eaf7d5;
+    --dark: #1e2b09;
+    --light: #ffffff;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,1);
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Dialog;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 100%;
+    overflow: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    padding: 1rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+header .logo{
+    color: var(--dark);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+header .logo i{
+    color: var(--green);
+}
+
+header .nav-bar a{
+    font-size: 1.7rem;
+    border-radius: 1rem;
+    padding: .5rem 1.5rem;
+    color: var(--dark);
+}
+header .nav-bar a.active,
+header .nav-bar a:hover{
+    color: var(--light);
+    background-color: var(--green);
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--dark);
+    border-radius: 50%;
+}
+header .icons i:hover,
+header .icons a:hover{
+    color: var(--light);
+    background: var(--green);
 }
 
 body{
-    background-image: url("pic.jpg");
+    background-color: var(--light);
     overflow: hidden;
-}
-.container{
-    max-width: 440px;
-    padding: 0 20px;
-    margin: 170px auto;
 }
 
 .wrapper{
-    width: 400px;
-    background: white;
-    border-radius: 10px;
+    padding-top: 160px;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    grid-gap: 1rem;
 }
 
-.wrapper .title{
-    line-height: 80px;
-    background: darkseagreen;
-    padding-left: 20px;
-    border-radius: 5px 5px 0 0;
-    color: white;
-    font-size: 25px;
-    font-weight: 600;
-    text-align: center;
+.our-history{
+    background-color: var(--light-green);
 }
 
-.wrapper form{
-    padding: 30px 20px 25px 20px;
+.main-pic{
+    background-color: var(--light);
 }
 
-.wrapper form .row{
-    height: 45px;
-    background: white;
-    margin-bottom: 15px;
-    position: relative;
-}
 
-.wrapper form .row input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    padding-left: 60px;
-    border-radius: 5px;
-    border: 1px solid darkseagreen;
-    font-size: 16px;
-}
-
-.wrapper form .row i{
-    position: absolute;
-    width: 47px;
-    height: 100%;
-    color: white;
-    font-size: 18px;
-    background: darkseagreen;
-    border-radius: 5px 0 0 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.wrapper form .button{
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    padding-left: 0px;
-    background: darkseagreen;
-    border: 1px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    height: 40px;
-}
-.wrapper form .button:hover{
-    background: mediumseagreen;
-}
-
-.wrapper form .pass{
-    margin: 10px 0 15px 0;
-}
-.wrapper form .pass a{
-    color: darkseagreen;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.wrapper form .pass a:hover{
-    text-decoration: underline;
-}
 

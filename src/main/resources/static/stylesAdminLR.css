@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+:root{
+    --green: #ddeac1;
+    --grey: #8e9189;
+    --black: #494449;
+    --brown: #857f74;
+    --light: #eeefeb;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Dialog;
+    font-family: 'Oswald', sans-serif;
 }
 
 body{

@@ -16,7 +16,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToOne(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private Customer customer;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.JOIN)
