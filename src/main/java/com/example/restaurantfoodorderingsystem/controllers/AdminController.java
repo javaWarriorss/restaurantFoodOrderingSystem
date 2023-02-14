@@ -28,7 +28,7 @@ public class AdminController {
         try {
             this.adminService.createAdmin(admin);
         }catch (Exception e){
-            model.addAttribute("message", "signup_failed");
+            model.addAttribute("message", "signup_failes");
             System.out.println(e);
             model.addAttribute("error", e.getMessage());
             model.addAttribute("admin", admin);
