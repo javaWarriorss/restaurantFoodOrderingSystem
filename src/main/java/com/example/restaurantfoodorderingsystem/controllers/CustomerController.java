@@ -63,7 +63,8 @@ private  final CustomerAddressService customerAddressService;
     public String handleCustomerLogin(Customer customer){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
-            return "redirect:/menuAfterLogin/" +loggedInCustomer.getId();
+          //  return "redirect:/menuAfterLogin/" +loggedInCustomer.getId();
+            return "redirect:menu/" +loggedInCustomer.getId();
 
         }catch (Exception e){
             return "redirect:/login?message=login_failed&error=" +e.getMessage();

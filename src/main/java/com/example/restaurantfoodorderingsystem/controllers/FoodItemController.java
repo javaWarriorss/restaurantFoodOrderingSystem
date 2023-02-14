@@ -18,20 +18,8 @@ public class FoodItemController {
 
     }
 
-    // Kristine method
-    @GetMapping("menuAfterLogin/{customerId}")
-    public String displayPageAfterLogin(
-            @PathVariable Integer customerId, Model model){
-        model.addAttribute("customerId",customerId);
-        return "customer/menuAfterLogin";
-    }
-    @GetMapping("menuAfterLogin/{customerId}/contactUs")
-    public String displayContactUs(@PathVariable Integer customerId, Model model){
-        model.addAttribute("customerId",customerId);
-        return "customer/contactUs";
-    }
 
-//____________________________________________________________
+//_______________________admin food_____________________________________
 
     @GetMapping("/adminAddMeal")
     public String showAddMealPage(){
@@ -187,120 +175,143 @@ public String showAllMeatMainDishes(Model model) {
         return "adminViewAllMeal";
     }
 
+//_____________________Menu customer_______________________________________________++++++
 
-    // Menu Page
-
-    @GetMapping("/menu") //
-    public String showMenuAllMeals(Model model) {
+    // _____________________Kristine method___________________________________
+    //this method opens page after login and shows all meals
+    @GetMapping("menu/{customerId}")
+    public String displayPageAfterLoginShowAllMeals(@PathVariable Integer customerId, Model model){
+        model.addAttribute("customerId",customerId);
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
         return "menu";
     }
-
-
-    @GetMapping("/menuMeatMainDishes")
-    public String showMenuAllMeatMainDishes(Model model) {
-        String foodItemType = "Meat main dishes";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        return "menu";
+    @GetMapping("menu/{customerId}/contactUs")
+    public String displayContactUs(@PathVariable Integer customerId, Model model){
+        model.addAttribute("customerId",customerId);
+        return "customer/contactUs";
     }
 
-    @GetMapping("/menuFishMainDishes")
-    public String showMenuAllFishMainDishes(Model model) {
+    //________________Menu_Page_Liga_________________________________________
+
+    @GetMapping("menu/{customerId}/menuMeatMainDishes")
+    public String showMenuAllMeatMainDishes(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemType = "Meat main dishes";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "menu"; // YOU NEED TO CHANGE ONLT THESE PATHS, PROBABLY STH LIKE  return "yourMapName/menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuFishMainDishes")
+    public String showMenuAllFishMainDishes(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Fish main dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuVegetableDishes")
-    public String showMenuAllVegetableDishes(Model model) {
+    @GetMapping("menu/{customerId}/menuVegetableDishes")
+    public String showMenuAllVegetableDishes(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Vegetable dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
 
-    @GetMapping("/menuSideDishes")
-    public String showMenuAllSideDishes(Model model) {
+    @GetMapping("menu/{customerId}/menuSideDishes")
+    public String showMenuAllSideDishes(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Side dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
 
-    @GetMapping("/menuSoups")
-    public String showMenuAllSoups(Model model) {
+    @GetMapping("menu/{customerId}/menuSoups")
+    public String showMenuAllSoups(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Soups";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuSalads")
-    public String showMenuAllSalads(Model model) {
+    @GetMapping("menu/{customerId}/menuSalads")
+    public String showMenuAllSalads(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Salads";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuPancakes")
-    public String showMenuAllPancakes(Model model) {
+    @GetMapping("menu/{customerId}/menuPancakes")
+    public String showMenuAllPancakes(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Burgers";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
 
-    @GetMapping("/menuBurgers")
-    public String showMenuAllBurgers(Model model) {
+    @GetMapping("menu/{customerId}/menuBurgers")
+    public String showMenuAllBurgers(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Burgers";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuSnacks")
-    public String showMenuAllSnacks(Model model) {
+    @GetMapping("menu/{customerId}/menuSnacks")
+    public String showMenuAllSnacks(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Snacks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuSauces")
-    public String showMenuAllSauces(Model model) {
+    @GetMapping("menu/{customerId}/menuSauces")
+    public String showMenuAllSauces(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Sauces";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuBread")
-    public String showMenuAllBread(Model model) {
+    @GetMapping("menu/{customerId}/menuBread")
+    public String showMenuAllBread(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Bread";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuDesserts")
-    public String showMenuAllDesserts(Model model) {
+    @GetMapping("menu/{customerId}/menuDesserts")
+    public String showMenuAllDesserts(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Desserts";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuBakery")
-    public String showMenuAllBakery(Model model) {
+    @GetMapping("menu/{customerId}/menuBakery")
+    public String showMenuAllBakery(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Bakery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
-    @GetMapping("/menuDrinks")
-    public String showMenuAllDrinks(Model model) {
+    @GetMapping("menu/{customerId}/menuDrinks")
+    public String showMenuAllDrinks(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Drinks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";
     }
 
 
-    @GetMapping("/menuCutlery")
-    public String showMenuAllCutlery(Model model) {
+    @GetMapping("menu/{customerId}/menuCutlery")
+    public String showMenuAllCutlery(@PathVariable Integer customerId,Model model) {
+        model.addAttribute("customerId",customerId);
         String foodItemType = "Cutlery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "menu";

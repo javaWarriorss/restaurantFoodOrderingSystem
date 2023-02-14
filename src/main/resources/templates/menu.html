@@ -11,29 +11,47 @@
 </head>
 
 <body>
-<header>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
 <h1>Menu</h1>
-</header>
+
 
 <section class="cart-section">
     <div class="flex-box">
         <div class="flex-links">
 <!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
-            <a href="/menuMeatMainDishes" class="menu-item">Meat main dishes</a>
-            <a href="/menuFishMainDishes" class="menu-item">Fish main dishes</a>
-            <a href="/menuVegetableDishes" class="menu-item">Vegetable dishes</a>
-            <a href="/menuSideDishes" class="menu-item">Side dishes</a>
-            <a href="/menuSoups" class="menu-item">Soups</a>
-            <a href="/menuSalads" class="menu-item">Salads</a>
-            <a href="/menuPancakes" class="menu-item">Pancakes</a>
-            <a href="/menuBurgers" class="menu-item">Burgers</a>
-            <a href="/menuSnacks" class="menu-item">Snacks</a>
-            <a href="/menuSauces" class="menu-item">Sauces</a>
-            <a href="/menuBread" class="menu-item">Bread</a>
-            <a href="/menuDesserts" class="menu-item">Desserts</a>
-            <a href="/menuBakery" class="menu-item">Bakery</a>
-            <a href="/menuDrinks" class="menu-item">Drinks</a>
-            <a href="/menuCutlery" class="menu-item">Cutlery</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuMeatMainDishes (id=${customerId})}">Meat main dishes</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuFishMainDishes (id=${customerId})}">Fish main dishes</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuVegetableDishes (id=${customerId})}">Vegetable dishes</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSideDishes (id=${customerId})}">Side dishes</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSoups (id=${customerId})}">Soups</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSalads (id=${customerId})}">Salads</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuPancakes (id=${customerId})}">Pancakes</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBurgers (id=${customerId})}">Burgers</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSnacks (id=${customerId})}">Snacks</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSauces (id=${customerId})}">Sauces</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBread (id=${customerId})}">Bread</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBakery (id=${customerId})}">Bakery</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
+
+
+<!--            <a href="/menu/{customerId}/menuMeatMainDishes" class="menu-item">Meat main dishes</a>-->
+<!--            <a href="/menuFishMainDishes" class="menu-item">Fish main dishes</a>-->
+<!--            <a href="/menuVegetableDishes" class="menu-item">Vegetable dishes</a>-->
+<!--            <a href="/menuSideDishes" class="menu-item">Side dishes</a>-->
+<!--            <a href="/menuSoups" class="menu-item">Soups</a>-->
+<!--            <a href="/menuSalads" class="menu-item">Salads</a>-->
+<!--            <a href="/menuPancakes" class="menu-item">Pancakes</a>-->
+<!--            <a href="/menuBurgers" class="menu-item">Burgers</a>-->
+<!--            <a href="/menuSnacks" class="menu-item">Snacks</a>-->
+<!--            <a href="/menuSauces" class="menu-item">Sauces</a>-->
+<!--            <a href="/menuBread" class="menu-item">Bread</a>-->
+<!--            <a href="/menuDesserts" class="menu-item">Desserts</a>-->
+<!--            <a href="/menuBakery" class="menu-item">Bakery</a>-->
+<!--            <a href="/menuDrinks" class="menu-item">Drinks</a>-->
+<!--            <a href="/menuCutlery" class="menu-item">Cutlery</a>-->
         </div>
 
 

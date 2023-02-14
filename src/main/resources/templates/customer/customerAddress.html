@@ -7,12 +7,14 @@
 <body>
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
+<!--<section>-->
+<!--    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">My Profile</a>-->
+<!--</section>-->
 <section>
-    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">My Profile</a>
+    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
 </section>
-
 <section >
-    <form  th:action="@{/menuAfterLogin/{id}/address (id=${customerId})}" method="post" >
+    <form  th:action="@{/menu/{id}/address (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
 

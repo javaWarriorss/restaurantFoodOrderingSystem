@@ -12,7 +12,7 @@
 <h1>My Profile</h1>
 
 <section>
-    <a href="#" th:href="@{/menuAfterLogin/{id}/address (id=${customerId})}"> Address</a>
+    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
 </section>
 
 <div class="profile-pic">
@@ -27,7 +27,7 @@
 
 
 <section >
-    <form  th:action="@{/menuAfterLogin/{id}/profile (id=${customerId})}" method="post" >
+    <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
         <div>
