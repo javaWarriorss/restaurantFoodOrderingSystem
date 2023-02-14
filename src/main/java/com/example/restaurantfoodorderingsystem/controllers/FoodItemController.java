@@ -120,7 +120,7 @@ public String showAllMeatMainDishes(Model model) {
 
     @GetMapping("/pancakes")
     public String showAllPancakes(Model model) {
-        String foodItemType = "Burgers";
+        String foodItemType = "Pancakes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
         return "adminViewAllMeal";
     }
