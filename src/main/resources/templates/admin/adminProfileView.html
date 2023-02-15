@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Profile</title>
+  <link rel="stylesheet" href="/static/cssStyles/adminProfileStyle.css"/>
+  <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
+<body>
+
+<header>
+</header>
+
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <h2><span class="logo">Restaurant</span></h2>
+  </div>
+
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a href="" class="active"><span class="fa-solid fa-caret-down"></span>
+        <span>Dashboard</span></a>
+      </li>
+      <li>
+        <a href="adminAddMeal"><span class="fa-solid fa-plus"></span>
+          <span>Add Food Item</span></a>
+      </li>
+      <!--            <li><a href="category.html">Category</a></li>-->
+      <li>
+        <a href="orderViewAdmin"><span class="fa-solid fa-bars"></span>
+          <span>Orders</span></a>
+      </li>
+      <li>
+        <a href=""><span class="fa-solid fa-key"></span>
+          <span>Change Password</span></a>
+      </li>
+      <li>
+        <a href=""><span class="fa-solid fa-right-from-bracket"></span>
+          <span>Logout</span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <div class="main-content">
+    <header>
+      <h2>
+        <label for="">
+          <span class="fa-solid fa-bars"></span>
+        </label>
+        Dashboard
+      </h2>
+
+      <div class="admin-wrapper">
+        <div>
+          <h4>
+            <span th:text="${admin.getFirstName()}"></span>
+            <span th:text="${admin.getLastName()}"></span>
+          </h4>
+          <small>Admin</small>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="cards">
+        <div class="card-single">
+
+          <div>
+            <h1>20</h1>
+            <span>Customers</span>
+          </div>
+          <div>
+            <span class="fa-solid fa-users"></span>
+          </div>
+        </div>
+
+        <div class="card-single">
+          <div>
+            <h1>35</h1>
+            <span>Orders</span>
+          </div>
+          <div>
+            <span class="fa-solid fa-cart-arrow-down"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-grid">
+        <div class="orders">
+          <div class="card">
+            <div class="card-header">
+              <h2>All Orders</h2>
+              <button>Sell all
+              <span class="fa-solid fa-arrow-right"></span>
+              </button>
+            </div>
+
+            <div class="card-body">
+              <table width="100%">
+<!--Here will be table All orders-->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+
+</body>
+</html>

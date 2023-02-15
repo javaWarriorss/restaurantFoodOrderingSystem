@@ -20,7 +20,7 @@ public class AdminController {
 
     @GetMapping("/adminRegister")
     public String createAdminRegistrationForm(){
-        return "adminRegister";
+        return "admin/adminRegister";
     }
 
     @PostMapping("/adminRegister")
@@ -28,11 +28,11 @@ public class AdminController {
         try {
             this.adminService.createAdmin(admin);
         }catch (Exception e){
-            model.addAttribute("message", "signup_failes");
+            model.addAttribute("message", "signup_failed");
             System.out.println(e);
             model.addAttribute("error", e.getMessage());
             model.addAttribute("admin", admin);
-            return "adminRegister";
+            return "admin/adminRegister";
         }
         return "redirect:adminLogin?message=signup_success";
     }
@@ -42,19 +42,19 @@ public class AdminController {
             Model model
     ){
         model.addAttribute("message", message);
-        return "adminLogin";
+        return "admin/adminLogin";
     }
 
     @PostMapping("/adminLogin")
     public String handleAdminLogin(Admin admin, HttpServletResponse response){
         try{
             Admin loggedInAdmin = adminService.verifyAdmin(admin);
-            Cookie cookie = new Cookie("adminId", loggedInAdmin.getAdminId().toString());
+            Cookie cookie = new Cookie("adminId", loggedInAdmin.getId().toString());
 
             response.addCookie(cookie);
             response.addCookie(new Cookie("adminIsLoggedIn", "true"));
 
-            return "redirect:adminProfileView/"+ loggedInAdmin.getAdminId();
+            return "redirect:adminProfileView/"+ loggedInAdmin.getId();
         }catch (Exception e){
 
             return "redirect:login?message=login_failed&error=" +e.getMessage();
@@ -62,8 +62,9 @@ public class AdminController {
     }
 
     @GetMapping("/adminProfileView/{adminId}")
-    public String displayAdminPage(@PathVariable Long adminId, Model model){
+    public String displayAdminPage(@PathVariable Long adminId, Model model, Admin admin){
         model.addAttribute("adminId", adminId);
-        return "adminProfileView";
+        model.addAttribute(admin);
+        return "admin/adminProfileView";
     }
 }

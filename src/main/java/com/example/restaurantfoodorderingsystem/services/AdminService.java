@@ -19,13 +19,13 @@ public class AdminService {
     }
 
     public Admin verifyAdmin(Admin adminLoginRequest) throws Exception{
-        Admin foundAdmin = this.adminRepository.findByIdAndPassword(adminLoginRequest.getAdminId(), adminLoginRequest.getPassword());
+        Admin foundAdmin = this.adminRepository.findByIdAndPassword(adminLoginRequest.getId(), adminLoginRequest.getPassword());
         if(foundAdmin == null) {throw new Exception("Username or password incorrect");}
 
         return foundAdmin;
     }
 
-    public Admin findAdminById(Long adminId) throws Exception{
-        return this.adminRepository.findAdminById(adminId);
+    public Admin findAdminById(Long id) throws Exception{
+        return this.adminRepository.findById(id).orElseThrow();
     }
 }

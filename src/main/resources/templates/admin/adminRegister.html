@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Registration</title>
+  <link rel="stylesheet" href="/cssStyles/stylesAdminLR.css">
+  <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
@@ -33,11 +35,12 @@
     <div>
 
     </div>
-    <p>
-      <span th:if="${message == 'signup_failed'}">
-        <label th:if="${error}" th:text="${error}"></label>
-      </span>
+
+    <p th:if="${message}">
+      <span th:if="${message == 'signup_failed'}"> </span>
+      <label th:if="${error}" th:text="${error}"> </label>
     </p>
+
   </form>
 </main>
 

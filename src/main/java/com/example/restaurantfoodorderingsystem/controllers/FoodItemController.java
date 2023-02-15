@@ -160,10 +160,10 @@ public String showAllMeatMainDishes(Model model) {
         return "admin/adminViewAllMeal";
     }
 
-    @GetMapping("/drinks")
+    @GetMapping("/drinks") //  by category
     public String showAllDrinks(Model model) {
-        String foodItemType = "Drinks";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        String foodItemCategory = "Drinks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
         return "admin/adminViewAllMeal";
     }
 
@@ -303,8 +303,8 @@ public String showAllMeatMainDishes(Model model) {
     @GetMapping("menu/{customerId}/menuDrinks")
     public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
-        String foodItemType = "Drinks";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        String foodItemCategory = "Drinks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
         return "menu";
     }
 

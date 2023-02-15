@@ -56,4 +56,8 @@ public class FoodItemService {
         return this.foodItemRepository.findFoodItemByType(foodItemType);
     }
 
+    public ArrayList<FoodItem> getAllFoodItemsByCategory(String foodItemCategory){
+        return this.foodItemRepository.findFoodItemByCategory(foodItemCategory);
+    }
+
 }
