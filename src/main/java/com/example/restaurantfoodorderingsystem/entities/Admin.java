@@ -10,7 +10,7 @@ import lombok.*;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long adminId;
+    private Long id;
     private String firstName;
     private String lastName;
     @Column(unique = true)
