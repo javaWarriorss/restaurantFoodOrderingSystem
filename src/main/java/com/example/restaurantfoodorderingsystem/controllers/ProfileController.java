@@ -22,7 +22,7 @@ public class ProfileController {
 
     // updating customer profile data
     @GetMapping("menu/{customerId}/profile")
-    public String updateCustomerShow(Model model, @PathVariable Integer customerId) throws Exception {
+    public String updateCustomerShow(Model model, @PathVariable  Long customerId) throws Exception {
        // model.addAttribute("customerId", customerId);
         model.addAttribute("customer",customerService.findAllCustomersById(customerId));
         return "customer/customerProfile";
@@ -30,7 +30,7 @@ public class ProfileController {
 
 
     @PostMapping("menu/{customerId}/profile")
-    public String updateCustomer(@PathVariable(name="customerId") Integer customerId,Customer updatedCustomer) throws Exception {
+    public String updateCustomer(@PathVariable(name="customerId")  Long customerId,Customer updatedCustomer) throws Exception {
         this.customerService.updateCustomerById(customerId, updatedCustomer);
         this.customerService.createCustomer(updatedCustomer);
         return "customer/customerProfile";
@@ -38,14 +38,14 @@ public class ProfileController {
 
     // updating customer address
     @GetMapping("menu/{customerId}/address")
-    public String updateCustomerAddressShow(Model model, @PathVariable Integer customerId) throws Exception {
+    public String updateCustomerAddressShow(Model model, @PathVariable  Long customerId) throws Exception {
         model.addAttribute("customerAddress",customerAddressService.findAllAddressById(customerId));
         return "customer/customerAddress";
     }
 
 
     @PostMapping("menu/{customerId}/address")
-    public String updateCustomerAddress(@PathVariable(name="customerId") Integer customerId, CustomerAddress updatedAddress) throws Exception {
+    public String updateCustomerAddress(@PathVariable(name="customerId")  Long customerId, CustomerAddress updatedAddress) throws Exception {
       // this.customerService.findCustomerById(customerId);
         this.customerAddressService.updateCustomerAddressById(customerId, updatedAddress);
         this.customerAddressService.createCustomerAddress(updatedAddress);

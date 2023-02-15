@@ -180,13 +180,13 @@ public String showAllMeatMainDishes(Model model) {
     // _____________________Kristine method___________________________________
     //this method opens page after login and shows all meals
     @GetMapping("menu/{customerId}")
-    public String displayPageAfterLoginShowAllMeals(@PathVariable Integer customerId, Model model){
+    public String displayPageAfterLoginShowAllMeals(@PathVariable  Long customerId, Model model){
         model.addAttribute("customerId",customerId);
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
         return "menu";
     }
     @GetMapping("menu/{customerId}/contactUs")
-    public String displayContactUs(@PathVariable Integer customerId, Model model){
+    public String displayContactUs(@PathVariable  Long customerId, Model model){
         model.addAttribute("customerId",customerId);
         return "customer/contactUs";
     }
@@ -194,7 +194,7 @@ public String showAllMeatMainDishes(Model model) {
     //________________Menu_Page_Liga_________________________________________
 
     @GetMapping("menu/{customerId}/menuMeatMainDishes")
-    public String showMenuAllMeatMainDishes(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllMeatMainDishes(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Meat main dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -202,7 +202,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuFishMainDishes")
-    public String showMenuAllFishMainDishes(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllFishMainDishes(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Fish main dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -210,7 +210,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuVegetableDishes")
-    public String showMenuAllVegetableDishes(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllVegetableDishes(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Vegetable dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -219,7 +219,7 @@ public String showAllMeatMainDishes(Model model) {
 
 
     @GetMapping("menu/{customerId}/menuSideDishes")
-    public String showMenuAllSideDishes(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllSideDishes(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Side dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -228,7 +228,7 @@ public String showAllMeatMainDishes(Model model) {
 
 
     @GetMapping("menu/{customerId}/menuSoups")
-    public String showMenuAllSoups(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllSoups(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Soups";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -236,7 +236,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuSalads")
-    public String showMenuAllSalads(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllSalads(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Salads";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -244,7 +244,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuPancakes")
-    public String showMenuAllPancakes(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllPancakes(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Pancakes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -253,7 +253,7 @@ public String showAllMeatMainDishes(Model model) {
 
 
     @GetMapping("menu/{customerId}/menuBurgers")
-    public String showMenuAllBurgers(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllBurgers(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Burgers";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -261,7 +261,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuSnacks")
-    public String showMenuAllSnacks(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllSnacks(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Snacks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -269,7 +269,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuSauces")
-    public String showMenuAllSauces(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllSauces(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Sauces";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -277,7 +277,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuBread")
-    public String showMenuAllBread(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllBread(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Bread";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -285,7 +285,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuDesserts")
-    public String showMenuAllDesserts(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllDesserts(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Desserts";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -293,7 +293,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuBakery")
-    public String showMenuAllBakery(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllBakery(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Bakery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -301,7 +301,7 @@ public String showAllMeatMainDishes(Model model) {
     }
 
     @GetMapping("menu/{customerId}/menuDrinks")
-    public String showMenuAllDrinks(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Drinks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
@@ -310,7 +310,7 @@ public String showAllMeatMainDishes(Model model) {
 
 
     @GetMapping("menu/{customerId}/menuCutlery")
-    public String showMenuAllCutlery(@PathVariable Integer customerId,Model model) {
+    public String showMenuAllCutlery(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Cutlery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));

@@ -1,10 +1,7 @@
 package com.example.restaurantfoodorderingsystem.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
@@ -21,4 +18,13 @@ public class CartItem {
     private FoodItem foodItem;
     private Integer quantity;
 
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", customer=" + customer +
+                ", foodItem=" + foodItem +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

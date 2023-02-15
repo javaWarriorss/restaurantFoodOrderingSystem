@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Repository
-public interface CustomerRepository extends CrudRepository<Customer,Integer> {
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
     Customer findCustomerByEmailAndPassword(String email, String password);
     Customer findCustomerByEmail(String email);
     @Override
     ArrayList<Customer> findAll();
-    Customer findAllById (Integer CustomerId);
+    Customer findAllById (Long CustomerId);
 }
