@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Profile</title>
-  <link rel="stylesheet" th:href="/cssStyles/adminProfileStyle.css"/>
+  <link rel="stylesheet" href="/static/cssStyles/adminProfileStyle.css"/>
   <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
 <body>
 
@@ -22,7 +22,7 @@
         <span>Dashboard</span></a>
       </li>
       <li>
-        <a href="adminAddMeal.html"><span class="fa-solid fa-plus"></span>
+        <a href="adminAddMeal"><span class="fa-solid fa-plus"></span>
           <span>Add Food Item</span></a>
       </li>
       <!--            <li><a href="category.html">Category</a></li>-->
@@ -52,7 +52,6 @@
       </h2>
 
       <div class="admin-wrapper">
-        <img src="/static/pic.jpg" width="60px" height="60px" alt="">
         <div>
           <h4>
             <span th:text="${admin.getFirstName()}"></span>

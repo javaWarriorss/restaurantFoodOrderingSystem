@@ -62,8 +62,9 @@ public class AdminController {
     }
 
     @GetMapping("/adminProfileView/{adminId}")
-    public String displayAdminPage(@PathVariable Long adminId, Model model){
+    public String displayAdminPage(@PathVariable Long adminId, Model model, Admin admin){
         model.addAttribute("adminId", adminId);
+        model.addAttribute(admin);
         return "admin/adminProfileView";
     }
 }

@@ -35,11 +35,12 @@
     <div>
 
     </div>
-    <p>
-      <span th:if="${message == 'signup_failed'}">
-        <label th:if="${error}" th:text="${error}"></label>
-      </span>
+
+    <p th:if="${message}">
+      <span th:if="${message == 'signup_failed'}"> </span>
+      <label th:if="${error}" th:text="${error}"> </label>
     </p>
+
   </form>
 </main>
 
