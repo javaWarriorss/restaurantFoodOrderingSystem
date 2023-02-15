@@ -11,7 +11,7 @@
   <section>
     <a href="#" th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
     <a href="#" th:href="@{/menu/{id}/contactUs (id=${customerId})}">CONTACT US</a>
-    <a href="/cart"> &#128722;</a>
+    <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}"> &#128722;</a>
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">Profile</a>
     <a href="/index.html">Logout</a>
     <hr>

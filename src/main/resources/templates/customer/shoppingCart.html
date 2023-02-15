@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/cssStyles/cartStyle.css">
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
+
+
+    <div class="cartContainer">
+        <div ><h3> Shopping Cart:</h3></div>
+        <div class="Cart-Items">
+            <th:block th:each="item, status : ${cartItems}">
+            <div th:with="foodItem=${item.foodItem}">
+                <div>
+<!--                    coll for number count-->
+                    <div>[[${status.count}]]</div>
+                    <div><a th:href="@{/}" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                    </a></div>
+                </div>
+<!--                col for immage-->
+                <div class=”image-box”>
+                <img th:src="@{${foodItem.getFoodPhotoUrl() }}" class="picHeight"/>
+            </div>
+                <div>
+                    <div>
+<!--                        <a th:href="@{${foodItem.URI}}" th:title="${foodItem.foodName}" target="_blank">-->
+                            <b>[[${foodItem.foodName}]]</b>
+
+                    </div>
+<!--                    <div><input type="number" th:value="${item.quantity}"></div>-->
+<!--                    <div th:replace="customer/quantityControl :: quantityControl(${item.quantity}, ${item.id})">Quantity</div>-->
+                    <input name="quantity" type="number" class="qty" th:value="${item.quantity}" th:id="${foodItem.id}" min="0"/>
+                    <div>
+                        <span>x</span>
+                        <span> [[${foodItem.price}]] &#x20AC</span>
+                    </div>
+                    <div><span>= </span><span>[[${foodItem.price}*${item.quantity}]] &#x20AC</span></div>
+
+                </div>
+            </div>
+                <hr>
+            </th:block>
+        <div th:unless="${#lists.isEmpty(cartItems)}">
+            <div><span>Total Price:</span></div>
+            <div ><span>[Total Amount]</span></div>
+            <div><button class=”button” >Check Out</button></div>
+            <div>&nbsp;</div>    <!--adds space-->
+        </div>
+        </div>
+    </div>
+<div th:if="${#lists.isEmpty(cartItems)}">
+    <h3>You have not chosen any products yet.</h3>
+
+</div>
+
+</body>
+</html>

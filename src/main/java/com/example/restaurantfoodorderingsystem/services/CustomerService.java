@@ -39,7 +39,7 @@ public class CustomerService {
         }
     }
 
-    public Customer updateCustomerById(Integer id, Customer updatedCustomer) throws Exception {
+    public Customer updateCustomerById( Long id, Customer updatedCustomer) throws Exception {
         Customer customer = customerRepository.findById(id).orElseThrow();
 
        // how to show on email that its taken ?
@@ -67,14 +67,14 @@ public class CustomerService {
     }
 
 
-    public Customer findCustomerById(Integer customerId) throws Exception{
+    public Customer findCustomerById( Long customerId) throws Exception{
         return  this.customerRepository.findById(customerId).orElseThrow();
     }
 
     public Customer findCustomerByEmail(String customerEmail) throws Exception{
         return  this.customerRepository.findCustomerByEmail(customerEmail);
     }
-        public Customer findAllCustomersById (Integer customerId){
+        public Customer findAllCustomersById (Long customerId){
                 return  this.customerRepository.findAllById(customerId);
         }
 }

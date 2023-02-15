@@ -14,7 +14,7 @@ public class CustomerAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     private String street;
     private String city;
     private String country;
