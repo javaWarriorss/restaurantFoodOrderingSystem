@@ -28,8 +28,8 @@
     <div>
      <span>
           <img th:src="${foodItem.getFoodPhotoUrl()}"
-               width="120px"
-               th:style="'border: 2px solid black'"/>
+               width="120px"/>
+<!--          th:style="'border: 2px solid black'"-->
         </span>
     </div>
 
@@ -44,19 +44,25 @@
             </div>
 
             <div>
-                <label>Choose category:</label>
+<!--                <label>Select category:</label>-->
                 <select name="category" th:field="*{foodItem.category}">
+                    <option value="">Select category</option>
                     <option value="Breakfast" th:value="'Breakfast'">Breakfast</option>
                     <option value="Business Lunch" th:value="'Business Lunch'">Business Lunch</option>
                     <option value="Dinner" th:value="'Dinner'">Dinner</option>
                     <option value="Special offer" th:value="'Special Offer'">Special Offer</option>
+                    <option value="Desserts" th:value="'Desserts'">Desserts</option>
+                    <option value="Bakery" th:value="'Bakery'">Bakery</option>
+                    <option value="Drinks" th:value="'Drinks'">Drinks</option>
+                    <option value="Cutlery" th:value="'Cutlery'">Cutlery</option>
                 </select>
             </div>
 
 
             <div>
-                <label>Choose type:</label>
+<!--                <label>Select type:</label>-->
                 <select name="type"th:field="*{foodItem.type}" >
+                    <option value="">Select type</option>
                     <option value="Meat main dishes" th:value="'Meat main dishes'">Meat main dishes</option>
                     <option value="Fish main dishes" th:value="'Fish main dishes'">Fish main dishes</option>
                     <option value="Vegetable dishes" th:value="'Vegetable dishes'">Vegetable dishes</option>
@@ -70,7 +76,10 @@
                     <option value="Bread" th:value="'Bread'">Bread</option>
                     <option value="Desserts" th:value="'Desserts'" >Desserts</option>
                     <option value="Bakery" th:value="'Bakery'">Bakery</option>
-                    <option value="Drinks" th:value="'Drinks'">Drinks</option>
+                    <option value="Water" th:value="'Water'">Water</option>
+                    <option value="Coffee" th:value="'Coffee'">Coffee</option>
+                    <option value="Tea" th:value="'Tea'">Tea</option>
+                    <option value="Juice" th:value="'Juice'">Juice</option>
                     <option value="Cutlery" th:value="'Cutlery'">Cutlery</option>
                 </select>
             </div>
@@ -80,7 +89,7 @@
             </div>
 
             <div class="input-box-4">
-                <input class="block" name="price" type="number" placeholder="Price" th:value="${foodItem.price}">
+                <input class="block" name="price" step="0.01" type="number" placeholder="Price" th:value="${foodItem.price}">
             </div>
 
             <div class="input-box-5">

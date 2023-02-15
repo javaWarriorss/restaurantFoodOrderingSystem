@@ -57,7 +57,7 @@
 
 <!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
 <div class="food-item-cart-container">
-        <div th:each="foodItem:${foodItemList}" class="food-item-cart">
+        <div th:each="foodItem:${foodItemList}" th:if="${foodItem.inStock == true}" class="food-item-cart">
             <div class="dish-img">
                 <img th:src="${foodItem.getFoodPhotoUrl()}" width="100px" alt="food image"/>
             </div>
