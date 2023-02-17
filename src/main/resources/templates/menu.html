@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Meal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
-    <link href="/cssStyles/styleFoodItemTable.css" rel="stylesheet" >
+    <link rel="stylesheet" href="/cssStyles/stylesMenu.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
-
-<h1>Menu</h1>
+<header>
+    <!-- here we should use fragment-->
+    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+    <nav class="nav-bar">
+        <a href="/index" class="active">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/menuAllMeals">Menu</a>
+        <a href="/contactUs">Contact Us</a>
+    </nav>
+    <div class="icons">
+        <a href="/login" class="fa-solid fa-user"></a>
+        <a href="#" class="fa-regular fa-heart"></a>
+        <a href="#" class="fa-solid fa-shopping-cart"></a>
+    </div>
+</header>
 
 <!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
 <section class="cart-section">
+
     <div class="flex-box">
+        <div class="flex-links-category">
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBreakfast (id=${customerId})}">Breakfast</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBusinessLunch (id=${customerId})}">Business Lunch</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSpecialOffer (id=${customerId})}" >Special Offer</a>
+            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>
+
+        </div>
         <div class="flex-links">
             <!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuMeatMainDishes (id=${customerId})}">Meat main dishes</a>
@@ -30,9 +49,9 @@
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSnacks (id=${customerId})}">Snacks</a>
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuSauces (id=${customerId})}">Sauces</a>
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBread (id=${customerId})}">Bread</a>
-            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>
+<!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>-->
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuBakery (id=${customerId})}">Bakery</a>
-            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>
+<!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>-->
             <a class="menu-item" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
         </div>
 
@@ -67,11 +86,17 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
-<!--</form>-->
 
+<section class="cart-section">
 
+<p>TTTTTTTTTTTTTTTTTTTTTTTTTT</p>
+
+</section>
+
+<footer>
+    <P>FOOTER</P>
+</footer>
 
 
 </body>

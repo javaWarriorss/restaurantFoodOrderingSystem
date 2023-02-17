@@ -56,30 +56,3 @@ body{
     margin-bottom: 1rem;
 }
 
-/* Menu page */
-
-.cart-section{
-    height: 100vh;
-}
-
-.food-item-cart-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    margin-left: 6rem;
-}
-
-.food-item-cart {
-    text-align: center;
-    padding: 2rem;
-    border: 0.1rem solid black;
-}
-
-.dish-img img {
-    display: block;
-    margin: 0 auto;
-}
-
-.dish-title {
-    margin-top: 20px;
-}

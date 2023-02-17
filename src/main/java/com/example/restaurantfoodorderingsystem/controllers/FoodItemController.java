@@ -284,27 +284,19 @@ public String showAllMeatMainDishes(Model model) {
         return "menu";
     }
 
-    @GetMapping("menu/{customerId}/menuDesserts")
-    public String showMenuAllDesserts(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemType = "Desserts";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        return "menu";
-    }
+//    @GetMapping("menu/{customerId}/menuDesserts")
+//    public String showMenuAllDesserts(@PathVariable  Long customerId,Model model) {
+//        model.addAttribute("customerId",customerId);
+//        String foodItemType = "Desserts";
+//        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+//        return "menu";
+//    }
 
     @GetMapping("menu/{customerId}/menuBakery")
     public String showMenuAllBakery(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Bakery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        return "menu";
-    }
-
-    @GetMapping("menu/{customerId}/menuDrinks")
-    public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Drinks";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
         return "menu";
     }
 
@@ -317,6 +309,48 @@ public String showAllMeatMainDishes(Model model) {
         return "menu";
     }
 
+
+    // by category
+
+    @GetMapping("menu/{customerId}/menuDrinks")
+    public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Drinks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
+        return "menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuBreakfast")
+    public String showMenuBreakfast(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Breakfast";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
+        return "menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuBusinessLunch")
+    public String showMenuBusinessLunch(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Business Lunch";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
+        return "menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuDesserts")
+    public String showMenuDesserts(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Desserts";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
+        return "menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuSpecialOffer")
+    public String showMenuSpecialOffer(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Special Offer";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
+        return "menu";
+    }
 
 
 }
