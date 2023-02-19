@@ -11,11 +11,23 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    outline: none;
+    /*border: none;*/
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 100%;
+    /*overflow: hidden;*/
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: var(--light);
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .container{
     max-width: 440px;
@@ -42,10 +54,12 @@ body{
 
 .wrapper form{
     padding: 30px 20px 25px 20px;
+    border: 1px solid var(--green);
+
 }
 
 .wrapper form .row{
-    height: 45px;
+    height: 35px;
     background: white;
     margin-bottom: 15px;
     position: relative;
@@ -63,7 +77,7 @@ body{
 
 .wrapper form .row i{
     position: absolute;
-    width: 47px;
+    width: 37px;
     height: 100%;
     color: white;
     font-size: 18px;
@@ -72,13 +86,14 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .wrapper form .button{
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding-left: 0px;
+    padding-left: 0;
     background: var(--green);
     border: 1px solid;
     border-radius: 5px;
@@ -91,16 +106,10 @@ body{
     background: var(--dark);
 }
 
-.wrapper form .pass{
+.wrapper form div a {
     margin: 10px 0 15px 0;
-}
-.wrapper form .pass a{
-    color: var(--dark);
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.wrapper form .pass a:hover{
+    font-size: 18px;
+    text-align: center;
     text-decoration: underline;
 }
 
