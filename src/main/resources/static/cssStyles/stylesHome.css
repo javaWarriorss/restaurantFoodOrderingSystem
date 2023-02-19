@@ -1,4 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@media (max-width: 991px) {
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .icons #header{
+        display: inline-block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top:100%;
+        left:0;
+        right: 0;
+        background: var(--light);
+        border-top: .1rem solid rgba(0,0,0,.2);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a{
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: var(--light);
+    }
+
+}
 :root{
     --green: #94d82d;
     --light-green: #eaf7d5;
@@ -13,19 +46,21 @@
     font-family: 'Oswald', sans-serif;
     text-decoration: none;
     outline: none;
-    border: none;
+    /*border: none;*/
     text-transform: capitalize;
     transition: all .2s linear;
 }
 
 html{
     font-size: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
     scroll-padding-top: 6rem;
     scroll-behavior: smooth;
 }
-
 header{
+    background-color: var(--light);
+}
+.header {
     position: fixed;
     top:0;
     left:0;
@@ -37,29 +72,29 @@ header{
     z-index: 1000;
     box-shadow: var(--box-shadow);
 }
-header .logo{
+.header .logo{
     color: var(--dark);
     font-size: 2.5rem;
     font-weight: bolder;
 }
-header .logo i{
+.header .logo i{
     color: var(--green);
 }
 
-header .nav-bar a{
+.header .nav-bar a{
     font-size: 1.7rem;
     border-radius: 1rem;
     padding: .5rem 1.5rem;
     color: var(--dark);
 }
-header .nav-bar a.active,
-header .nav-bar a:hover{
+.header .nav-bar a.active,
+.header .nav-bar a:hover{
     color: var(--light);
     background-color: var(--green);
 }
 
-header .icons i,
-header .icons a{
+.header .icons i,
+.header .icons a{
     cursor: pointer;
     margin-left: .5rem;
     height: 4.5rem;
@@ -70,32 +105,30 @@ header .icons a{
     color: var(--dark);
     border-radius: 50%;
 }
-header .icons i:hover,
-header .icons a:hover{
+.header .icons i:hover,
+.header .icons a:hover{
     color: var(--light);
     background: var(--green);
 }
 
 body{
     background-color: var(--light);
-    overflow: hidden;
 }
 
-.wrapper{
+header .icons #nav-bar{
+    display: none;
+}
+
+.wrapper-main{
     padding-top: 160px;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
     position: fixed;
     display: grid;
     grid-template-columns: 1.5fr 3fr;
     grid-gap: 1rem;
 }
 
-.our-history{
-    background-color: var(--light-green);
-}
-
-.main-pic{
-    background-color: var(--light);
-}
 
 
 

@@ -68,7 +68,7 @@
 header{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 0 2rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: fixed;
     left: 345px;
@@ -78,7 +78,7 @@ header{
 }
 
 header h2{
-    color: var(--black);
+    color: var(--dark);
 }
 
 header label span{
@@ -99,7 +99,7 @@ header label span{
 }
 .admin-wrapper small{
     display: inline-block;
-    color: var(--black);
+    color: var(--dark);
 }
 
 main{

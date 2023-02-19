@@ -22,13 +22,13 @@
         <span>Dashboard</span></a>
       </li>
       <li>
-        <a href="admin/adminAddMeal"><span class="fa-solid fa-plus"></span>
+        <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
           <span>Add Food Item</span></a>
       </li>
       <!--            <li><a href="category.html">Category</a></li>-->
       <li>
-        <a href="orderViewAdmin"><span class="fa-solid fa-bars"></span>
-          <span>Orders</span></a>
+        <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
+          <span>View all meals</span></a>
       </li>
       <li>
         <a href=""><span class="fa-solid fa-key"></span>
@@ -53,14 +53,8 @@
 
       <div class="admin-wrapper">
         <div>
-          <h4>
-            <p>
-              <span th:text="${admin.getFirstName()}"></span>
-              <span th:text="${admin.getLastName()}"></span>
-            </p>
-
-          </h4>
-          <small>Admin</small>
+          <small><span th:value="${admin.getFirstName()}"></span>
+            Admin</small>
         </div>
       </div>
     </header>
