@@ -15,8 +15,8 @@
 <header>
     <div class="nav-box">
 <!--        problem is here ====instead of id reads all info of admin-->
-        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}">View all meals</a>
-        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id} (id=${adminId})}">Back to admin profile</a>
+        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${id.getId()})}">View all meals</a>
+        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id} (id=${id.getId()})}">Back to admin profile</a>
     </div>
 
 
