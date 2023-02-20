@@ -76,7 +76,7 @@ public class AdminController {
 //    WORKS!
     @GetMapping("/adminProfileView/{adminId}/adminAddMeal")
     public String displayAdminAddMeal(@PathVariable Long adminId, Model model){
-        model.addAttribute("adminId", adminService.findAdminById(adminId));
+        model.addAttribute("id", adminService.findAdminById(adminId));
         return "admin/adminAddMeal";
     }
 

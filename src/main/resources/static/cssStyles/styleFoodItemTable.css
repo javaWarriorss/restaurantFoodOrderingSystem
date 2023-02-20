@@ -16,7 +16,7 @@
     text-decoration: none;
     outline: none;
     /*border: none;*/
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     transition: all .2s linear;
 }
 
@@ -28,7 +28,12 @@ html{
 }
 /* LIGA */
 /*FoodItem table*/
-
+.nav-box .nav-link-view-all{
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    padding: .5rem 1.5rem;
+    color: var(--dark);
+}
 body{
     padding-top: 160px;
     font-size: 1.2rem;
