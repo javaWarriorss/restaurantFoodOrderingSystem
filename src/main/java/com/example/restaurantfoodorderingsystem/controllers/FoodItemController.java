@@ -21,52 +21,50 @@ public class FoodItemController {
 
 //_______________________admin food_____________________________________
 
-//    @GetMapping("/adminAddMeal")
-//    public String showAddMealPage(){
-//        return "admin/adminAddMeal";
-//    }
-//
-//
-//    @PostMapping("/adminAddMeal")
-//    public String addNewFoodItem(FoodItem foodItem){
-//        this.foodItemService.createFoodItem(foodItem);
-//
-//        return "redirect:/adminAddMeal";
-//    }
+    @GetMapping("/adminAddMeal")
+    public String showAddMealPage(){
+        return "admin/adminAddMeal";
+    }
+
+
+    @PostMapping("/adminAddMeal")
+    public String addNewFoodItem(FoodItem foodItem){
+        this.foodItemService.createFoodItem(foodItem);
+
+        return "redirect:/adminAddMeal";
+    }
 
 
 
-//    @GetMapping("/adminViewAllMeal") //
-//    public String showAllMeal(Model model) {
-//        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
-//        return "admin/adminViewAllMeal";
-//    }
-//
-//
-//    @GetMapping("/adminViewAllMeal/delete/{foodItemId}")
-//    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId) {
-//        this.foodItemService.deleteItemById(foodItemId);
-//        return "redirect:/adminViewAllMeal?message=product_deleted";
-//    }
-//
-//    @GetMapping("/edit{foodItemId}")
-//    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model) {
-//        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
-//        return "admin/adminUpdateMeal";
-//    }
-//
-//
-//    @PostMapping("/updateMeal/{foodItemId}")
-//    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem) {
-//        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
-//        this.foodItemService.createFoodItem(updatedFoodItem);
-//        return "redirect:/adminViewAllMeal";
-//    }
+    @GetMapping("/adminViewAllMeal") //
+    public String showAllMeal(Model model) {
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
+        return "admin/adminViewAllMeal";
+    }
+
+
+    @GetMapping("/adminViewAllMeal/delete/{foodItemId}")
+    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId) {
+        this.foodItemService.deleteItemById(foodItemId);
+        return "redirect:/adminViewAllMeal?message=product_deleted";
+    }
+
+    @GetMapping("/edit{foodItemId}")
+    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model) {
+        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
+        return "admin/adminUpdateMeal";
+    }
+
+
+    @PostMapping("/updateMeal/{foodItemId}")
+    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem) {
+        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
+        this.foodItemService.createFoodItem(updatedFoodItem);
+        return "redirect:/adminViewAllMeal";
+    }
 
 
 // Sort FoodItems by types
-//    Marija: changed @GetMapping("/adminProfileView/{adminId}/meatMainDishes")
-
 @GetMapping("/meatMainDishes")
 public String showAllMeatMainDishes(Model model) {
     String foodItemType = "Meat main dishes";
@@ -286,19 +284,27 @@ public String showAllMeatMainDishes(Model model) {
         return "menu";
     }
 
-//    @GetMapping("menu/{customerId}/menuDesserts")
-//    public String showMenuAllDesserts(@PathVariable  Long customerId,Model model) {
-//        model.addAttribute("customerId",customerId);
-//        String foodItemType = "Desserts";
-//        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-//        return "menu";
-//    }
+    @GetMapping("menu/{customerId}/menuDesserts")
+    public String showMenuAllDesserts(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemType = "Desserts";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "menu";
+    }
 
     @GetMapping("menu/{customerId}/menuBakery")
     public String showMenuAllBakery(@PathVariable  Long customerId,Model model) {
         model.addAttribute("customerId",customerId);
         String foodItemType = "Bakery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        return "menu";
+    }
+
+    @GetMapping("menu/{customerId}/menuDrinks")
+    public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
+        model.addAttribute("customerId",customerId);
+        String foodItemCategory = "Drinks";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
         return "menu";
     }
 
@@ -311,48 +317,6 @@ public String showAllMeatMainDishes(Model model) {
         return "menu";
     }
 
-
-    // by category
-
-    @GetMapping("menu/{customerId}/menuDrinks")
-    public String showMenuAllDrinks(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Drinks";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        return "menu";
-    }
-
-    @GetMapping("menu/{customerId}/menuBreakfast")
-    public String showMenuBreakfast(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Breakfast";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        return "menu";
-    }
-
-    @GetMapping("menu/{customerId}/menuBusinessLunch")
-    public String showMenuBusinessLunch(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Business Lunch";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        return "menu";
-    }
-
-    @GetMapping("menu/{customerId}/menuDesserts")
-    public String showMenuDesserts(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Desserts";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        return "menu";
-    }
-
-    @GetMapping("menu/{customerId}/menuSpecialOffer")
-    public String showMenuSpecialOffer(@PathVariable  Long customerId,Model model) {
-        model.addAttribute("customerId",customerId);
-        String foodItemCategory = "Special Offer";
-        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        return "menu";
-    }
 
 
 }

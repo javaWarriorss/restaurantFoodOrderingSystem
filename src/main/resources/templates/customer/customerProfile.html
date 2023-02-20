@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <title>My Profile</title>
     <link rel="stylesheet" href="/cssStyles/profilePic.css">
-    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
-    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
-
 </head>
 
 
 <body>
-    <header th:insert="~{fragments/header.html :: header-after-login}">
-</header>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 <h1>My Profile</h1>
 
 <section>
@@ -30,7 +26,7 @@
 </div>
 
 
-<section>
+<section >
     <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 

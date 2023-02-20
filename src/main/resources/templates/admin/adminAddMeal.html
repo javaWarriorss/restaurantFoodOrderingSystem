@@ -14,9 +14,7 @@
 <body>
 <header>
     <div class="nav-box">
-<!--        problem is here ====instead of id reads all info of admin-->
-        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${id.getId()})}">View all meals</a>
-        <a class="nav-link-view-all" th:href="@{/adminProfileView/{id} (id=${id.getId()})}">Back to admin profile</a>
+        <a class="nav-link-view-all" href="/adminViewAllMeal">View all meals</a>
     </div>
 
 
@@ -27,8 +25,7 @@
 <section class="add-meal">
     <div class="form-container">
         <!--        <form action="/adminAddMeal" method="post" enctype="multipart/form-data">-->
-
-        <form th:action="${'/adminProfileView/'+ adminId +'/adminAddMeal'}" method="post">
+        <form action="/adminAddMeal" method="post">
             <div class="input-box-1">
                 <input class="block" name="foodName" type="text" placeholder="Meal name" required>
             </div>
@@ -101,7 +98,6 @@
             </div>
 
         </form>
-
 
     </div>
 

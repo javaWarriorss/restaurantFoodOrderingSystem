@@ -13,7 +13,7 @@
 <body>
 <header>
     <div class="nav-box">
-        <a class="nav-link-add-meal" th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}">Add meal</a>
+        <a class="nav-link-add-meal" href="/adminAddMeal">Add meal</a>
     </div>
 
 </header>
@@ -21,7 +21,7 @@
 <section class="table-section">
 <div class="flex-box">
 <div class="flex-links">
-    <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}">View all meals</a>
+    <a class="nav-link-view-all" href="/adminViewAllMeal">View all meals</a>
     <a href="/meatMainDishes" class="menu-item">Meat main dishes</a>
     <a href="/fishMainDishes" class="menu-item">Fish main dishes</a>
     <a href="/vegetableDishes" class="menu-item">Vegetable dishes</a>

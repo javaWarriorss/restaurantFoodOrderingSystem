@@ -11,37 +11,34 @@
 
 </header>
 
-<div class="container">
-    <div class="wrapper">
-        <main>
-            <div class="title"><span>Login Form </span> </div>
-            <form action="/adminLogin" method="post">
-                <div class="row">
-                    <i class="fa-sharp fa-solid fa-id-card"></i>
-                    <input type="text" id="id" name="id" required placeholder="id">
-                </div>
-                <div class="row">
-                    <i class="fa-solid fa-key"></i>
-                    <input type="text" style="-webkit-text-security: circle" id="password" name="password" required placeholder="password">
-                </div>
-                <div>
-                    <div class="pass"><a href="#">Forgot password?</a></div>
-                    <button class="button" type="submit">Login</button>
-                </div>
-                <div>
-                    <p>
-                    <span th:if="${message == 'signup_success'}">
-                    Registration successful. Now you can login.
-                    </span>
-                    <span th:if="${message == 'signup_failed'}">
-                    Login is failed. Please check your id or password and try again.
-                    </span>
-                    </p>
-                </div>
-            </form>
-        </main>
-    </div>
-</div>
+<main>
+  <h3>Login Form</h3>
+  <div>
+    <form th:action="@{/adminLogin}" method="post">
+      <div>
+        <label for="id">ID</label>
+        <input type="number" id="id" name="id" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="text" style="-webkit-text-security: circle" id="password" name="password" required>
+      </div>
+      <div>
+        <button type="submit">Login</button>
+      </div>
+      <div>
+        <p>
+            <span th:if="${message == 'login_success'}">
+                 "Registration successful. Now you can login."
+            </span>
+            <span th:if="${message == 'login_failed'}">
+                 "Login is failed. Please check your id or password and try again."
+            </span>
+        </p>
+      </div>
+    </form>
+  </div>
+</main>
 
 
 </body>

@@ -1,44 +1,44 @@
-/** {*/
-/*    box-sizing: border-box;*/
-/*}*/
-/*body{*/
-/*    background: #e8afaf;*/
-/*    margin:0;*/
-/*    padding:0;*/
-/*}*/
-/*.main {*/
-/*    margin-left: 0px; !* Same as the width of the menu *!*/
-/*    margin-right: 250px;*/
-/*    font-size: 20px; !* Increased text to enable scrolling *!*/
-/*  !*  padding: 0px 100px; *!*/
-/*}*/
-/*.container {*/
-/*    margin: 70px 270px 30px 20px;  !*TOP/L/DOWN/R*!*/
-/*    border-radius: 5px;*/
-/*    background-color:#cacaca;*/
-/*    padding: 20px;*/
-/*}*/
-/*input[type=submit]:hover {*/
-/*    background-color: #45a049;*/
-/*}*/
-/*input[type=submit] {*/
-/*    background-color: #04AA6D;*/
-/*    color: white;*/
-/*    padding: 12px 20px;*/
-/*    border: none;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*}*/
-/*input[type=email], select, textarea {*/
-/*    width: 100%;*/
-/*    padding: 12px;*/
-/*    border: 1px solid #ccc;*/
-/*    border-radius: 4px;*/
-/*    box-sizing: border-box;*/
-/*    margin-top: 5px;*/
-/*    margin-bottom: 16px;*/
-/*    resize: vertical;*/
+* {
+    box-sizing: border-box;
+}
+body{
+    background: #e8afaf;
+    margin:0;
+    padding:0;
+}
+.main {
+    margin-left: 0px; /* Same as the width of the menu */
+    margin-right: 250px;
+    font-size: 20px; /* Increased text to enable scrolling */
+  /*  padding: 0px 100px; */
+}
+.container {
+    margin: 70px 270px 30px 20px;  /*TOP/L/DOWN/R*/
+    border-radius: 5px;
+    background-color:#cacaca;
+    padding: 20px;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 16px;
+    resize: vertical;
 
-/*    background:darkgray;*/
-/*    color: black;*/
-/*}*/
+    background:darkgray;
+    color: black;
+}

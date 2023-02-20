@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -17,7 +17,7 @@ public class Admin {
     private String email;
     @Column(unique = true)
     private String password;
-    @Column(updatable = true)
+    @Column()
     private Boolean active;
 
 }
