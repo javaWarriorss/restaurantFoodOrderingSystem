@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Service
@@ -41,12 +42,6 @@ public class CustomerService {
 
     public Customer updateCustomerById( Long id, Customer updatedCustomer) throws Exception {
         Customer customer = customerRepository.findById(id).orElseThrow();
-
-       // how to show on email that its taken ?
-//        if () {
-//            throw new Exception("this email is already taken");
-//        }
-
         customer.setFirstName(updatedCustomer.getFirstName());
         customer.setLastName(updatedCustomer.getLastName());
         customer.setDateOfBirth(updatedCustomer.getDateOfBirth());
@@ -55,6 +50,9 @@ public class CustomerService {
         customer.setPassword(updatedCustomer.getPassword());
         customer.setCustomerAddress(updatedCustomer.getCustomerAddress());
 
+            if(customer.getEmail().equals(updatedCustomer.getEmail())){
+                throw new Exception("this email is already taken");
+            }
         return customerRepository.save(customer);
     }
 

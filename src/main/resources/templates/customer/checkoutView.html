@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+<h2>Order details:
+</h2>
+<div>
+    <div>
+        <div> <p>Welcome: [[${customerName}]] </p></div>
+        <hr>
+        <div>
+             <h4>Shipping Address Information</h4>
+            <p>
+                <b>Delivery to:</b>[[${shippingAddress}]]
+            </p>
+        </div>
+
+<hr>
+        <form th:action="${'/menu/' +customerId +'/cart/placeOrder'}" method="post">
+            <label for="payment">Payment Method on Delivery:</label>
+            <select name="paymentType" id="payment">
+                <option value="CASH">Cash</option>
+                <option value="CARD">Bank Card</option>
+            </select>
+            <button type="submit"> Place Order</button>
+        </form>
+    </div>
+
+
+<hr>
+
+    <div>
+        <div>
+            <h4>Order Summary</h4>
+            <table>
+                <th:block th:each="item : ${cartItems}">
+                    <tr>
+                        <td>[[${item.quantity}]] x</td>
+                        <td>[[${item.foodItem.foodName}]] </td>
+
+                        <td>[[${item.foodItem.price}]] =</td>
+                        <td>[[${item.subtotal}]]</td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+<!--       all total-->
+        <div>
+            <div>Total Price:</div>
+            <div id="checkoutInfo"> [[${checkoutInfo.productTotal}]]</div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class FoodItem {
     @Id // mark class as entity
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private String foodName;
@@ -23,10 +23,5 @@ public class FoodItem {
     private boolean inStock;
     private String foodPhotoUrl;
 
-//    @Transient
-//    public String getMainImagePath(){
-//        if(foodPhotoUrl==null || id==null) return null;
-//        return "/foodPhotoUrl/"+ id + "/" + foodPhotoUrl;
-//    }
 
 }
