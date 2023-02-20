@@ -87,6 +87,8 @@ public class AdminController {
         this.foodItemService.createFoodItem(foodItem);
         return "redirect:/adminProfileView/" + adminId + "/adminAddMeal";
     }
+//    TRY METHODS FOR ADD MEAL FORM
+//not working!!!!!!!!!!!!!!!!!!!!!
     @GetMapping("/adminProfileView/{adminId}/adminViewAllMeal")
     public String showAllMeal(@PathVariable Long adminId, Model model) {
         model.addAttribute("adminId", adminId);
@@ -109,12 +111,12 @@ public class AdminController {
     }
 
 
-    @PostMapping("/adminProfileView/{adminId}/updateMeal/{foodItemId}")
-    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem, @PathVariable Long adminId, Model model) {
-        this.adminService.findAdminById(adminId);
-        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
-        this.foodItemService.createFoodItem(updatedFoodItem);
-        return "redirect:/adminProfileView/{adminId}/admin/adminViewAllMeal";
-    }
+//    @PostMapping("/adminProfileView/{adminId}/updateMeal/{foodItemId}")
+//    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem, @PathVariable Long adminId, Model model) {
+//        this.adminService.findAdminById(adminId);
+//        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
+//        this.foodItemService.createFoodItem(updatedFoodItem);
+//        return "redirect:/adminProfileView/{adminId}/admin/adminViewAllMeal";
+//    }
 
 }

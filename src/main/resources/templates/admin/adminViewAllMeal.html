@@ -6,14 +6,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
-    <link href="/styleFoodItemTable.css" rel="stylesheet" >
+    <link href="/cssStyles/styleFoodItemTable.css" rel="stylesheet" >
 
 </head>
 
 <body>
 <header>
     <div class="nav-box">
-        <a class="nav-link-add-meal" href="/adminAddMeal">Add meal</a>
+        <a class="nav-link-add-meal" th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}">Add meal</a>
     </div>
 
 </header>
@@ -21,8 +21,7 @@
 <section class="table-section">
 <div class="flex-box">
 <div class="flex-links">
-
-    <a class="nav-link-view-all" href="/adminViewAllMeal">View all meals</a>
+    <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}">View all meals</a>
     <a href="/meatMainDishes" class="menu-item">Meat main dishes</a>
     <a href="/fishMainDishes" class="menu-item">Fish main dishes</a>
     <a href="/vegetableDishes" class="menu-item">Vegetable dishes</a>
@@ -41,7 +40,7 @@
 </div>
 
     <div>
-        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>
+        <h5 th:if="${foodItemList.isEmpty()}">There are no Meals to display.</h5>
     <!--table-->
     <table class="foodItem-table">
         <thead>

@@ -27,4 +27,5 @@ public interface FoodItemRepository extends CrudRepository<FoodItem, Long> {
     ArrayList<FoodItem> findFoodItemByType(String type);
 
 
+    ArrayList<FoodItem> findFoodItemByCategory(String foodItemCategory);
 }

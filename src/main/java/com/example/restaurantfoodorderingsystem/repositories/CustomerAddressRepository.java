@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface CustomerAddressRepository extends CrudRepository<CustomerAddress,Integer> {
-    CustomerAddress findAllById (Integer customerId);
+public interface CustomerAddressRepository extends CrudRepository<CustomerAddress, Long> {
+    CustomerAddress findAllById ( Long customerId);
     @Override
     ArrayList<CustomerAddress> findAll();
 }

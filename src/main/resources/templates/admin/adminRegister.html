@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Registration</title>
+  <link rel="stylesheet" href="/cssStyles/stylesAdminLR.css" />
+  <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <main>
+      <div class="title"><span>Registration form</span></div>
+      <form action="/adminRegister" method="post" th:object="${admin}">
+        <div class="row">
+          <i class="fa-solid fa-user"></i>
+          <input class="input_field" id="firstName" type="text" name="firstName" required th:value="${admin?.getFirstName()}" placeholder="First name" />
+        </div>
+        <div class="row">
+          <i class="fa-solid fa-user"></i>
+          <input id="lastName" type="text" name="lastName" required th:value="${admin?.getLastName()}" placeholder="Last name" />
+        </div>
+        <div class="row">
+          <i class="fa-solid fa-envelope"></i>
+          <input id="email" type="email" name="email" required th:value="${admin?.getEmail()}" placeholder="Email" />
+        </div>
+        <div class="row">
+          <i class="fa-solid fa-key"></i>
+          <input id="password" type="password" name="password" minlength="6" required th:value="${admin?.getPassword()}" placeholder="Password"/>
+        </div>
+        <div>
+          <button class="button" type="submit">Create Admin</button>
+        </div>
+
+        <div>
+          <p th:if="${message}">
+            <span th:if="${message == 'signup_failed'}"> </span>
+            <label th:if="${error}" th:text="${error}"> </label>
+          </p>
+        </div>
+  </form>
+</main>
+
+</body>
+</html>

@@ -23,4 +23,10 @@ public class FoodItem {
     private boolean inStock;
     private String foodPhotoUrl;
 
+//    @Transient
+//    public String getMainImagePath(){
+//        if(foodPhotoUrl==null || id==null) return null;
+//        return "/foodPhotoUrl/"+ id + "/" + foodPhotoUrl;
+//    }
+
 }

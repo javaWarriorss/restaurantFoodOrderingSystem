@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>My Profile</title>
-    <link rel="stylesheet" href="/profilePic.css">
+    <link rel="stylesheet" href="/cssStyles/profilePic.css">
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+
 </head>
 
 
 <body>
-<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+    <header th:insert="~{fragments/header.html :: header-after-login}">
+</header>
 <h1>My Profile</h1>
 
 <section>
-    <a href="#" th:href="@{/menuAfterLogin/{id}/address (id=${customerId})}"> Address</a>
+    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
 </section>
 
 <div class="profile-pic">
@@ -22,12 +26,12 @@
     </label>
     <input class="inputPic" id="file" type="file" onchange="loadFile(event)"/>
     <img src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg"  id="output" width="200" />
-    <script type="text/javascript" src="profile.js"></script>
+    <script type="text/javascript" src="/javascriptFiles/profile.js"></script>
 </div>
 
 
-<section >
-    <form  th:action="@{/menuAfterLogin/{id}/profile (id=${customerId})}" method="post" >
+<section>
+    <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
         <div>

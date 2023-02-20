@@ -18,7 +18,7 @@ public class CustomerAddressService {
     public void createCustomerAddress(CustomerAddress customerAddress) throws Exception {
         this.customerAddressRepository.save(customerAddress);
     }
-    public CustomerAddress updateCustomerAddressById(Integer id, CustomerAddress updatedAddress) {
+    public CustomerAddress updateCustomerAddressById( Long id, CustomerAddress updatedAddress) {
         CustomerAddress customerAddress = customerAddressRepository.findById(id).orElse(null); // this will return object, which may not contain a food item, so we check
         if (customerAddress == null) {
             return null;
@@ -31,7 +31,7 @@ public class CustomerAddressService {
         return customerAddressRepository.save(customerAddress);
     }
 
-    public CustomerAddress findAllAddressById(Integer id){
+    public CustomerAddress findAllAddressById( Long id){
         return customerAddressRepository.findAllById(id);
     }
 }

@@ -2,48 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <title>Login</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="cssStyles/stylesHome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
 <body>
-<section>
-<!--    <a href="/login">LOGIN PAGE</a>-->
-        <a href="">LOGIN PAGE</a>
-    <a href="/register">Register</a>
-    <hr>
+<header>
+    <div class="header">
+        <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+
+        <nav class="nav-bar">
+            <a href="/" class="active">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/menuAllMeals">Menu</a>
+            <a href="/contactUs">Contact Us</a>
+        </nav>
+
+        <div class="icons">
+            <a class="order-now" href="#">Order</a>
+            <a href="/login" class="fa-regular fa-user"></a>
+            <!--        <a href="#" class="fa-regular fa-heart"></a>-->
+        </div>
+    </div>
+</header>
+
+<section class="home" id="home">
+    <div class="swiper mySwiper-home-slider">
+        <div class="swiper-wrapper-wrapper-main">
+            <div class="swiper-slide-slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Steak</h3>
+                    <p>Aged beef fillet steak</p>
+                    <a href="#" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1606419420761-4f2aa891ed19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHN0ZWFrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide-slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Pancakes</h3>
+                    <p>Breakfast sweet pancakes</p>
+                    <a href="#" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1612182062633-9ff3b3598e96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFuY2FrZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide-slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Dessert</h3>
+                    <p>Classic cheesecake</p>
+                    <a href="#" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1602526638273-1c16532650ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGNoZWVzZWNha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+
+
+            </div>
+        </div>
+    </div>
 </section>
-<h1> Welcome to index page</h1>
+
 
 <!-- Added your login form here --->
-<section>
-    <form action="/login" method="post">
-        <h4> ENTER EMAIL AND PASSWORD TO CONTINUE</h4>
-        <div >
-            <label> Email</label> <br>
-            <input type="text" name="email" placeholder="Email" REQUIRED>
-        </div><br>
 
-        <div>
-            <label> Password </label><br>
-            <input type="password" name="password" placeholder="Password" REQUIRED>
-        </div><br>
-
-        <div>
-            <button type="submit">Login</button>
-        </div>
-
-        <div>
-            <p>
-                <span th:if="${message == 'signup_success'}">
-                  Registration successful. Please enter your details to login
-                </span>
-                <span th:if="${message == 'login_failed'}">
-                   Unable to login with this email and password
-                </span>
-            </p>
-        </div>
-
-    </form>
-</section>
 
 
 </body>
