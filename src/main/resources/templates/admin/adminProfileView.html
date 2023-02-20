@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Profile</title>
-  <link rel="stylesheet" href="/static/cssStyles/adminProfileStyle.css"/>
+  <link rel="stylesheet" href="/cssStyles/adminProfileStyle.css"/>
   <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
 <body>
 
@@ -22,20 +22,20 @@
         <span>Dashboard</span></a>
       </li>
       <li>
-        <a href="adminAddMeal"><span class="fa-solid fa-plus"></span>
+        <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
           <span>Add Food Item</span></a>
       </li>
       <!--            <li><a href="category.html">Category</a></li>-->
       <li>
-        <a href="orderViewAdmin"><span class="fa-solid fa-bars"></span>
-          <span>Orders</span></a>
+        <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
+          <span>View all meals</span></a>
       </li>
       <li>
         <a href=""><span class="fa-solid fa-key"></span>
           <span>Change Password</span></a>
       </li>
       <li>
-        <a href=""><span class="fa-solid fa-right-from-bracket"></span>
+        <a href="/login"><span class="fa-solid fa-right-from-bracket"></span>
           <span>Logout</span></a>
       </li>
     </ul>
@@ -53,11 +53,8 @@
 
       <div class="admin-wrapper">
         <div>
-          <h4>
-            <span th:text="${admin.getFirstName()}"></span>
-            <span th:text="${admin.getLastName()}"></span>
-          </h4>
-          <small>Admin</small>
+          <small><span th:value="${admin.getFirstName()}"></span>
+            Admin</small>
         </div>
       </div>
     </header>
@@ -88,20 +85,29 @@
 
       <div class="recent-grid">
         <div class="orders">
-          <div class="card">
-            <div class="card-header">
-              <h2>All Orders</h2>
-              <button>Sell all
-              <span class="fa-solid fa-arrow-right"></span>
-              </button>
-            </div>
 
-            <div class="card-body">
               <table width="100%">
-<!--Here will be table All orders-->
+                <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Cart id</th>
+                  <th>Customer id</th>
+                  <th>Status</th>
+                  <th>Created at</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order : ${orders}">
+                  <td th:text="${order.id}"></td>
+                  <td th:text="${order.id}"></td>
+                  <td th:text="${order.id}"></td>
+                  <td th:text="${order.status}"></td>
+                  <td th:text="${order.createdAt}"></td>
+                  <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>
+                </tr>
+                </tbody>
               </table>
-            </div>
-          </div>
+
         </div>
       </div>
 

@@ -1,30 +1,33 @@
-<div th:fragment="header">
-  <section>
-    <a href="/login">LOGIN PAGE</a>
-    <a href="/register">Register</a>
-    <hr>
-  </section>
+<div th:fragment="header" class="header">
+  <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+
+  <nav class="nav-bar">
+    <a href="/" class="active">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/menu">Menu</a>
+    <a href="/contactUs">Contact Us</a>
+  </nav>
+
+  <div class="icons">
+    <a href="/login" class="fa-regular fa-user"></a>
+    <!--        <a href="#" class="fa-regular fa-heart"></a>-->
+  </div>
 </div>
 
+<div th:fragment="header-after-login" class="header">
+  <a class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
 
-<div th:fragment="headerAfterLogin">
-  <section>
-    <a href="#" th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
-    <a href="#" th:href="@{/menu/{id}/contactUs (id=${customerId})}">CONTACT US</a>
-    <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}"> &#128722;</a>
-    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">Profile</a>
-    <a href="/index.html">Logout</a>
-    <hr>
-  </section>
+  <nav class="nav-bar">
+    <a th:href="@{/}" class="active">Home</a>
+    <a href="/about">About Us</a>
+    <a th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
+    <a th:href="@{/menu/{id}/contactUs (id=${customerId})}">Contact us</a>
+  </nav>
+
+  <div class="icons">
+    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}" class="fa-solid fa-user"></a>
+    <a class="fa-regular fa-heart"></a>
+    <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}" class="fa-solid fa-shopping-cart"></a>
+    <a href="/index.html" class="fa-solid fa-right-from-bracket"></a>
+  </div>
 </div>
-
-<!--<div th:fragment="headerAfterLogin">-->
-<!--  <section>-->
-<!--    <a href="#" th:href="@{/menuAfterLogin/{id} (id=${customerId})}">Menu</a>-->
-<!--    <a href="#" th:href="@{/menuAfterLogin/{id}/contactUs (id=${customerId})}">CONTACT US</a>-->
-<!--    <a href="/cart"> &#128722;</a>-->
-<!--    <a href="#" th:href="@{/menuAfterLogin/{id}/profile (id=${customerId})}">Profile</a>-->
-<!--    <a href="/index.html">Logout</a>-->
-<!--    <hr>-->
-<!--  </section>-->
-<!--</div>-->
