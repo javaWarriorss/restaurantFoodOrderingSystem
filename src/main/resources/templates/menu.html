@@ -8,30 +8,8 @@
 </head>
 
 <body>
-<header>
-    <!-- here we should use fragment-->
-    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
-    <nav class="nav-bar">
-        <a href="/index" class="active">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/menuAllMeals">Menu</a>
-        <a href="/contactUs">Contact Us</a>
-    </nav>
-    <div class="icons">
-        <a href="/login" class="fa-solid fa-user"></a>
-        <a href="#" class="fa-regular fa-heart"></a>
-        <a href="#" class="fa-solid fa-shopping-cart"></a>
-    </div>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
-</header>
-
-<!--idea for main page- -->
-<!--<section class="main-section">-->
-
-<!--</section>-->
-<!--<section class="second-section">-->
-
-<!--</section>-->
 
 <form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">
 <section class="cart-section" id="menu-section">
@@ -64,7 +42,6 @@
             <a class="item type" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
         </div>
 
-
         <!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
         <div class="food-item-cart-container">
             <div th:each="foodItem:${foodItemList}" th:if="${foodItem.inStock == true}" class="food-item-cart">
@@ -82,20 +59,11 @@
                 </div>
                 <div>
                     <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">
-                        <!--                           <div>-->
-                        <!--                               <label> Quantity</label><br>-->
-                        <!--                           </div>-->
-                        <!--                <div><input type="number" th:value="${1}" th:id="${foodItem.id}" min="0"></div>-->
-                        <!--
-                                      <input name="quantity" th:replace="customer/quantityControl :: quantityControl(1, ${foodItem.id})">-->
                         <div>
                             <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="0"/>
                         </div>
-
-                        <!--            <form th:action="@{/menu/{id}/{productId}/cart (id=${customerId}) (productId=${foodItem.id})}" method="post">-->
                         <div>
                             <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
-                            <!--                <a th:href="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}"> Add to cart</a>-->
                         </div>
                     </form>
                 </div>
