@@ -7,6 +7,7 @@ import com.example.restaurantfoodorderingsystem.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,8 +32,6 @@ public class OrderService {
             Order newOrder = new Order();
             newOrder.setOrderTime(new Date());
             newOrder.setCustomer(customer);
-//            newOrder.setProductCost(checkOutInfo.getProductTotal()); // cost for each product * quantity
-//            newOrder.setSubtotal(checkOutInfo.getProductTotal()); // total cart price
             newOrder.setProductCost(foodItem.getPrice()); // cost for each product * quantity
             newOrder.setSubtotal(foodItem.getPrice()*cartItem.getQuantity()); // total cart price
 
@@ -50,5 +49,8 @@ public class OrderService {
     return listOfOrder.get(0);
     }
 
+    public List<Order> findOrderByCustomerId(Long CustomerId){
+        return this.orderRepository.getOrdersByCustomerIdOrderByOrderTimeDesc(CustomerId);
+    }
 
 }

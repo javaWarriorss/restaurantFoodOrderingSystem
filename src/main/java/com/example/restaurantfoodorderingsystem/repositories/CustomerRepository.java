@@ -1,6 +1,7 @@
 package com.example.restaurantfoodorderingsystem.repositories;
 
 import com.example.restaurantfoodorderingsystem.entities.Customer;
+import com.example.restaurantfoodorderingsystem.entities.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,6 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
     @Override
     ArrayList<Customer> findAll();
     Customer findAllById (Long CustomerId);
+
+
 }
