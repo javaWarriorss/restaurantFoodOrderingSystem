@@ -45,7 +45,7 @@
     box-sizing: border-box;
     font-family: 'Oswald', sans-serif;
     text-decoration: none;
-    outline: none;
+    /*outline: none;*/
     border: none;
     text-transform: capitalize;
     transition: all .2s linear;
