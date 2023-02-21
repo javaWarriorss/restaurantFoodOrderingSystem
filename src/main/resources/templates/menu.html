@@ -8,8 +8,32 @@
 </head>
 
 <body>
-<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+<header>
+    <!-- here we should use fragment-->
+    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+    <nav class="nav-bar">
+        <a href="/index" class="active">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/menuAllMeals">Menu</a>
+        <a href="/contactUs">Contact Us</a>
+    </nav>
+    <div class="icons">
+        <a href="/login" class="fa-solid fa-user"></a>
+        <a href="#" class="fa-regular fa-heart"></a>
+        <a href="#" class="fa-solid fa-shopping-cart"></a>
+    </div>
 
+</header>
+
+<!--idea for main page- -->
+<!--<section class="main-section">-->
+
+<!--</section>-->
+<!--<section class="second-section">-->
+
+<!--</section>-->
+
+<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">
 <section class="cart-section" id="menu-section">
 
     <div class="flex-box">
@@ -70,7 +94,7 @@
 
                         <!--            <form th:action="@{/menu/{id}/{productId}/cart (id=${customerId}) (productId=${foodItem.id})}" method="post">-->
                         <div>
-                            <button class="add-to-cart-button" type="submit" value="Submit" >Add to Cart</button>
+                            <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
                             <!--                <a th:href="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}"> Add to cart</a>-->
                         </div>
                     </form>
@@ -79,7 +103,9 @@
         </div>
     </div>
 </section>
+<section class="cart-section">
 
+</section>
 
 <footer class="footer">
 
@@ -109,6 +135,5 @@
         <p class="copyright">Copyright &copy; 2023 </br> by javaWarriors</p>
     </div>
 </footer>
-
 </body>
 </html>
