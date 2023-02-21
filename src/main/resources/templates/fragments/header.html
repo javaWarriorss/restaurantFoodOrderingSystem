@@ -3,8 +3,8 @@
 
   <nav class="nav-bar">
     <a href="/" class="active">Home</a>
-    <a href="/about">About Us</a>
-    <a href="/menu">Menu</a>
+<!--    <a href="/about">About Us</a>-->
+<!--    <a href="/menu">Menu</a>-->
     <a href="/contactUs">Contact Us</a>
   </nav>
 
@@ -14,19 +14,22 @@
   </div>
 </div>
 
-<div th:fragment="header-after-login" class="header">
+
+
+<!--<div th:fragment="header-after-login" class="header">-->
+<div th:fragment="headerAfterLogin" class="header">
   <a class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
 
   <nav class="nav-bar">
     <a th:href="@{/}" class="active">Home</a>
-    <a href="/about">About Us</a>
-    <a th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
-    <a th:href="@{/menu/{id}/contactUs (id=${customerId})}">Contact us</a>
+<!--    <a href="/about">About Us</a>-->
+    <a href="#" th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
+    <a href="#" th:href="@{/menu/{id}/contactUs (id=${customerId})}">Contact us</a>
   </nav>
 
   <div class="icons">
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}" class="fa-solid fa-user"></a>
-    <a class="fa-regular fa-heart"></a>
+<!--    <a class="fa-regular fa-heart"></a>-->
     <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}" class="fa-solid fa-shopping-cart"></a>
     <a href="/index.html" class="fa-solid fa-right-from-bracket"></a>
   </div>
