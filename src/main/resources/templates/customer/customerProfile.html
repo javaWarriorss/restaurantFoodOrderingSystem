@@ -11,26 +11,29 @@
 
 
 <body>
-    <header th:insert="~{fragments/header.html :: header-after-login}">
+    <header th:insert="~{fragments/header.html :: headerAfterLogin}">
 </header>
 <h1>My Profile</h1>
 
-<section>
-    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
-</section>
-
-<div class="profile-pic">
-    <label class="-label" for="file">
-        <span class="glyphicon glyphicon-camera"></span>
-        <span>Change Image</span>
-    </label>
-    <input class="inputPic" id="file" type="file" onchange="loadFile(event)"/>
-    <img src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg"  id="output" width="200" />
-    <script type="text/javascript" src="/javascriptFiles/profile.js"></script>
-</div>
 
 
-<section>
+<!--<div class="profile-pic">-->
+<!--    <label class="-label" for="file">-->
+<!--        <span class="glyphicon glyphicon-camera"></span>-->
+<!--        <span>Change Image</span>-->
+<!--    </label>-->
+<!--    <input class="inputPic" id="file" type="file" onchange="loadFile(event)"/>-->
+<!--    <img src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg"  id="output" width="200" />-->
+<!--    <script type="text/javascript" src="/javascriptFiles/profile.js"></script>-->
+<!--</div>-->
+
+
+<section  style="padding-top: 155px;" >
+
+    <section>
+        <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
+    </section>
+    
     <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 

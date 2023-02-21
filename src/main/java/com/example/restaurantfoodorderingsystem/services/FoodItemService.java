@@ -60,4 +60,9 @@ public class FoodItemService {
         return this.foodItemRepository.findFoodItemByCategory(foodItemCategory);
     }
 
+    public FoodItem findFoodItemById(Long foodId){
+        return foodItemRepository.findFoodItemById(foodId);
+    }
+
+
 }

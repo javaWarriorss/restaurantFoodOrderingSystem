@@ -4,33 +4,14 @@
     <meta charset="UTF-8">
     <title>Add New Meal</title>
     <link rel="stylesheet" href="/cssStyles/stylesMenu.css"/>
-    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
-<!--    marija-->
-    <header th:insert="~{fragments/header.html :: header}"></header>
-<!--do not show menu, because no customer logged in-->
-<!--    marija-->
-    <!-- here we should use fragment-->
-<!--    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>-->
-<!--    <nav class="nav-bar">-->
-<!--        <a href="/index" class="active">Home</a>-->
-<!--        <a href="/about">About Us</a>-->
-<!--        <a href="/menuAllMeals">Menu</a>-->
-<!--        <a href="/contactUs">Contact Us</a>-->
-<!--    </nav>-->
-<!--    <div class="icons">-->
-<!--        <a href="/login" class="fa-solid fa-user"></a>-->
-<!--        <a href="#" class="fa-regular fa-heart"></a>-->
-<!--        <a href="#" class="fa-solid fa-shopping-cart"></a>-->
-<!--    </div>-->
 
-<!--</header>-->
-
-<!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
+<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">
 <section class="cart-section" id="menu-section">
 
     <div class="flex-box">
@@ -61,7 +42,6 @@
             <a class="item type" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
         </div>
 
-
         <!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
         <div class="food-item-cart-container">
             <div th:each="foodItem:${foodItemList}" th:if="${foodItem.inStock == true}" class="food-item-cart">
@@ -79,20 +59,11 @@
                 </div>
                 <div>
                     <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">
-                        <!--                           <div>-->
-                        <!--                               <label> Quantity</label><br>-->
-                        <!--                           </div>-->
-                        <!--                <div><input type="number" th:value="${1}" th:id="${foodItem.id}" min="0"></div>-->
-                        <!--
-                                      <input name="quantity" th:replace="customer/quantityControl :: quantityControl(1, ${foodItem.id})">-->
                         <div>
                             <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="0"/>
                         </div>
-
-                        <!--            <form th:action="@{/menu/{id}/{productId}/cart (id=${customerId}) (productId=${foodItem.id})}" method="post">-->
                         <div>
                             <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
-                            <!--                <a th:href="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}"> Add to cart</a>-->
                         </div>
                     </form>
                 </div>
@@ -100,7 +71,9 @@
         </div>
     </div>
 </section>
+<section class="cart-section">
 
+</section>
 
 <footer class="footer">
 
@@ -130,6 +103,5 @@
         <p class="copyright">Copyright &copy; 2023 </br> by javaWarriors</p>
     </div>
 </footer>
-
 </body>
 </html>

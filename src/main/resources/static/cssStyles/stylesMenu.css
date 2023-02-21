@@ -2,6 +2,9 @@
 
 /* Styles from main page */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+
+
 :root{
     --green: #94d82d;
     --light-green: #eaf7d5;
@@ -115,6 +118,7 @@ body{
     height: 100vh;
     margin-top: 8rem;
     margin-bottom: 8rem;
+    /*background-color: blueviolet;*/
 
 }
 
@@ -130,15 +134,16 @@ body{
 .flex-links-category{
     color: var(--dark);
     text-decoration: none;
-    position: fixed;
-    top: 5rem;
+    /*position: fixed;*/
+    /*top: 5rem;*/
     display: flex;
     justify-content: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-size: 2rem;
-    width:100%;
-    background-color: var(--light);
+    /*margin-bottom: 1rem;*/
+    font-size: 1.6rem;
+    /*width:100%;*/
+    /*background-color: var(--light);*/
     /*background-color: var(--green);*/
 }
 
@@ -148,12 +153,13 @@ body{
     text-decoration: none;
     display: flex;
     justify-content: center;
-    margin-top:4rem;
-    position: fixed;
-    top: 5.9rem;
+    margin-top:1rem;
+    /*position: fixed;*/
+    /*top: 5.9rem;*/
     padding-bottom: 1rem;
     width:100%;
     background-color: var(--light);
+    overflow: hidden;
     /*background-color: palevioletred;*/
 }
 .item{
@@ -197,13 +203,13 @@ body{
     text-align: center;
     width:90%;
     /*background-color: #45a049;*/
-    padding-top:6rem;
+    /*padding-top:6rem;*/
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 1rem;
     overflow: auto;
     margin-bottom: 2rem;
-    max-height: 100vh;
+    max-height: 200vh; /* should change */
 }
 .food-item-cart{
     display: flex;
@@ -310,10 +316,15 @@ input.qty:hover, input.qty:focus {
 
 /* Footer */
 
+
+/*if there is more meal cards on page, the footer is going behind these cards, For now nI fixed this adding additional section, but it's not best solution */
 .footer {
     border-top: 1px solid #eee;
     /*background-color:gray;*/
     text-align: center;
+    margin-top: 4rem;
+    /*position: fixed;*/
+    /*overflow: hidden;*/
 
 }
 
@@ -364,3 +375,6 @@ input.qty:hover, input.qty:focus {
 .footer-logo:active{
     color: var(--green);
 }
+
+/***********************************/
+
