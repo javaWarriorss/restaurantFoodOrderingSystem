@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <title>Add New Meal</title>
     <link rel="stylesheet" href="/cssStyles/stylesMenu.css"/>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<header>
-    <!-- here we should use fragment-->
-    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
-    <nav class="nav-bar">
-        <a href="/index" class="active">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/menuAllMeals">Menu</a>
-        <a href="/contactUs">Contact Us</a>
-    </nav>
-    <div class="icons">
-        <a href="/login" class="fa-solid fa-user"></a>
-        <a href="#" class="fa-regular fa-heart"></a>
-        <a href="#" class="fa-solid fa-shopping-cart"></a>
-    </div>
 
-</header>
+<!--    marija-->
+    <header th:insert="~{fragments/header.html :: header}"></header>
+<!--do not show menu, because no customer logged in-->
+<!--    marija-->
+    <!-- here we should use fragment-->
+<!--    <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>-->
+<!--    <nav class="nav-bar">-->
+<!--        <a href="/index" class="active">Home</a>-->
+<!--        <a href="/about">About Us</a>-->
+<!--        <a href="/menuAllMeals">Menu</a>-->
+<!--        <a href="/contactUs">Contact Us</a>-->
+<!--    </nav>-->
+<!--    <div class="icons">-->
+<!--        <a href="/login" class="fa-solid fa-user"></a>-->
+<!--        <a href="#" class="fa-regular fa-heart"></a>-->
+<!--        <a href="#" class="fa-solid fa-shopping-cart"></a>-->
+<!--    </div>-->
+
+<!--</header>-->
 
 <!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
 <section class="cart-section" id="menu-section">
