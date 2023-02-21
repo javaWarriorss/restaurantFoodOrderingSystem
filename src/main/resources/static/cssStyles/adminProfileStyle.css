@@ -184,6 +184,8 @@ main{
 /*    padding-top: 2rem;*/
 /*}*/
 
+
+/* ADD/UPDATE meal form */
 h2{
     text-align: center;
     color:var(--dark);
@@ -264,3 +266,23 @@ h2{
     background-color:#e9ecef;
     border-color: var(--gray);
 }
+
+
+.grid-container-update {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*background-color: indianred;*/
+
+}
+
+.img-box{
+    /*background-color: mediumpurple;*/
+    margin: 0 auto;
+    padding-top: 6rem;
+}
+
+.meal-img{
+   /*width:100%;*/
+   /* border-radius: 5px;*/
+}
+
