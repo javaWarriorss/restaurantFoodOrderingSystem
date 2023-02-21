@@ -32,8 +32,9 @@
 
     <section>
         <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
+        <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
     </section>
-    
+
     <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 

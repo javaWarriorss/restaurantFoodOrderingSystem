@@ -51,5 +51,12 @@ public class ProfileController {
         this.customerAddressService.createCustomerAddress(updatedAddress);
         return "customer/customerAddress";
     }
+
+    @GetMapping("menu/{customerId}/orderHistory")
+    public String showOrderHistory(Model model, @PathVariable  Long customerId) throws Exception {
+        model.addAttribute("customerId",customerId);
+
+        return "customer/orderHistory";
+    }
 }
 

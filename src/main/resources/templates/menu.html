@@ -11,7 +11,7 @@
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
 
-<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">
+<!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
 <section class="cart-section" id="menu-section">
 
     <div class="flex-box">
@@ -60,7 +60,7 @@
                 <div>
                     <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">
                         <div>
-                            <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="0"/>
+                            <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="1"/>
                         </div>
                         <div>
                             <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
@@ -71,6 +71,7 @@
         </div>
     </div>
 </section>
+<!--</form>-->
 <section class="cart-section">
 
 </section>
