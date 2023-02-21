@@ -4,6 +4,8 @@
     --light-green: #eaf7d5;
     --dark: #1e2b09;
     --light: #ffffff;
+    --gray: #868e96;
+
 
 }
 
@@ -26,9 +28,12 @@
     z-index: 100;
 }
 .sidebar-logo{
+    margin-top: 2rem;
+    margin-right: 4rem;
     height: 90px;
     padding: 1rem 0 1rem 2rem;
     color: var(--dark);
+    text-align: center;
 }
 .sidebar-logo span{
     display: inline-block;
@@ -41,16 +46,41 @@
 .sidebar-menu a{
     display: block;
     color: var(--dark);
-    font-size: 1.1rem;
-    padding-left: 1rem;
+    font-size: 1.4rem;
+    padding-left: 2rem;
+    /*font-size: 1.6rem;*/
 }
-.sidebar-menu a.active{
+
+.fa-carrot{
+    color: var(--light);
+}
+
+
+/* style for links */
+.sidebar-menu a:link,
+.sidebar-menu a:visited{
+    text-decoration: none;
+    /*font-weight: 500;*/
+    /*color: #343a40;*/
+    /*transition: all 0.3s;*/
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a:active{
     background: var(--light);
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: var(--dark);
     border-radius: 30px 0 0 30px;
 }
+
+/*.sidebar-menu a.active{*/
+/*    background: var(--light);*/
+/*    padding-top: 1rem;*/
+/*    padding-bottom: 1rem;*/
+/*    color: var(--dark);*/
+/*    border-radius: 30px 0 0 30px;*/
+/*}*/
 
 .sidebar-menu a span:first-child{
     font-size: 1.5rem;
@@ -59,16 +89,18 @@
 .sidebar-menu li{
     width: 100%;
     margin-bottom: 1.3rem;
+
 }
 
 .main-content{
     margin-left: 345px;
+    /*background-color: red;*/
 }
 
 header{
     display: flex;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 4rem 2rem;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     position: fixed;
     left: 345px;
@@ -86,6 +118,7 @@ header label span{
     padding-right: 1rem;
 }
 .admin-wrapper{
+    padding-top: 1rem;
     display: flex;
     align-items: center;
 }
@@ -144,5 +177,90 @@ main{
     color: var(--green);
 }
 
+/*.recent-grid{*/
+/*    background-color: yellow;*/
+/*    text-align: center;*/
+/*    height: 40rem;*/
+/*    padding-top: 2rem;*/
+/*}*/
 
+h2{
+    text-align: center;
+    color:var(--dark);
 
+}
+
+/* display: flex is Not working for this container */
+.form-container{
+    align-items: center;
+    /*background-color: yellow;*/
+}
+
+.form-flex{
+    margin:0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /*background-color: #45a049;*/
+    width: 400px;
+    padding: 30px 20px 25px 20px;
+}
+
+.box {
+    height: 2rem;
+    width: 100%;
+    /*background: yellow;*/
+    margin-bottom: 1.2rem;
+}
+
+.block{
+    border: 1px solid var(--gray);
+    height: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: var(--light);
+    font-size: 1.2rem;
+}
+
+.block:hover,.block:focus {
+    /*border: 1px solid var(--green);*/
+    box-shadow: 2px 2px 2px #ccc;
+    background-color: var(--light);
+    outline: none;
+}
+
+/*.block:hover{*/
+/*    border: var(--green) solid 0.1rem;*/
+/*}*/
+
+.inStock{
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    /*margin-right:*/
+}
+
+.checkbox {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.form-button{
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1.2rem;
+    background-color: var(--light);
+}
+
+.form-button:hover,
+.form-button:active{
+    box-shadow: 2px 2px 2px #ccc;
+    background-color:#e9ecef;
+    border-color: var(--gray);
+}

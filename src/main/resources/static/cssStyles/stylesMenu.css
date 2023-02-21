@@ -297,11 +297,9 @@ input.qty:hover, input.qty:focus {
 }
 
 .add-to-cart-button:hover {
-
     background-color:#4a6c17 ;
     /*border: 1px solid #94d82d;*/
     /*background-color: var(--light);*/
-
 }
 
 .meal-img{
