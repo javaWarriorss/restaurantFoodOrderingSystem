@@ -267,6 +267,12 @@ public class FoodItemController {
         return "customer/contactUs";
     }
 
+//    @GetMapping("/contactUs")
+//    public String displayContactUsOnIndexPage(){
+//
+//        return "customer/contactUs";
+//    }
+
     //________________Menu_Page_Liga_________________________________________
 
     @GetMapping("menu/{customerId}/menuMeatMainDishes")

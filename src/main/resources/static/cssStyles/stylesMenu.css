@@ -307,6 +307,10 @@ input.qty:hover, input.qty:focus {
     width: 100%;
     display: block;
     transition: all 0.4s;
+
+
+
+
 }
 
 .meal-img:hover {
