@@ -201,11 +201,12 @@
 
 .food-item-cart-container {
     text-align: center;
-    width:90%;
+    width:100%;
     /*background-color: #45a049;*/
     /*padding-top:6rem;*/
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /*display: flex;*/
+   grid-template-columns: repeat(5, 1fr);   /*makes how much rows there will be*/
     grid-column-gap: 1rem;
     overflow: auto;
     margin-bottom: 2rem;
@@ -373,6 +374,5 @@ input.qty:hover, input.qty:focus {
 .footer-logo:active{
     color: var(--green);
 }
-
 /***********************************/
 
