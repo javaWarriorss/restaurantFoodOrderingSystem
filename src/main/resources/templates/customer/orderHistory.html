@@ -5,16 +5,16 @@
     <title>Title</title>
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <link rel="stylesheet" href="/cssStyles/orderHistoryStyles.css">
+    <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
-<section>
+<section  class="menu">
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
     <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
     <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
-
 </section>
 
 

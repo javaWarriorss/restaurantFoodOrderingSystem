@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Order</title>
     <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
+    <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
-<h2>Order details:
-</h2>
-<div>
+
+
+<div class="main">
+    <h2>Order details: </h2>
     <div>
         <div> <p>Welcome: [[${customerName}]] </p></div>
         <hr>

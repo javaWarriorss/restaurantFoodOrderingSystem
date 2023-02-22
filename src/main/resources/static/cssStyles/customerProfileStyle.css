@@ -1,13 +1,16 @@
 
 
 
-/*THIS STYLES ARE USED FOR ADDRESS , ORDER HISTORY AND CUSTOMER PROFILE AS FRAGMENT*/
+/*THIS STYLES ARE USED FOR ADDRESS , ORDER HISTORY AND CUSTOMER PROFILE
+CheckOutView AS FRAGMENT*/
 
 
 .main {
-    margin-left: 160px; /* Same as the width of the menu */
+    margin-left: 15%; /* Same as the width of the menu */
     font-size: 23px; /* Increased text to enable scrolling */
     padding: 0px 50px;
+
+
 
 }
 
