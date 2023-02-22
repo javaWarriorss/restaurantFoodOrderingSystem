@@ -22,21 +22,21 @@
 <div class="flex-box">
 <div class="flex-links">
     <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}">View all meals</a>
-    <a href="/meatMainDishes" class="menu-item">Meat main dishes</a>
-    <a href="/fishMainDishes" class="menu-item">Fish main dishes</a>
-    <a href="/vegetableDishes" class="menu-item">Vegetable dishes</a>
-    <a href="/sideDishes" class="menu-item">Side dishes</a>
-    <a href="/soups" class="menu-item">Soups</a>
-    <a href="/salads" class="menu-item">Salads</a>
-    <a href="/pancakes" class="menu-item">Pancakes</a>
-    <a href="/burgers" class="menu-item">Burgers</a>
-    <a href="/snacks" class="menu-item">Snacks</a>
-    <a href="/sauces" class="menu-item">Sauces</a>
-    <a href="/bread" class="menu-item">Bread</a>
-    <a href="/desserts" class="menu-item">Desserts</a>
-    <a href="/bakery" class="menu-item">Bakery</a>
-    <a href="/drinks" class="menu-item">Drinks</a>
-    <a href="/cutlery" class="menu-item">Cutlery</a>
+    <a th:href="@{/adminProfileView/{id}/meatMainDishes (id=${adminId})}" class="menu-item">Meat main dishes</a>
+    <a th:href="@{/adminProfileView/{id}/fishMainDishes (id=${adminId})}" class="menu-item">Fish main dishes</a>
+    <a th:href="@{/adminProfileView/{id}/vegetableDishes (id=${adminId})}" class="menu-item">Vegetable dishes</a>
+    <a th:href="@{/adminProfileView/{id}/sideDishes (id=${adminId})}" class="menu-item">Side dishes</a>
+    <a th:href="@{/adminProfileView/{id}/soups (id=${adminId})}" class="menu-item">Soups</a>
+    <a th:href="@{/adminProfileView/{id}/salads (id=${adminId})}" class="menu-item">Salads</a>
+    <a th:href="@{/adminProfileView/{id}/pancakes (id=${adminId})}" class="menu-item">Pancakes</a>
+    <a th:href="@{/adminProfileView/{id}/burgers (id=${adminId})}" class="menu-item">Burgers</a>
+    <a th:href="@{/adminProfileView/{id}/snacks (id=${adminId})}" class="menu-item">Snacks</a>
+    <a th:href="@{/adminProfileView/{id}/sauces (id=${adminId})}" class="menu-item">Sauces</a>
+    <a th:href="@{/adminProfileView/{id}/bread (id=${adminId})}" class="menu-item">Bread</a>
+    <a th:href="@{/adminProfileView/{id}/desserts (id=${adminId})}" class="menu-item">Desserts</a>
+    <a th:href="@{/adminProfileView/{id}/bakery (id=${adminId})}" class="menu-item">Bakery</a>
+    <a th:href="@{/adminProfileView/{id}/drinks (id=${adminId})}" class="menu-item">Drinks</a>
+    <a th:href="@{/adminProfileView/{id}/cutlery (id=${adminId})}" class="menu-item">Cutlery</a>
 </div>
 
     <div>
@@ -69,7 +69,7 @@
             <td th:text="${foodItem.type}"></td>
             <td th:text="${foodItem.price}"></td>
             <td th:text="${foodItem.inStock}"></td>
-            <td><a class="delete-edit-link" th:href="'/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit">DELETE</span></a></td>
+            <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit">DELETE</span></a></td>
             <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId}"><span class="delete-edit">EDIT</span></a></td>
         </tr>
         </tbody>

@@ -23,5 +23,7 @@ public class FoodItem {
     private boolean inStock;
     private String foodPhotoUrl;
 
+    @ManyToOne
+    private Admin admin;
 
 }

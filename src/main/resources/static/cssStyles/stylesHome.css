@@ -6,6 +6,9 @@
     header{
         padding: 1rem 2rem;
     }
+    section{
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -58,7 +61,7 @@ html{
     scroll-behavior: smooth;
 }
 section{
-    padding: 2rem 10%;
+    padding: 2rem 9%;
 }
 section:nth-child(even){
     background: white;

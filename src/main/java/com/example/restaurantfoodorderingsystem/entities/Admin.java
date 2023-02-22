@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id = 0L;
     private String firstName;
     private String lastName;
     @Column(unique = true)
