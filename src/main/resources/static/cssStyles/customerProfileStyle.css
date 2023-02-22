@@ -7,17 +7,15 @@ CheckOutView AS FRAGMENT*/
 
 .main {
     margin-left: 15%; /* Same as the width of the menu */
-    font-size: 23px; /* Increased text to enable scrolling */
+    font-size: 30px; /* Increased text to enable scrolling */
     padding: 0px 50px;
-
-
 
 }
 
 .menu {
     height: 100%;
     float: left;
-    width: 160px;
+    width: 230px;
     text-align: center;
     background-color: #94d82d  ;
     position: fixed;

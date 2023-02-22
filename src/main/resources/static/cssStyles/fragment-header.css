@@ -52,7 +52,7 @@ header{
 .header .nav-bar a:hover,
 .menu-header .menu-nav-bar a.active,
 .menu-header .menu-nav-bar a:hover{
-    color: var(--light);
+    color: var(--dark);
     background-color: var(--green);
 }
 
@@ -105,7 +105,8 @@ header{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Playfair Display', serif;
     text-decoration: none;
     /*outline: none;*/
     /*border: none;*/
@@ -249,7 +250,6 @@ body{
 .footer-logo:active{
     color: var(--green);
 }
-
 
 
 

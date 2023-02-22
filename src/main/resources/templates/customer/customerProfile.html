@@ -6,7 +6,79 @@
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+<style>
 
+    h2{
+        text-align: center;
+        color:var(--dark);
+
+    }
+
+    /*!* display: flex is Not working for this container *!*/
+    /*.form-container{*/
+    /*    align-items: center;*/
+    /*    !*background-color: yellow;*!*/
+    /*}*/
+
+    .form-flex{
+        margin:0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        /*background-color: #45a049;*/
+        width: 500px;
+        padding: 30px 20px 25px 20px;
+    }
+
+    .box {
+        height: 2rem;
+        width: 100%;
+        /*background: yellow;*/
+        margin-bottom: 1.2rem;
+        padding-bottom: 70px;
+        font-size: 20px; !important;
+    }
+
+    .block{
+        border: 1px solid var(--dark);
+        height: 2rem;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 2rem;
+        text-align: center;
+        background-color: var(--light-green);
+        font-size: 1.5rem;
+    }
+
+    .block:hover,.block:focus {
+        /*border: 1px solid var(--green);*/
+        box-shadow: 2px 2px 2px #ccc;
+        background-color: var(--light);
+        outline: none;
+    }
+
+    .form-button{
+        border: 25px solid var(--light-green);
+        border-radius: 10px;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        font-size: 1.2rem;
+        background-color: var(--light-green);
+        /*padding-bottom: 31px;*/
+        /*margin-top: 50px;*/
+    }
+
+    .form-button:hover,
+    .form-button:active{
+        box-shadow: 2px 2px 2px white;
+        /*background-color:gold;*/
+       border-color: var(--green);   /* buttton hover */
+    }
+
+</style>
 
 </head>
 <body>
@@ -15,7 +87,7 @@
 
 
 
-    <section  class="menu">
+    <section  class="menu ">
 
         <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
         <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
@@ -24,37 +96,38 @@
 
     <div class="main">
         <h2>My Profile</h2>
-    <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
-        <input type="hidden" name="id" th:value="${customerId}"/>
+    <form class="form-flex" th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
+        <input class="block" type="hidden" name="id" th:value="${customerId}"/>
 
-        <div>
+        <div class="box">
             <label> First Name</label><br>
-            <input type="text" name="firstName" required th:value="${customer.firstName}">
+            <input  class="block" type="text" name="firstName" required th:value="${customer.firstName}">
         </div>
-        <div>
+        <div class="box">
             <label> Last Name</label><br>
-            <input type="text" name="lastName" required minlength="4" th:value="${customer.lastName}">
+            <input class="block" type="text" name="lastName" required minlength="4" th:value="${customer.lastName}">
         </div>
-        <div>
+        <div class="box">
             <label> Date of birth</label><br>
-            <input type="date" name="dateOfBirth" required th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
+            <input class="block" type="date" name="dateOfBirth" required th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
         </div>
-        <div>
+        <div class="box">
             <label> Phone Number</label><br>
-            <input type="text" name="phoneNumber" required minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
+            <input class="block" type="text" name="phoneNumber" required minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
         </div>
-        <div>
+        <div class="box">
             <label> Email</label><br>
-            <input  type="email" name="email" th:value="${customer.email}">
+            <input class="block"  type="email" name="email" th:value="${customer.email}">
         </div>
-        <div>
+        <div class="box">
             <label> Password</label><br>
-            <input type="password" name="password" required  minlength="4" th:value="${customer.password}">
+            <input class="block" type="password" name="password" required  minlength="4" th:value="${customer.password}">
         </div>
-
         <input type="hidden" name="customerAddress" th:value="${customerId}"/>
-        <div>
-            <button type="submit" value="Submit">Update</button>
+
+
+        <div class="box">
+            <button  type="submit" value="Submit">Update</button>
         </div>
 
         <div>

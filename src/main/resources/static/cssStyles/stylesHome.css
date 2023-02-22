@@ -46,11 +46,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     text-decoration: none;
     /*outline: none;*/
     border: none;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     transition: all .2s linear;
 }
 

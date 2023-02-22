@@ -44,3 +44,10 @@ input[type=email], select, textarea {
     background:white;;
     color: black;
 }
+
+section {
+    height: 100vh;
+}
+h2{
+    text-align: center;
+}
