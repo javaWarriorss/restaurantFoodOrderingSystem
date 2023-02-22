@@ -14,20 +14,19 @@
     text-decoration: none;
     outline: none;
     /*border: none;*/
-    text-transform: capitalize;
     transition: all .2s linear;
 }
 
 html{
-    font-size: 100%;
-    /*overflow: hidden;*/
+    font-size: 80%;
+    overflow-x: hidden;
     scroll-padding-top: 6rem;
     scroll-behavior: smooth;
 }
 
 body{
     background-color: var(--light);
-    /*overflow: hidden;*/
+    overflow-x: hidden;
 }
 .container{
     max-width: 440px;
@@ -59,10 +58,11 @@ body{
 }
 
 .wrapper form .row{
-    height: 35px;
+    height: 45px;
     background: white;
     margin-bottom: 15px;
-    position: relative;
+    position: inherit;
+    display: flex;
 }
 
 .wrapper form .row input{
@@ -70,22 +70,22 @@ body{
     width: 100%;
     outline: none;
     padding-left: 60px;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     border: 1px solid var(--green);
     font-size: 16px;
 }
 
 .wrapper form .row i{
-    position: absolute;
-    width: 37px;
+    position: inherit;
+    width: 47px;
     height: 100%;
     color: white;
     font-size: 18px;
     background: var(--green);
     border-radius: 5px 0 0 5px;
-    display: flex;
     align-items: center;
     justify-content: center;
+    display: flex;
 
 }
 

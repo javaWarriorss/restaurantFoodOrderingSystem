@@ -4,8 +4,7 @@
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Home</title>
     <link rel="stylesheet" href="cssStyles/stylesHome.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
@@ -16,64 +15,62 @@
 
         <nav class="nav-bar">
             <a href="/index" class="active">Home</a>
-<!--            <a href="/about">About Us</a>-->
-<!--            <a href="/menuAllMeals">Menu</a>-->
             <a href="/contactUs">Contact Us</a>
+            <a href="/login" class="order-now">Order Now</a>
         </nav>
 
-        <div class="icons">
-            <a class="order-now" href="#">Order</a>
-            <a href="/login" class="fa-regular fa-user"></a>
-            <!--        <a href="#" class="fa-regular fa-heart"></a>-->
-        </div>
+<!--        <div class="icons">-->
+<!--            <a class="order-now" href="#">Order</a>-->
+<!--        </div>-->
     </div>
 </header>
 
 <section class="home" id="home">
-    <div class="swiper mySwiper-home-slider">
-        <div class="swiper-wrapper-wrapper-main">
-            <div class="swiper-slide-slide">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper wrapper-main">
+
+            <div class="swiper-slide slide">
                 <div class="content">
                     <span>Our special dish</span>
                     <h3>Steak</h3>
                     <p>Aged beef fillet steak</p>
-                    <a href="#" class="click">Order now</a>
+                    <a href="/login" class="click">Order now</a>
                 </div>
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1606419420761-4f2aa891ed19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHN0ZWFrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
                 </div>
             </div>
 
-            <div class="swiper-slide-slide">
+            <div class="swiper-slide slide">
                 <div class="content">
                     <span>Our special dish</span>
                     <h3>Pancakes</h3>
                     <p>Breakfast sweet pancakes</p>
-                    <a href="#" class="click">Order now</a>
+                    <a href="/login" class="click">Order now</a>
                 </div>
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1612182062633-9ff3b3598e96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFuY2FrZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60" alt="">
                 </div>
             </div>
 
-            <div class="swiper-slide-slide">
+            <div class="swiper-slide slide">
                 <div class="content">
                     <span>Our special dish</span>
                     <h3>Dessert</h3>
                     <p>Classic cheesecake</p>
-                    <a href="#" class="click">Order now</a>
+                    <a href="/login" class="click">Order now</a>
                 </div>
                 <div class="image">
                     <img src="https://images.unsplash.com/photo-1602526638273-1c16532650ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGNoZWVzZWNha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60" alt="">
                 </div>
             </div>
 
-            <div class="swiper-pagination"></div>
-
-
-
-            </div>
         </div>
+
+        <div class="swiper-pagination"></div>
+
     </div>
 </section>
 
