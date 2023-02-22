@@ -202,7 +202,7 @@ body{
 .food-item-cart-container {
     text-align: center;
     width:90%;
-    background-color: #45a049;
+    /*background-color: #45a049;*/
     /*padding-top:6rem;*/
     display: grid;
     grid-template-columns: repeat(4, 1fr);

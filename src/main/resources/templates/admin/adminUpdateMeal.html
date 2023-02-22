@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="main-content">
+<main class="main-content">
     <header>
         <!--        <h2>-->
         <!--            <label for="">-->
@@ -56,13 +56,13 @@
         </div>
     </header>
 
-    <main>
+<!--    <main>-->
         <h2>UPDATE INFORMATION ABOUT MEAL</h2>
 
 
         <div class="grid-container-update">
             <div class="img-box">
-          <img th:src="${foodItem.getFoodPhotoUrl()}"
+          <img class="meal-img" th:src="${foodItem.getFoodPhotoUrl()}"
                width="400px"/>
             </div>
 
@@ -92,7 +92,7 @@
 
                     <div class="box">
                         <!--                <label>Select type:</label>-->
-                        <select class="block">name="type"th:field="*{foodItem.type}" >
+                        <select class="block" name="type" th:field="*{foodItem.type}" >
                             <option value="">Select type</option>
                             <option value="Meat main dishes" th:value="'Meat main dishes'">Meat main dishes</option>
                             <option value="Fish main dishes" th:value="'Fish main dishes'">Fish main dishes</option>
@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="box">
-                        <span class="inStock">In stock</span><input class="checkbox" type="checkbox" name="inStock" th:checked="${foodItem.inStock}">
+                        <span class="inStock">In stock </span><input class="checkbox" type="checkbox" name="inStock" th:checked="${foodItem.inStock}">
                     </div>
 
                     <div class="box">
@@ -138,8 +138,7 @@
                 </form>
             </div>
                 </div>
-    </main>
-</div>
-</div>
+        </div>
+</main>
 </body>
 </html>

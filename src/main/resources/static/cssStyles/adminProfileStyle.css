@@ -284,5 +284,7 @@ h2{
 .meal-img{
    /*width:100%;*/
    /* border-radius: 5px;*/
+    border-radius: 11px;
+    box-shadow: 2px 2px 2px #ccc;
 }
 
