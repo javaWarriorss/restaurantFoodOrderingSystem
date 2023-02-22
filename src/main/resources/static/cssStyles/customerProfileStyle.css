@@ -1,0 +1,45 @@
+
+
+
+/*THIS STYLES ARE USED FOR ADDRESS , ORDER HISTORY AND CUSTOMER PROFILE AS FRAGMENT*/
+
+
+.main {
+    margin-left: 160px; /* Same as the width of the menu */
+    font-size: 23px; /* Increased text to enable scrolling */
+    padding: 0px 50px;
+
+}
+
+.menu {
+    height: 100%;
+    float: left;
+    width: 160px;
+    text-align: center;
+    background-color: #94d82d  ;
+    position: fixed;
+    /* z-index: 1;*/
+    top: 80px;
+    left: 0;
+    /* overflow-x: hidden; */
+    padding-top: 160px;
+}
+
+.menu a {
+
+    padding: 10px 8px 15px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+}
+.menu a:hover {
+    color: ghostwhite;
+}
+.menu-a-padding-from-top{
+    padding-top: 230px !important;
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+}

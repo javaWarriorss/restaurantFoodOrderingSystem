@@ -201,7 +201,7 @@
 
 .food-item-cart-container {
     text-align: center;
-    width:100%;
+    width:90%;
     /*background-color: #45a049;*/
     /*padding-top:6rem;*/
     display: grid;
@@ -317,62 +317,62 @@ input.qty:hover, input.qty:focus {
 
 
 /*if there is more meal cards on page, the footer is going behind these cards, For now nI fixed this adding additional section, but it's not best solution */
-.footer {
-    border-top: 1px solid #eee;
-    /*background-color:gray;*/
-    text-align: center;
-    margin-top: 4rem;
-    /*position: fixed;*/
-    /*overflow: hidden;*/
+/*.footer {*/
+/*    border-top: 1px solid #eee;*/
+/*    !*background-color:gray;*!*/
+/*    text-align: center;*/
+/*    margin-top: 4rem;*/
+/*    !*position: fixed;*!*/
+/*    !*overflow: hidden;*!*/
 
-}
+/*}*/
 
-.footer-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 8rem;
-    height: 4rem;
-    /*background-color: white;*/
-    margin: 0 auto;
-}
+/*.footer-container{*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*    align-items: center;*/
+/*    width: 8rem;*/
+/*    height: 4rem;*/
+/*    !*background-color: white;*!*/
+/*    margin: 0 auto;*/
+/*}*/
 
-.copyright{
-    margin-top: 6rem;
-    color: #767676;
-    padding-bottom: 1rem;
-}
+/*.copyright{*/
+/*    margin-top: 6rem;*/
+/*    color: #767676;*/
+/*    padding-bottom: 1rem;*/
+/*}*/
 
-.footer-brand-logo{
-    font-size: 2rem;
-    font-weight: bolder;
-    padding-top: 4rem;
-    /*background-color: #c2c4c6;*/
+/*.footer-brand-logo{*/
+/*    font-size: 2rem;*/
+/*    font-weight: bolder;*/
+/*    padding-top: 4rem;*/
+/*    !*background-color: #c2c4c6;*!*/
 
-}
-.footer-brand-title{
-    color: var(--dark);
+/*}*/
+/*.footer-brand-title{*/
+/*    color: var(--dark);*/
 
-}
-.footer-brand{
-    color: var(--green);
-}
-.footer-logo{
-    font-size: 1.6rem;
-    color: #343a40;
-}
+/*}*/
+/*.footer-brand{*/
+/*    color: var(--green);*/
+/*}*/
+/*.footer-logo{*/
+/*    font-size: 1.6rem;*/
+/*    color: #343a40;*/
+/*}*/
 
-.footer-logo:link,
-.footer-logo:visited{
-    display: inline-block;
-    text-decoration: none;
-    color: #767676;
-    transition: all 0.3s;
-}
+/*.footer-logo:link,*/
+/*.footer-logo:visited{*/
+/*    display: inline-block;*/
+/*    text-decoration: none;*/
+/*    color: #767676;*/
+/*    transition: all 0.3s;*/
+/*}*/
 
-.footer-logo:hover,
-.footer-logo:active{
-    color: var(--green);
-}
+/*.footer-logo:hover,*/
+/*.footer-logo:active{*/
+/*    color: var(--green);*/
+/*}*/
 /***********************************/
 

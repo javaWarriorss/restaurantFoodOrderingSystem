@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <title>My Profile</title>
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
+    <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
     <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
 
-<section>
-    <h1>My Profile</h1>
-    <section>
+
+
+    <section  class="menu">
+
         <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
         <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
         <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
     </section>
 
+    <div class="main">
+        <h2>My Profile</h2>
     <form  th:action="@{/menu/{id}/profile (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
@@ -63,12 +68,12 @@
             </p>
         </div>
     </form>
+    </div>
 
-</section>
+    </div>
 
 
-
-
+    <footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
 
 </body>
 </html>
