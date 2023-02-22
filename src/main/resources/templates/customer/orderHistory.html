@@ -3,12 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .main {
+            padding: 50px;
+            margin-top: 50px;
+        }
+        table {
+            width: fit-content;
+        }
+        .table-header{
+            border-collapse: collapse;
+            width: 100%;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color:lightgray;
+            color: black;
+
+        }
+        .table-header, th, td {
+            border: 1px solid black ;
+            padding: 8px;
+        }
+
+        .table-header tr:nth-child(even){background-color: white;}
+
+        .table-header tr:hover {background-color:darkgrey ;}
+
+        .table-header th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #5c9326;
+            color: white;
+        }
+        h2{
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
+
 <section>
-  <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
+    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
+    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
+    <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
+
 </section>
 
-<h2>My orders:</h2>
+
+<section class="main">
+    <h2>My orders:</h2>
+        <table style="width:75%" class="table-header">
+            <tr>
+                <th>Order Time</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Post code</th>
+                <th>One products price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>paymentMethod</th>
+                <th>Products name</th>
+            </tr>
+            <tr th:each="list, status : ${orderList}">
+            <td>[[${list.orderTime}]] </td>
+            <td>[[${list.country}]] </td>
+            <td>[[${list.city}]] </td>
+            <td>[[${list.street}]] </td>
+            <td>[[${list.postCode}]] </td>
+            <td>[[${list.productCost}]]&euro;</td>
+            <td>[[${list.quantity}]]</td>
+            <td>[[${list.subtotal}]]&euro; </td>
+            <td>[[${list.paymentMethod}]] </td>
+            <td>[[${list.foodItem.foodName}]] </td>
+            </tr>
+        </table>
+</section>
+
 </body>
 </html>

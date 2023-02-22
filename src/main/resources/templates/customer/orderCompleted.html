@@ -7,11 +7,12 @@
 <body>
 
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
 <h2> THANK YOU FOR ORDERING!</h2>
 <p>Order will take approximetly 1-1.5 hours to be delivered.
   The Carrier will contact you when Order will be on the way</p>
 
-
+<a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> View My Orders</a>
 
 </body>
 </html>

@@ -12,31 +12,43 @@
 <!--</section>-->
 <section>
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
+    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
+    <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
 </section>
 <section >
     <form  th:action="@{/menu/{id}/address (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
-
         <div>
             <label> Street</label><br>
-            <input type="text" name="street" th:value="${customerAddress.street}">
+            <input type="text" name="street" required th:value="${customerAddress.street}">
         </div>
         <div>
             <label> City</label><br>
-            <input type="text" name="city" th:value="${customerAddress.city}">
+            <input type="text" name="city" required th:value="${customerAddress.city}">
         </div>
         <div>
             <label> Country</label><br>
-            <input type="text" name="country" th:value="${customerAddress.country}">
+            <input type="text" name="country" required th:value="${customerAddress.country}">
         </div>
         <div>
             <label> Postal Code</label><br>
-            <input type="text" name="postCode" th:value="${customerAddress.postCode}">
+            <input type="text" name="postCode" required th:value="${customerAddress.postCode}">
         </div>
 
         <div>
             <button type="submit" value="Submit">Update</button>
+        </div>
+
+        <div>
+            <p>
+                <span th:if="${messageForAddress == 'addressUpdate_success'}">
+                    Address Information updated successfully
+                </span>
+                <span th:if="${messageForAddress == 'addressUpdate_failed'}">
+                    Address was not updated,please try again
+                </span>
+            </p>
         </div>
     </form>
 

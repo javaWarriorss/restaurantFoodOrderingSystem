@@ -31,6 +31,7 @@
 <section  style="padding-top: 155px;" >
 
     <section>
+        <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
         <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
         <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
     </section>
@@ -40,19 +41,19 @@
 
         <div>
             <label> First Name</label><br>
-            <input type="text" name="firstName" th:value="${customer.firstName}">
+            <input type="text" name="firstName" required th:value="${customer.firstName}">
         </div>
         <div>
             <label> Last Name</label><br>
-            <input type="text" name="lastName" minlength="4"th:value="${customer.lastName}">
+            <input type="text" name="lastName" required minlength="4" th:value="${customer.lastName}">
         </div>
         <div>
             <label> Date of birth</label><br>
-            <input type="date" name="dateOfBirth" th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
+            <input type="date" name="dateOfBirth" required th:value="${customer.dateOfBirth}">    <!-- needs to set min age! -->
         </div>
         <div>
             <label> Phone Number</label><br>
-            <input type="text" name="phoneNumber" minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
+            <input type="text" name="phoneNumber" required minlength="7" maxlength="8" th:value="${customer.phoneNumber}" oninput="this.value=this.value.replace(/[^0-9]/g,'');">  <!-- allows only integers from 7 to 8 numbers long -->
         </div>
         <div>
             <label> Email</label><br>
@@ -60,12 +61,23 @@
         </div>
         <div>
             <label> Password</label><br>
-            <input type="password" name="password"  minlength="4" th:value="${customer.password}">
+            <input type="password" name="password" required  minlength="4" th:value="${customer.password}">
         </div>
 
         <input type="hidden" name="customerAddress" th:value="${customerId}"/>
         <div>
             <button type="submit" value="Submit">Update</button>
+        </div>
+
+        <div>
+            <p>
+                <span th:if="${messageTwo == 'update_success'}">
+                 Information updated successfully
+                </span>
+                <span th:if="${messageTwo == 'emailUpdate_failed'}">
+                   Unable to Update this email,please check again
+                </span>
+            </p>
         </div>
     </form>
 
