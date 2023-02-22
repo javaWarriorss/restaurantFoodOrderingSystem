@@ -41,19 +41,31 @@ public class CustomerService {
     }
 
     public Customer updateCustomerById( Long id, Customer updatedCustomer) throws Exception {
+        try {
         Customer customer = customerRepository.findById(id).orElseThrow();
-        customer.setFirstName(updatedCustomer.getFirstName());
-        customer.setLastName(updatedCustomer.getLastName());
-        customer.setDateOfBirth(updatedCustomer.getDateOfBirth());
-        customer.setPhoneNumber(customer.getPhoneNumber());
-        customer.setEmail(updatedCustomer.getEmail());
-        customer.setPassword(updatedCustomer.getPassword());
-        customer.setCustomerAddress(updatedCustomer.getCustomerAddress());
 
-            if(customer.getEmail().equals(updatedCustomer.getEmail())){
-                throw new Exception("this email is already taken");
-            }
+        if(customer.getEmail().equals(updatedCustomer.getEmail())){
+            customer.setFirstName(updatedCustomer.getFirstName());
+            customer.setLastName(updatedCustomer.getLastName());
+            customer.setDateOfBirth(updatedCustomer.getDateOfBirth());
+            customer.setPhoneNumber(customer.getPhoneNumber());
+            customer.setPassword(updatedCustomer.getPassword());
+            customer.setCustomerAddress(updatedCustomer.getCustomerAddress());
+        }else {
+            customer.setFirstName(updatedCustomer.getFirstName());
+            customer.setLastName(updatedCustomer.getLastName());
+            customer.setDateOfBirth(updatedCustomer.getDateOfBirth());
+            customer.setPhoneNumber(customer.getPhoneNumber());
+            customer.setEmail(updatedCustomer.getEmail());
+            customer.setPassword(updatedCustomer.getPassword());
+            customer.setCustomerAddress(updatedCustomer.getCustomerAddress());
+        }
+       // throw new Exception("this email is already taken");
+
         return customerRepository.save(customer);
+        } catch (Exception e) {
+            throw new Exception("Email you try to update already exists");
+        }
     }
 
     public  Customer verifyCustomer(Customer customerLoginRequest) throws Exception{
@@ -75,4 +87,6 @@ public class CustomerService {
         public Customer findAllCustomersById (Long customerId){
                 return  this.customerRepository.findAllById(customerId);
         }
+
+
 }

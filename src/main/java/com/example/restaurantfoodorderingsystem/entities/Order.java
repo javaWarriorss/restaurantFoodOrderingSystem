@@ -1,8 +1,10 @@
 package com.example.restaurantfoodorderingsystem.entities;
 
 import com.example.restaurantfoodorderingsystem.enums.PaymentMethod;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -16,6 +18,8 @@ public class Order{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date orderTime;
     private Double productCost;
     private Double subtotal;

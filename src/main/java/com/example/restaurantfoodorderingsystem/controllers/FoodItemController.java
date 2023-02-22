@@ -18,8 +18,8 @@ public class FoodItemController {
     public FoodItemController(FoodItemService foodItemService, AdminService adminService) {
         this.foodItemService = foodItemService;
         this.adminService = adminService;
-    }
 
+    }
     //    WORKS!
     @GetMapping("/adminProfileView/{adminId}/adminAddMeal")
     public String displayAdminAddMeal(@PathVariable Long adminId, Model model){
@@ -65,60 +65,13 @@ public class FoodItemController {
         return "redirect:/adminProfileView/{adminId}/admin/adminViewAllMeal";
     }
 
-
-//_______________________admin food_____________________________________
-
-//    @GetMapping("/adminAddMeal")
-//    public String showAddMealPage(){
-//        return "admin/adminAddMeal";
-//    }
-//
-//
-//    @PostMapping("/adminAddMeal")
-//    public String addNewFoodItem(FoodItem foodItem){
-//        this.foodItemService.createFoodItem(foodItem);
-//
-//        return "redirect:/adminAddMeal";
-//    }
-
-
-
-//    @GetMapping("/adminViewAllMeal") //
-//    public String showAllMeal(Model model) {
-//        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
-//        return "admin/adminViewAllMeal";
-//    }
-//
-//
-//    @GetMapping("/adminViewAllMeal/delete/{foodItemId}")
-//    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId) {
-//        this.foodItemService.deleteItemById(foodItemId);
-//        return "redirect:/adminViewAllMeal?message=product_deleted";
-//    }
-//
-//    @GetMapping("/edit{foodItemId}")
-//    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model) {
-//        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
-//        return "admin/adminUpdateMeal";
-//    }
-//
-//
-//    @PostMapping("/updateMeal/{foodItemId}")
-//    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem) {
-//        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
-//        this.foodItemService.createFoodItem(updatedFoodItem);
-//        return "redirect:/adminViewAllMeal";
-//    }
-
-
-// Sort FoodItems by types
-@GetMapping("/adminProfileView/{adminId}/meatMainDishes")
-public String showAllMeatMainDishes(@PathVariable Long adminId,Model model) {
-    String foodItemType = "Meat main dishes";
-    model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-    model.addAttribute("adminId", adminId);
-    return "admin/adminViewAllMeal";
-}
+    @GetMapping("/adminProfileView/{adminId}/meatMainDishes")
+    public String showAllMeatMainDishes(@PathVariable Long adminId,Model model) {
+        String foodItemType = "Meat main dishes";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        model.addAttribute("adminId", adminId);
+        return "admin/adminViewAllMeal";
+    }
 
 
     @GetMapping("/adminProfileView/{adminId}/fishMainDishes")
@@ -236,6 +189,55 @@ public String showAllMeatMainDishes(@PathVariable Long adminId,Model model) {
         model.addAttribute("adminId", adminId);
         return "admin/adminViewAllMeal";
     }
+
+//_______________________admin food_____________________________________
+
+//    @GetMapping("/adminAddMeal")
+//    public String showAddMealPage(){
+//        return "admin/adminAddMeal";
+//    }
+//
+//
+//    @PostMapping("/adminAddMeal")
+//    public String addNewFoodItem(FoodItem foodItem){
+//        this.foodItemService.createFoodItem(foodItem);
+//
+//        return "redirect:/adminAddMeal";
+//    }
+
+
+
+//    @GetMapping("/adminViewAllMeal") //
+//    public String showAllMeal(Model model) {
+//        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
+//        return "admin/adminViewAllMeal";
+//    }
+//
+//
+//    @GetMapping("/adminViewAllMeal/delete/{foodItemId}")
+//    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId) {
+//        this.foodItemService.deleteItemById(foodItemId);
+//        return "redirect:/adminViewAllMeal?message=product_deleted";
+//    }
+//
+//    @GetMapping("/edit{foodItemId}")
+//    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model) {
+//        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
+//        return "admin/adminUpdateMeal";
+//    }
+//
+//
+//    @PostMapping("/updateMeal/{foodItemId}")
+//    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem) {
+//        this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
+//        this.foodItemService.createFoodItem(updatedFoodItem);
+//        return "redirect:/adminViewAllMeal";
+//    }
+
+
+// Sort FoodItems by types
+//    Marija: changed @GetMapping("/adminProfileView/{adminId}/meatMainDishes")
+
 
 //_____________________Menu customer_______________________________________________++++++
 

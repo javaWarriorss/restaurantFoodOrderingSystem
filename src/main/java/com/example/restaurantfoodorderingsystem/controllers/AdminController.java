@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class AdminController {
 
+    @Autowired
     private final AdminService adminService;
-
+    @Autowired
     private final FoodItemService foodItemService;
     @Autowired
     public AdminController(AdminService adminService, FoodItemService foodItemService){
@@ -55,7 +56,6 @@ public class AdminController {
         try{
             Admin loggedInAdmin = adminService.verifyAdmin(admin);
             Cookie cookie = new Cookie("adminId", loggedInAdmin.getId().toString());
-            cookie.setMaxAge(7 * 24 * 60 * 60);
 
             response.addCookie(cookie);
             response.addCookie(new Cookie("adminIsLoggedIn", "true"));
@@ -83,7 +83,7 @@ public class AdminController {
 ////    WORKS!
 //    @PostMapping("/adminProfileView/{adminId}/adminAddMeal")
 //    public String addNewFoodItem(FoodItem foodItem, @PathVariable ("adminId") Long adminId, Model model){
-//        model.addAttribute("userId", adminId);
+//        model.addAttribute("adminId", adminId);
 //        this.foodItemService.createFoodItem(foodItem);
 //        return "redirect:/adminProfileView/" + adminId + "/adminAddMeal";
 //    }
@@ -109,7 +109,7 @@ public class AdminController {
 //        model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
 //        return "admin/adminUpdateMeal";
 //    }
-
+//
 
 //    @PostMapping("/adminProfileView/{adminId}/updateMeal/{foodItemId}")
 //    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem, @PathVariable Long adminId, Model model) {

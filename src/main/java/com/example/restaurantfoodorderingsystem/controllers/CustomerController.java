@@ -18,7 +18,6 @@ private  final CustomerAddressService customerAddressService;
         this.customerService = customerService;
         this.customerAddressService = customerAddressService;
     }
-
     @GetMapping("/register")
     public String showRegistrationPage(){
         return "customer/register";
@@ -33,13 +32,8 @@ private  final CustomerAddressService customerAddressService;
                result.rejectValue("email", null,
                        "There is already an account registered with the same email");
            }
-          // if(result.hasErrors()){
-          //     model.addAttribute("customer", customer);
-           //    return "/register";
-          // }
             this.customerAddressService.createCustomerAddress(customerAddress);
             this.customerService.createCustomer(customer,customerAddress);
-
         }catch (Exception e){
             model.addAttribute("message","signup_failed");
             model.addAttribute("error",e.getMessage());
@@ -54,22 +48,16 @@ private  final CustomerAddressService customerAddressService;
       @RequestParam(name="message", required = false)String message
     ){
         model.addAttribute("message", message);
-
         return "customer/login";
     }
-
 
     @PostMapping("/login")
     public String handleCustomerLogin(Customer customer){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
             return "redirect:menu/" +loggedInCustomer.getId();
-
         }catch (Exception e){
             return "redirect:/login?message=login_failed&error=" +e.getMessage();
-        }  
-
+        }
     }
-
-
 }
