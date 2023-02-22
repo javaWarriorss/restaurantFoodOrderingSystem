@@ -2,80 +2,122 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add New Meal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
-    <link href="/cssStyles/styleFoodItemTable.css" rel="stylesheet" >
-
-</head>
-
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="/cssStyles/adminProfileStyle.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
 <body>
-<header>
-    <div class="nav-box">
-        <a class="nav-link-add-meal" th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}">Add meal</a>
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <!--        <h2><span class="logo">Restaurant</span></h2>-->
+        <h2><span class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</span></h2>
     </div>
 
-</header>
-
-<section class="table-section">
-<div class="flex-box">
-<div class="flex-links">
-    <a class="nav-link-view-all" th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}">View all meals</a>
-    <a href="/meatMainDishes" class="menu-item">Meat main dishes</a>
-    <a href="/fishMainDishes" class="menu-item">Fish main dishes</a>
-    <a href="/vegetableDishes" class="menu-item">Vegetable dishes</a>
-    <a href="/sideDishes" class="menu-item">Side dishes</a>
-    <a href="/soups" class="menu-item">Soups</a>
-    <a href="/salads" class="menu-item">Salads</a>
-    <a href="/pancakes" class="menu-item">Pancakes</a>
-    <a href="/burgers" class="menu-item">Burgers</a>
-    <a href="/snacks" class="menu-item">Snacks</a>
-    <a href="/sauces" class="menu-item">Sauces</a>
-    <a href="/bread" class="menu-item">Bread</a>
-    <a href="/desserts" class="menu-item">Desserts</a>
-    <a href="/bakery" class="menu-item">Bakery</a>
-    <a href="/drinks" class="menu-item">Drinks</a>
-    <a href="/cutlery" class="menu-item">Cutlery</a>
-</div>
-
-    <div>
-        <h5 th:if="${foodItemList.isEmpty()}">There are no Meals to display.</h5>
-    <!--table-->
-    <table class="foodItem-table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>In Stock</th>
-            <th>Delete product</th>
-            <th>Update</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--        <tr th:each="foodItem : ${foodItemList}" th:if="${foodItem.category == 'Meat main dishes'}">-->
-        <tr th:each="foodItem:${foodItemList}">
-            <td th:text="${foodItem.id}"></td>
-<!--            <td th:text="${foodItem.foodPhotoUrl}"></td>-->
-            <td><img th:src="${foodItem.getFoodPhotoUrl()}" width="100px"/></td>
-            <td th:text="${foodItem.foodName}"></td>
-            <td th:text="${foodItem.description}"></td>
-            <td th:text="${foodItem.category}"></td>
-            <td th:text="${foodItem.type}"></td>
-            <td th:text="${foodItem.price}"></td>
-            <td th:text="${foodItem.inStock}"></td>
-            <td><a class="delete-edit-link" th:href="'/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit">DELETE</span></a></td>
-            <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId}"><span class="delete-edit">EDIT</span></a></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <!--                <a href="" class="active"><span class="fa-solid fa-caret-down"></span>-->
+                <!--                    <span>Dashboard</span></a>-->
+            </li>
+            <li>
+                <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
+                    <span>Add new meal</span></a>
+            </li>
+            <!--            <li><a href="category.html">Category</a></li>-->
+            <li>
+                <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
+                    <span>All meals</span></a>
+            </li>
+            <li>
+                <a href=""><span class="fa-solid fa-key"></span>
+                    <span>Change Password</span></a>
+            </li>
+            <li>
+                <a href="/login"><span class="fa-solid fa-right-from-bracket"></span>
+                    <span>Logout</span></a>
+            </li>
+        </ul>
     </div>
 </div>
-</section>
+<div class="second-sidebar">
+    <div class="flex-links">
+        <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}" class="menu-item">All meals</a>
+        <a th:href="@{/adminProfileView/{id}/meatMainDishes (id=${adminId})}" class="menu-item">Meat main dishes</a>
+        <a th:href="@{/adminProfileView/{id}/fishMainDishes (id=${adminId})}" class="menu-item">Fish main dishes</a>
+        <a th:href="@{/adminProfileView/{id}/vegetableDishes (id=${adminId})}" class="menu-item">Vegetable dishes</a>
+        <a th:href="@{/adminProfileView/{id}/sideDishes (id=${adminId})}" class="menu-item">Side dishes</a>
+        <a th:href="@{/adminProfileView/{id}/soups (id=${adminId})}" class="menu-item">Soups</a>
+        <a th:href="@{/adminProfileView/{id}/salads (id=${adminId})}" class="menu-item">Salads</a>
+        <a th:href="@{/adminProfileView/{id}/pancakes (id=${adminId})}" class="menu-item">Pancakes</a>
+        <a th:href="@{/adminProfileView/{id}/burgers (id=${adminId})}" class="menu-item">Burgers</a>
+        <a th:href="@{/adminProfileView/{id}/snacks (id=${adminId})}" class="menu-item">Snacks</a>
+        <a th:href="@{/adminProfileView/{id}/sauces (id=${adminId})}" class="menu-item">Sauces</a>
+        <a th:href="@{/adminProfileView/{id}/bread (id=${adminId})}" class="menu-item">Bread</a>
+        <a th:href="@{/adminProfileView/{id}/desserts (id=${adminId})}" class="menu-item">Desserts</a>
+        <a th:href="@{/adminProfileView/{id}/bakery (id=${adminId})}" class="menu-item">Bakery</a>
+        <a th:href="@{/adminProfileView/{id}/drinks (id=${adminId})}" class="menu-item">Drinks</a>
+        <a th:href="@{/adminProfileView/{id}/cutlery (id=${adminId})}" class="menu-item">Cutlery</a>
+    </div>
+</div>
+<div class="main-content">
+    <header >
+        <!--        <h2>-->
+        <!--            <label for="">-->
+        <!--                <span class="fa-solid fa-bars"></span>-->
+        <!--            </label>-->
+        <!--            Dashboard-->
+        <!--        </h2>-->
+
+        <div class="admin-wrapper">
+            <div> <label>WELCOME  "ADMIN"  <-----HERE WILL BE ADMIN NAME!</label>
+                <!--                <small><span th:value="${admin.getFirstName()}"></span>-->
+                <!--                    Admin</small>-->
+            </div>
+        </div>
+    </header>
+
+    <main>
+<!--        <h2> ALL MEAL</h2>-->
+
+        <div class="all-meal-table-box">
+                <div>
+                    <h5 th:if="${foodItemList.isEmpty()}">There are no Meals to display.</h5>
+                    <!--table-->
+                    <table class="foodItem-table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>In Stock</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--        <tr th:each="foodItem : ${foodItemList}" th:if="${foodItem.category == 'Meat main dishes'}">-->
+                        <tr th:each="foodItem:${foodItemList}">
+                            <td th:text="${foodItem.id}"></td>
+                            <!--            <td th:text="${foodItem.foodPhotoUrl}"></td>-->
+                            <td><img th:src="${foodItem.getFoodPhotoUrl()}" width="100px"/></td>
+                            <td th:text="${foodItem.foodName}"></td>
+                            <td th:text="${foodItem.description}"></td>
+                            <td th:text="${foodItem.category}"></td>
+                            <td th:text="${foodItem.type}"></td>
+                            <td th:text="${foodItem.price}"></td>
+                            <td th:text="${foodItem.inStock}"></td>
+                            <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit"><i class="fa-solid fa-trash"></i></span></a></td>
+                            <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId}"><span class="delete-edit"><i class="fa-solid fa-pen-to-square"></i></span></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </main>
+</div>
+</div>
 </body>
 </html>
