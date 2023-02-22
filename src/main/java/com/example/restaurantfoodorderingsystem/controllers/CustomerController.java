@@ -4,6 +4,8 @@ import com.example.restaurantfoodorderingsystem.entities.Customer;
 import com.example.restaurantfoodorderingsystem.entities.CustomerAddress;
 import com.example.restaurantfoodorderingsystem.services.CustomerAddressService;
 import com.example.restaurantfoodorderingsystem.services.CustomerService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,8 +24,6 @@ private  final CustomerAddressService customerAddressService;
     public String showRegistrationPage(){
         return "customer/register";
     }
-
-    // REPAIR NEEDED: needs to show better warning on html if emails are the same
     @PostMapping("/register")
     public String handleCustomerRegistration(Customer customer, BindingResult result, Model model, CustomerAddress customerAddress) {
        try {
@@ -52,12 +52,28 @@ private  final CustomerAddressService customerAddressService;
     }
 
     @PostMapping("/login")
-    public String handleCustomerLogin(Customer customer){
+    public String handleCustomerLogin(Customer customer, HttpServletResponse response){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
+            Cookie cookie = new Cookie("customerCookie",loggedInCustomer.getId().toString());
+            response.addCookie(cookie);
             return "redirect:menu/" +loggedInCustomer.getId();
         }catch (Exception e){
             return "redirect:/login?message=login_failed&error=" +e.getMessage();
         }
+    }
+
+    @GetMapping("/")
+    public String logoutCustomerAndDeleteCookies(HttpServletResponse response){
+        try {
+            Cookie deleteServletCookie = new Cookie("customerCookie", null);
+            deleteServletCookie.setMaxAge(0);
+            response.addCookie(deleteServletCookie);
+            return "redirect:index.html";
+        }catch (Exception e){
+            return "redirect:/login";
+        }
+
+
     }
 }

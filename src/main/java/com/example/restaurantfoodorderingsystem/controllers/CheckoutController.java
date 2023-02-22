@@ -9,6 +9,7 @@ import com.example.restaurantfoodorderingsystem.services.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,9 +33,9 @@ public class CheckoutController {
     }
 
     @GetMapping("menu/{customerId}/cart/order")
-    public String showCheckoutPage(@PathVariable Long customerId, Model model) throws Exception {
-        model.addAttribute("customerId",customerId);
-        Customer customer=customerService.findCustomerById(customerId);
+    public String showCheckoutPage(@PathVariable Long customerId, Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
+        Customer customer=customerService.findCustomerById(Long.valueOf(customerIdFromCookie));
         List<CartItem> cartItems = cartItemService.listCartItems(customer);
         CheckOutInfo checkoutInfo = checkoutService.prepareCheckout(cartItems);
 
@@ -48,11 +49,11 @@ public class CheckoutController {
     }
     @Transactional
     @PostMapping("menu/{customerId}/cart/placeOrder")
-    public String placeOrder(@PathVariable Long customerId, Model model,PaymentMethod paymentType) throws Exception {
-        model.addAttribute("customerId",customerId);
+    public String placeOrder(@PathVariable Long customerId, Model model,PaymentMethod paymentType,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
         model.addAttribute("paymentType",paymentType);
         PaymentMethod paymentMethod = PaymentMethod.valueOf(String.valueOf(paymentType));
-        Customer customer=customerService.findCustomerById(customerId);
+        Customer customer=customerService.findCustomerById(Long.valueOf(customerIdFromCookie));
 
         CustomerAddress customerAddress=customerAddressService.findAllAddressById(customer.getId());
         List<CartItem> cartItems = cartItemService.listCartItems(customer);

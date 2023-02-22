@@ -27,17 +27,18 @@ public class ProfileController {
 
     // updating customer profile data
     @GetMapping("menu/{customerId}/profile")
-    public String updateCustomerShow( @RequestParam(name="messageTwo", required = false)String messageTwo, Model model, @PathVariable  Long customerId) throws Exception {
-       // model.addAttribute("customerId", customerId);
-        model.addAttribute("customer",customerService.findAllCustomersById(customerId));
+    public String updateCustomerShow( @RequestParam(name="messageTwo", required = false)String messageTwo, Model model, @PathVariable  Long customerId,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
+        model.addAttribute("customer",customerService.findAllCustomersById(Long.valueOf(customerIdFromCookie)));
         model.addAttribute("messageTwo", messageTwo);
         return "customer/customerProfile";
     }
 
     @PostMapping("menu/{customerId}/profile")
-    public String updateCustomer(@PathVariable(name="customerId")  Long customerId, Customer updatedCustomer,Model model){
+    public String updateCustomer(@PathVariable(name="customerId")  Long customerId, Customer updatedCustomer,Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie){
         try {
-            this.customerService.updateCustomerById(customerId, updatedCustomer);
+            model.addAttribute("customerId",customerIdFromCookie);
+            this.customerService.updateCustomerById(Long.valueOf(customerIdFromCookie), updatedCustomer);
             this.customerService.createCustomer(updatedCustomer);
         } catch (Exception e) {
             model.addAttribute("messageTwo", "emailUpdate_failed");
@@ -49,16 +50,20 @@ public class ProfileController {
 
     // updating customer address
     @GetMapping("menu/{customerId}/address")
-    public String updateCustomerAddressShow(@RequestParam(name="messageForAddress", required = false)String messageForAddress, Model model, @PathVariable  Long customerId) throws Exception {
-        model.addAttribute("customerAddress",customerAddressService.findAllAddressById(customerId));
+    public String updateCustomerAddressShow(@RequestParam(name="messageForAddress", required = false)String messageForAddress, Model model, @PathVariable  Long customerId,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
+       // model.addAttribute("customerAddress",customerAddressService.findAllAddressById(customerId));
+        model.addAttribute("customerAddress",customerAddressService.findAllAddressById(Long.valueOf(customerIdFromCookie)));
         model.addAttribute("messageForAddress", messageForAddress);
         return "customer/customerAddress";
     }
 
     @PostMapping("menu/{customerId}/address")
-    public String updateCustomerAddress(@PathVariable(name="customerId")  Long customerId, CustomerAddress updatedAddress,Model model){
+    public String updateCustomerAddress(@PathVariable(name="customerId")  Long customerId, CustomerAddress updatedAddress,Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie){
      try {
-        this.customerAddressService.updateCustomerAddressById(customerId, updatedAddress);
+         model.addAttribute("customerId",customerIdFromCookie);
+        this.customerAddressService.updateCustomerAddressById(Long.valueOf(customerIdFromCookie), updatedAddress);
+        // this.customerAddressService.updateCustomerAddressById(customerId, updatedAddress);
         this.customerAddressService.createCustomerAddress(updatedAddress);
     } catch (Exception e) {
         model.addAttribute("messageForAddress", "addressUpdate_failed");
@@ -69,9 +74,9 @@ public class ProfileController {
     }
 
     @GetMapping("menu/{customerId}/orderHistory")
-    public String showOrderHistory(Model model, @PathVariable  Long customerId) throws Exception {
-        model.addAttribute("customerId",customerId);
-        Customer customer=customerService.findCustomerById(customerId);
+    public String showOrderHistory(Model model, @PathVariable  Long customerId,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
+        Customer customer=customerService.findCustomerById(Long.valueOf(customerIdFromCookie));
         List<Order> orderList =  orderService.findOrderByCustomerId(customer.getId()); // query did not return a unique result: 18
         model.addAttribute("orderList",orderList);
         return "customer/orderHistory";

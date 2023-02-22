@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +34,9 @@ public class ShoppingCartController {
 
     @GetMapping("menu/{customerId}/cart")
 
-    public String showShoppingCart(@PathVariable Long customerId, Model model) throws Exception {
-        model.addAttribute("customerId",customerId);
-        Customer customer=customerService.findCustomerById(customerId);
+    public String showShoppingCart(@PathVariable Long customerId, Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+        model.addAttribute("customerId",customerIdFromCookie);
+        Customer customer=customerService.findCustomerById(Long.valueOf(customerIdFromCookie));
         List<CartItem> cartItems= cartItemService.listCartItems(customer);
         //calculates total price for all items in list
         Double totalAmount = 0.0;
@@ -51,11 +52,11 @@ public class ShoppingCartController {
     }
 
 @GetMapping("menu/{customerId}/{productId}/cart")
-    public String showShoppingCart(@PathVariable Long customerId,@PathVariable("productId") Long productId, Model model) throws Exception {
-    model.addAttribute("customerId",customerId);
+    public String showShoppingCart(@PathVariable Long customerId,@PathVariable("productId") Long productId, Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+    model.addAttribute("customerId",customerIdFromCookie);
     model.addAttribute("productId",productId);
    // model.addAttribute("quantity",quantity);
-        Customer customer=customerService.findCustomerById(customerId);
+        Customer customer=customerService.findCustomerById(Long.valueOf(customerIdFromCookie));
         List<CartItem> cartItems= cartItemService.listCartItems(customer);
 
         //calculates total price for all items in list
@@ -69,33 +70,34 @@ public class ShoppingCartController {
        return "customer/shoppingCart";
     }
 @PostMapping("menu/{customerId}/{productId}/cart")
-    public String addProductToCart(@PathVariable ("customerId") Long customerId, @PathVariable("productId") Long productId ,  Model model,CartItem cartItem){
-    model.addAttribute("customerId", customerId);
+    public String addProductToCart(@PathVariable ("customerId") Long customerId, @PathVariable("productId") Long productId ,  Model model,CartItem cartItem,@CookieValue(value = "customerCookie")String customerIdFromCookie){
+    model.addAttribute("customerId",customerIdFromCookie);
     model.addAttribute("qtyValue", cartItem.getQuantity()); // need to get quantity from bar
     model.addAttribute("productId", productId);//  needs food id from path
-    Customer customer = customerService.findAllCustomersById(customerId);
+    Customer customer = customerService.findAllCustomersById(Long.valueOf(customerIdFromCookie));
     cartItemService.addProduct(productId, cartItem.getQuantity(), customer);
 
-    return "redirect:/menu/"+customerId+"/"+productId+"/cart";
+  //  return "redirect:/menu/"+customerId+"/"+productId+"/cart";
+    return "redirect:/menu/"+customerIdFromCookie+"/"+productId+"/cart";
 }
 
     @PostMapping("menu/{customerId}/{productId}/cart/update")
-    public String UpdateProductCartQuantity(@PathVariable ("customerId") Long customerId, @PathVariable("productId") Long productId ,  Model model,CartItem cartItem){
-        model.addAttribute("customerId",customerId);
+    public String UpdateProductCartQuantity(@PathVariable ("customerId") Long customerId, @PathVariable("productId") Long productId ,  Model model,CartItem cartItem,@CookieValue(value = "customerCookie")String customerIdFromCookie){
+        model.addAttribute("customerId",customerIdFromCookie);
         model.addAttribute("qtyValue",cartItem.getQuantity()); // need to get quantity from bar
         model.addAttribute("productId",productId);//  needs food id from path
-        Customer customer =customerService.findAllCustomersById(customerId);
+        Customer customer =customerService.findAllCustomersById(Long.valueOf(customerIdFromCookie));
         cartItemService.updateCartProduct(productId,cartItem.getQuantity(),customer);
 
-        return "redirect:/menu/"+customerId+"/"+productId+"/cart";
+      //  return "redirect:/menu/"+customerId+"/"+productId+"/cart";
+        return "redirect:/menu/"+customerIdFromCookie+"/"+productId+"/cart";
     }
 @Transactional
     @PostMapping("menu/{customerId}/{productId}/cart/delete")
-    public String DeleteItemInCartByid(@PathVariable ("customerId") Long customerId,@PathVariable("productId") Long productId ,Model model){
-        model.addAttribute("customerId",customerId);
+    public String DeleteItemInCartByid(@PathVariable ("customerId") Long customerId,@PathVariable("productId") Long productId ,Model model,@CookieValue(value = "customerCookie")String customerIdFromCookie){
+    model.addAttribute("customerId",customerIdFromCookie);
         model.addAttribute("productId",productId);
-        cartItemService.removeItemFromCart(customerId, productId);
-
+        cartItemService.removeItemFromCart(Long.valueOf(customerIdFromCookie), productId);
         return "redirect:/menu/{customerId}/cart";
     }
 
