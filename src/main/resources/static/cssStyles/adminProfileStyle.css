@@ -51,6 +51,16 @@
     /*font-size: 1.6rem;*/
 }
 
+.second-sidebar{
+    /*background-color: crimson;*/
+    width: 10rem;
+    height: 100%;
+    left: 22rem;
+    top: 5rem;
+    position: fixed;
+    z-index: 100;
+}
+
 .fa-carrot{
     color: var(--light);
 }
@@ -107,6 +117,7 @@ header{
     width: calc(100% - 345px);
     top: 0;
     z-index: 100;
+    background-color: white;
 }
 
 header h2{
@@ -288,3 +299,116 @@ h2{
     box-shadow: 2px 2px 2px #ccc;
 }
 
+/* ALL MEALS TABLE */
+
+.all-meal-table-box{
+    /*background-color: palevioletred;*/
+    margin-left: 10rem;
+    text-align: center;
+}
+
+/*.nav-box .nav-link-view-all{*/
+/*    font-size: 1.2rem;*/
+/*    border-radius: 1rem;*/
+/*    padding: .5rem 1.5rem;*/
+/*    color: var(--dark);*/
+/*}*/
+/*body{*/
+/*    padding-top: 160px;*/
+/*    font-size: 1.2rem;*/
+/*}*/
+
+/*.table-section{*/
+/*    height: 100vh;*/
+/*}*/
+.foodItem-table{
+    /*margin: 4rem auto 0;*/
+    width: 100%;
+    border-collapse: collapse; /* remove the default spacing between table cells */
+}
+
+.foodItem-table th, .foodItem-table td {
+    width: 10%;
+    padding: 0.8rem;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+    /*font-size: 1.5rem;*/
+}
+
+.foodItem-table th {
+    /*border-bottom: #c2c4c6;*/
+    background-color: #f1f3f5;
+    color: var(--dark);
+    /*font-weight: 400;*/
+    /*font-size: 1.5rem;*/
+    text-align: center;
+    /*width: auto;*/
+}
+
+.foodItem-table tr:nth-child(even) { /* every even-number column, set color */
+    background-color: #f1f3f5;
+}
+
+/*.th{*/
+/*    text-align: center;*/
+/*}*/
+
+/*.flex-box{*/
+/*    display:flex;*/
+/*    text-align: ;*/
+/*}*/
+
+.flex-links{
+    display:flex;
+    flex-direction: column;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+
+}
+
+
+/*.menu-item{*/
+/*    text-decoration: none;*/
+/*    !*color:#343a40;*!*/
+/*}*/
+.menu-item:link,
+.menu-item:visited{
+    /*display: inline-block;*/
+    text-decoration: none;
+    color:#343a40;
+    transition: all 0.3s;
+}
+
+.menu-item:hover,
+.menu-item:active{
+   /*color: var(--dark);*/
+    font-weight: bolder;
+}
+
+
+
+
+/*.nav-box{*/
+/*    margin-bottom: 2rem;*/
+/*}*/
+/*.nav-link-view-all{*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+
+/*.delete-edit:link,*/
+/*.delete-edit:visited{*/
+/*    display: inline-block;*/
+/*    text-decoration: none;*/
+/*    !*color:#343a40;*!*/
+/*    transition: all 0.3s;*/
+/*}*/
+
+.delete-edit{
+    color:#868e96;
+}
+.delete-edit:hover,
+.delete-edit:active{
+    color:#343a40;
+}
