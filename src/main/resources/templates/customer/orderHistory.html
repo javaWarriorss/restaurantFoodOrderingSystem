@@ -3,48 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .main {
-            padding: 50px;
-            margin-top: 50px;
-        }
-        table {
-            width: fit-content;
-        }
-        .table-header{
-            border-collapse: collapse;
-            width: 100%;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color:lightgray;
-            color: black;
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
+    <link rel="stylesheet" href="/cssStyles/orderHistoryStyles.css">
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 
-        }
-        .table-header, th, td {
-            border: 1px solid black ;
-            padding: 8px;
-        }
-
-        .table-header tr:nth-child(even){background-color: white;}
-
-        .table-header tr:hover {background-color:darkgrey ;}
-
-        .table-header th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: center;
-            background-color: #5c9326;
-            color: white;
-        }
-        h2{
-            text-align: center;
-        }
-
-    </style>
 </head>
 <body>
-
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 <section>
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
     <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>

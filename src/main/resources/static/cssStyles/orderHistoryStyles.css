@@ -1,0 +1,36 @@
+.main {
+    padding: 50px;
+    margin-top: 50px;
+}
+table {
+    width: fit-content;
+}
+.table-header{
+    border-collapse: collapse;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:lightgray;
+    color: black;
+
+}
+.table-header, th, td {
+    border: 1px solid black ;
+    padding: 8px;
+}
+
+.table-header tr:nth-child(even){background-color: white;}
+
+.table-header tr:hover {background-color:darkgrey ;}
+
+.table-header th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #5c9326;
+    color: white;
+}
+h2{
+    text-align: center;
+}

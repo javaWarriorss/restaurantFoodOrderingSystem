@@ -1,12 +1,12 @@
-body{
-    margin: 0px;
-    padding: 0px;
-    background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
-    height: 100vh;
-    display:inline;
-    justify-content: center;
-    align-items: center;
-}
+/*body{*/
+/*    margin: 0px;*/
+/*    padding: 0px;*/
+/*    background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);*/
+/*    height: 100vh;*/
+/*    display:inline;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
 .cartContainer{
     margin: auto;
     width: 80%;
