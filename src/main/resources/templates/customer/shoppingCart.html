@@ -44,8 +44,9 @@
                    </td>
                </tr>
            </table>
-                <hr>
+
            <div class="totalPriceBox" th:unless="${#lists.isEmpty(cartItems)}">
+               <hr>
                <div ><span>Total Price:</span></div>
                <div ><span id="totalAmount" >[[${totalAmount}]] &#x20AC</span></div>
                <div>
