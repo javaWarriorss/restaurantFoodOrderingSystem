@@ -188,6 +188,39 @@ public class FoodItemController {
         return "admin/adminViewAllMeal";
     }
 
+    @GetMapping("/adminProfileView/{adminId}/tea")
+    public String showAllTea(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        String foodItemType = "Tea";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        model.addAttribute("adminId", adminIdCookie);
+        return "admin/adminViewAllMeal";
+    }
+
+    @GetMapping("/adminProfileView/{adminId}/coffee")
+    public String showAllCoffee(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        String foodItemType = "Coffee";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        model.addAttribute("adminId", adminIdCookie);
+        return "admin/adminViewAllMeal";
+    }
+
+    @GetMapping("/adminProfileView/{adminId}/water")
+    public String showAllWater(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        String foodItemType = "Water";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        model.addAttribute("adminId", adminIdCookie);
+        return "admin/adminViewAllMeal";
+    }
+    @GetMapping("/adminProfileView/{adminId}/juice")
+    public String showAllJuice(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        String foodItemType = "Juice";
+        model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
+        model.addAttribute("adminId", adminIdCookie);
+        return "admin/adminViewAllMeal";
+    }
+
+
+
 //_______________________admin food_____________________________________
 
 //    @GetMapping("/adminAddMeal")

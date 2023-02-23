@@ -56,7 +56,7 @@
                     <p th:text="${foodItem.description}"></p>
                 </div>
                 <div>
-                    <p><span th:text="${foodItem.price}"></span> &euro;</p>
+                    <p><span class="price" th:text="${foodItem.price}"></span> &euro;</p>
                 </div>
                 <div>
                     <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">

@@ -29,11 +29,15 @@
 }
 .sidebar-logo{
     margin-top: 2rem;
-    margin-right: 4rem;
+    /*margin-right: 4rem;*/
+    margin-left: 2rem;
     height: 90px;
     padding: 1rem 0 1rem 2rem;
     color: var(--dark);
     text-align: center;
+}
+.logo-header{
+    margin-right: 10rem;
 }
 .sidebar-logo span{
     display: inline-block;
@@ -53,7 +57,8 @@
 
 .second-sidebar{
     /*background-color: crimson;*/
-    width: 10rem;
+    margin-top:1rem;
+    width: 9rem;
     height: 100%;
     left: 22rem;
     top: 5rem;
@@ -64,8 +69,13 @@
 .fa-carrot{
     color: var(--light);
 }
-
-
+.admin-id{
+    padding-top: .5rem;
+    font-size: 1.2rem;
+}
+.id{
+    font-size: 1.4rem;
+}
 /* style for links */
 .sidebar-menu a:link,
 .sidebar-menu a:visited{
@@ -299,12 +309,19 @@ h2{
     box-shadow: 2px 2px 2px #ccc;
 }
 
+.no-items{
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-weight: normal;
+}
+
 /* ALL MEALS TABLE */
 
 .all-meal-table-box{
     /*background-color: palevioletred;*/
-    margin-left: 10rem;
+    margin-left: 9rem;
     text-align: center;
+    margin-top: -1rem;
 }
 
 /*.nav-box .nav-link-view-all{*/
@@ -325,6 +342,7 @@ h2{
     /*margin: 4rem auto 0;*/
     width: 100%;
     border-collapse: collapse; /* remove the default spacing between table cells */
+    font-size: 1.2rem;
 }
 
 .foodItem-table th, .foodItem-table td {
@@ -339,6 +357,7 @@ h2{
     /*border-bottom: #c2c4c6;*/
     background-color: #f1f3f5;
     color: var(--dark);
+    /*color:#343a40;*/
     /*font-weight: 400;*/
     /*font-size: 1.5rem;*/
     text-align: center;
@@ -361,10 +380,11 @@ h2{
 .flex-links{
     display:flex;
     flex-direction: column;
-    line-height: 1.5;
+    line-height: 1.4;
     font-size: 1.2rem;
     padding-left: 1rem;
-
+    /*color:#495057;*/
+    /*background-color: #b42121;*/
 }
 
 
