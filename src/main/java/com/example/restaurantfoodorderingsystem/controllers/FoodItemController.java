@@ -21,173 +21,170 @@ public class FoodItemController {
         this.adminService = adminService;
 
     }
-    //    WORKS!
     @GetMapping("/adminProfileView/{adminId}/adminAddMeal")
-    public String displayAdminAddMeal(@PathVariable Long adminId, Model model){
-        model.addAttribute("id", adminService.findAdminById(adminId));
+    public String displayAdminAddMeal(@CookieValue(value = "adminCookie") String adminIdCookie, @PathVariable("adminId") Long adminId, Model model){
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminAddMeal";
     }
-
-    //    WORKS!
     @PostMapping("/adminProfileView/{adminId}/adminAddMeal")
-    public String addNewFoodItem(FoodItem foodItem, @PathVariable ("adminId") Long adminId, Model model){
-        model.addAttribute("userId", adminId);
+    public String addNewFoodItem(@PathVariable("adminId") Long adminId, FoodItem foodItem, @CookieValue(value = "adminCookie") String adminIdCookie, Model model){
+        model.addAttribute("adminId", adminService.findAdminById(adminId));
         this.foodItemService.createFoodItem(foodItem);
-        return "redirect:/adminProfileView/" + adminId + "/adminAddMeal";
+        return "redirect:/adminProfileView/{adminId}/adminAddMeal";
     }
-    //    TRY METHODS FOR ADD MEAL FORM
-//not working!!!!!!!!!!!!!!!!!!!!!
     @GetMapping("/adminProfileView/{adminId}/adminViewAllMeal")
-    public String showAllMeal(@PathVariable Long adminId, Model model) {
-        model.addAttribute("adminId", adminId);
+    public String showAllMeal(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        model.addAttribute("adminId", adminIdCookie);
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItems());
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/adminViewAllMeal/delete/{foodItemId}")
-    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId, @PathVariable Long adminId, Model model) {
-        model.addAttribute("adminId", adminId);
+    public String deleteFoodItem(@PathVariable(name = "foodItemId") Long foodItemId, @PathVariable(name = "adminId") Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
+        model.addAttribute("adminId", adminIdCookie);
+        model.addAttribute("foodItemId", foodItemId);
         this.foodItemService.deleteItemById(foodItemId);
-        return "redirect:/adminProfileView/" + adminId +"adminViewAllMeal?message=product_deleted";
+        return "redirect:/adminProfileView/{adminId}/adminViewAllMeal?message=product_deleted";
     }
 
-    @GetMapping("/adminProfileView/{adminId}/edit{foodItemId}")
-    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model, @PathVariable Long adminId) {
-        model.addAttribute("adminId", adminId);
+    @GetMapping("/adminProfileView/{adminId}/edit/{foodItemId}")
+    public String showUpdateFoodItemForm(@PathVariable(name = "foodItemId") Long foodItemId, Model model, @CookieValue(value = "adminCookie") String adminIdCookie, @PathVariable Long adminId) {
+        model.addAttribute("adminId", adminIdCookie);
         model.addAttribute("foodItem", this.foodItemService.getAllFoodItemsById(foodItemId));
         return "admin/adminUpdateMeal";
     }
-
     @PostMapping("/adminProfileView/{adminId}/updateMeal/{foodItemId}")
-    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem, @PathVariable Long adminId) {
-        this.adminService.findAdminById(adminId);
+    public String updateFoodItem(@PathVariable(name="foodItemId") Long foodItemId, FoodItem updatedFoodItem, @CookieValue(value = "adminCookie") String adminIdCookie, @PathVariable Long adminId, Model model) {
+//        this.adminService.findAdminById(adminId);
+        model.addAttribute("adminId", adminIdCookie);
+        model.addAttribute("foodItemId", foodItemId);
         this.foodItemService.updateFoodItemById(foodItemId, updatedFoodItem);
         this.foodItemService.createFoodItem(updatedFoodItem);
-        return "redirect:/adminProfileView/{adminId}/admin/adminViewAllMeal";
+        return "redirect:/adminProfileView/{adminId}/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/meatMainDishes")
-    public String showAllMeatMainDishes(@PathVariable Long adminId,Model model) {
+    public String showAllMeatMainDishes(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Meat main dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
 
     @GetMapping("/adminProfileView/{adminId}/fishMainDishes")
-    public String showAllFishMainDishes(@PathVariable Long adminId,Model model) {
+    public String showAllFishMainDishes(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Fish main dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/vegetableDishes")
-    public String showAllVegetableDishes(@PathVariable Long adminId,Model model) {
+    public String showAllVegetableDishes(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Vegetable dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
 
     @GetMapping("/adminProfileView/{adminId}/sideDishes")
-    public String showAllSideDishes(@PathVariable Long adminId,Model model) {
+    public String showAllSideDishes(@PathVariable Long adminId,Model model, @CookieValue(value = "adminCookie") String adminIdCookie) {
         String foodItemType = "Side dishes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
 
     @GetMapping("/adminProfileView/{adminId}/soups")
-    public String showAllSoups(@PathVariable Long adminId,Model model) {
+    public String showAllSoups(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Soups";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/salads")
-    public String showAllSalads(@PathVariable Long adminId,Model model) {
+    public String showAllSalads(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Salads";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/pancakes")
-    public String showAllPancakes(@PathVariable Long adminId,Model model) {
+    public String showAllPancakes(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Pancakes";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
 
     @GetMapping("/adminProfileView/{adminId}/burgers")
-    public String showAllBurgers(@PathVariable Long adminId,Model model) {
+    public String showAllBurgers(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie,Model model) {
         String foodItemType = "Burgers";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/snacks")
-    public String showAllSnacks(@PathVariable Long adminId,Model model) {
+    public String showAllSnacks(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Snacks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/sauces")
-    public String showAllSauces(@PathVariable Long adminId,Model model) {
+    public String showAllSauces(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Sauces";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/bread")
-    public String showAllBread(@PathVariable Long adminId,Model model) {
+    public String showAllBread(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Bread";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/desserts")
-    public String showAllDesserts(@PathVariable Long adminId,Model model) {
+    public String showAllDesserts(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Desserts";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/bakery")
-    public String showAllBakery(@PathVariable Long adminId,Model model) {
+    public String showAllBakery(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Bakery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
     @GetMapping("/adminProfileView/{adminId}/drinks") //  by category
-    public String showAllDrinks(@PathVariable Long adminId,Model model) {
+    public String showAllDrinks(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemCategory = "Drinks";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByCategory(foodItemCategory));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 
 
     @GetMapping("/adminProfileView/{adminId}/cutlery")
-    public String showAllCutlery(@PathVariable Long adminId,Model model) {
+    public String showAllCutlery(@PathVariable Long adminId, @CookieValue(value = "adminCookie") String adminIdCookie, Model model) {
         String foodItemType = "Cutlery";
         model.addAttribute("foodItemList", this.foodItemService.getAllFoodItemsByType(foodItemType));
-        model.addAttribute("adminId", adminId);
+        model.addAttribute("adminId", adminIdCookie);
         return "admin/adminViewAllMeal";
     }
 

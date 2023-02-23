@@ -32,7 +32,7 @@
                     <span>Change Password</span></a>
             </li>
             <li>
-                <a href="/login"><span class="fa-solid fa-right-from-bracket"></span>
+                <a href="/adminLogout"><span class="fa-solid fa-right-from-bracket"></span>
                     <span>Logout</span></a>
             </li>
         </ul>
@@ -68,9 +68,11 @@
         <!--        </h2>-->
 
         <div class="admin-wrapper">
-            <div> <label>WELCOME  "ADMIN"  <-----HERE WILL BE ADMIN NAME!</label>
-                <!--                <small><span th:value="${admin.getFirstName()}"></span>-->
-                <!--                    Admin</small>-->
+            <div>
+                <label>
+                    <span>Welcome,
+                    <h3></h3></span>
+                 </label>
             </div>
         </div>
     </header>
@@ -110,7 +112,7 @@
                             <td th:text="${foodItem.price}"></td>
                             <td th:text="${foodItem.inStock}"></td>
                             <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit"><i class="fa-solid fa-trash"></i></span></a></td>
-                            <td><a class="delete-edit-link" th:href="'/edit' + ${foodItem.getId}"><span class="delete-edit"><i class="fa-solid fa-pen-to-square"></i></span></a></td>
+                            <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/edit/' + ${foodItem.getId}"><span class="delete-edit"><i class="fa-solid fa-pen-to-square"></i></span></a></td>
                         </tr>
                         </tbody>
                     </table>
