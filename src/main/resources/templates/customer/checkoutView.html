@@ -4,61 +4,68 @@
     <meta charset="UTF-8">
     <title>Order</title>
     <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
-    <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
+    <link rel="stylesheet" href="/cssStyles/checkoutStyle.css"/>
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
+<div class="mainDivBox">
 
-
-<div class="main">
     <h2>Order details: </h2>
-    <div>
-        <div> <p>Welcome: [[${customerName}]] </p></div>
+    <div id="leftbox">
+        <div class="titlesInfo">Customer Information </div>
         <hr>
-        <div>
-             <h4>Shipping Address Information</h4>
-            <p>
-                <b>Delivery to:</b>[[${shippingAddress}]]
-            </p>
+        <div class="nameAndAddressFont">
+            <div> <b>Name:</b> [[${customerName}]]</div>
+            <div><b>Shipping Address Information:</b> [[${shippingAddress}]]</div>
         </div>
-
-<hr>
+        <hr>
         <form th:action="${'/menu/' +customerId +'/cart/placeOrder'}" method="post">
-            <label for="payment">Payment Method on Delivery:</label>
+            <label class="titlesInfo select" for="payment">Payment Method on Delivery:</label>
             <select name="paymentType" id="payment">
                 <option value="CASH">Cash</option>
                 <option value="CARD">Bank Card</option>
             </select>
-            <button type="submit"> Place Order</button>
+            <div class="buttonDiv">
+            <button class="buttonCheckOut" type="submit"> Place Order</button>
+            </div>
         </form>
     </div>
 
 
-<hr>
 
-    <div>
+
+    <div id = "middlebox">
         <div>
-            <h4>Order Summary</h4>
+            <h4 class="titlesInfo">Order Summary</h4>
+
             <table>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+
+                </tr>
                 <th:block th:each="item : ${cartItems}">
                     <tr>
                         <td>[[${item.quantity}]] x</td>
                         <td>[[${item.foodItem.foodName}]] </td>
 
-                        <td>[[${item.foodItem.price}]] =</td>
-                        <td>[[${item.subtotal}]]</td>
+                        <td>[[${item.foodItem.price}]] &#x20AC</td>
+                        <td>[[${item.subtotal}]] &#x20AC</td>
                     </tr>
                 </th:block>
             </table>
         </div>
-<!--       all total-->
+
         <div>
-            <div>Total Price:</div>
-            <div id="checkoutInfo"> [[${checkoutInfo.productTotal}]]</div>
+            <div class="totalPrice"><b>Total Price:</b>
+            <div id="checkoutInfo"> [[${checkoutInfo.productTotal}]] &#x20AC</div></div>
         </div>
     </div>
+
 </div>
 
 
