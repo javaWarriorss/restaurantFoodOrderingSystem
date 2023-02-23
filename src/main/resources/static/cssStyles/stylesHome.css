@@ -3,7 +3,7 @@
     html{
         font-size: 55%;
     }
-    header{
+    header .header{
         padding: 1rem 2rem;
     }
     section{
@@ -12,11 +12,8 @@
 }
 
 @media (max-width: 768px) {
-    header .icons #header{
+    header .header .nav-bar{
         display: inline-block;
-    }
-
-    header .navbar{
         position: absolute;
         top:100%;
         left:0;
@@ -26,14 +23,18 @@
         padding: 1rem;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
-    header .navbar a{
+    header .header .nav-bar a{
         display: block;
         padding: 1.5rem;
         margin: 1rem;
         font-size: 2rem;
-        background: var(--light);
+        background: var(--light-green);
     }
-
+}
+@media (max-width: 991px) {
+    html {
+        font-size: 50%;
+    }
 }
 :root{
     --green: #94d82d;
@@ -48,9 +49,8 @@
     box-sizing: border-box;
     font-family: 'Playfair Display', serif;
     text-decoration: none;
-    /*outline: none;*/
-    border: none;
-    /*text-transform: capitalize;*/
+    outline: none;
+    /*border: none;*/
     transition: all .2s linear;
 }
 
@@ -161,6 +161,7 @@ header .icons #nav-bar{
 }
 .home .home-slider .slide .content{
     flex:1 1 45rem;
+    text-align: left;
 }
 .home .home-slider .slide .image{
     flex:1 1 45rem;

@@ -32,7 +32,7 @@
                     <span>Change Password</span></a>
             </li>
             <li>
-                <a href="/login"><span class="fa-solid fa-right-from-bracket"></span>
+                <a href="/adminLogout"><span class="fa-solid fa-right-from-bracket"></span>
                     <span>Logout</span></a>
             </li>
         </ul>
@@ -69,7 +69,7 @@
             <div>
             <div class="form-container">
                 <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
-                <form class="form-flex" th:action="@{/updateMeal/{foodItemId}(foodItemId=${foodItem.id})}" method="post">
+                <form class="form-flex" th:action="${'/adminProfileView/'+ adminId + '/updateMeal/'+ foodItem.id }" method="post">
                     <input type="hidden" name="id" th:value="${foodItem.id}"/>
                     <div class="box">
                         <input class="block" name="foodName" type="text" placeholder="Meal title" th:value="${foodItem.foodName}">
