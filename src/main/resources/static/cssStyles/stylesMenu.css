@@ -238,6 +238,8 @@
     color: var(--dark);
     padding-left: 1rem;
     padding-right: 1rem;
+    text-transform: capitalize;
+
 }
 
 .meal-description{
@@ -245,6 +247,7 @@
     color: var(--dark);
     padding-left: 1rem;
     padding-right: 1rem;
+    text-transform: capitalize;
 }
 .price{
     font-weight: bolder;
