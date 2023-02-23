@@ -22,6 +22,7 @@ public class FoodItem {
     private String type; // salads, pancakes, main dishes
     private boolean inStock;
     private String foodPhotoUrl;
-
+    @ManyToOne
+    private Admin admin;
 
 }
