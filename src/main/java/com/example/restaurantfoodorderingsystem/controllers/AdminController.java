@@ -75,6 +75,21 @@ public class AdminController {
         return "admin/adminProfileView";
     }
 
+    @GetMapping("/adminProfileView/{adminId}/updateProfile")
+    public String updateAdminPasswordForm(@PathVariable Long adminId, @CookieValue("adminCookie") String adminIdCookie, Model model){
+        model.addAttribute("adminId", adminIdCookie);
+        model.addAttribute("admin", adminService.findAdminById(Long.valueOf(adminIdCookie)));
+        return "admin/adminProfileUpdate";
+    }
+
+    @PostMapping("/adminProfileView/{adminId}/updateProfile")
+    public String updateAdmin(@PathVariable Long adminId, Model model, @CookieValue(value = "adminCookie") String adminIdCookie, Admin updatedAdmin) throws Exception {
+        model.addAttribute("adminId", adminIdCookie);
+        this.adminService.updateAdmin(Long.valueOf(adminIdCookie),updatedAdmin);
+        this.adminService.createAdmin(updatedAdmin);
+        return "redirect:/adminProfileView/{adminId}";
+    }
+
     @GetMapping("/adminLogout")
     public String adminLogout(HttpServletResponse response) {
         try {

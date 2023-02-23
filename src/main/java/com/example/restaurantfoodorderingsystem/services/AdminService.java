@@ -28,4 +28,15 @@ public class AdminService {
     public Admin findAdminById(Long id){
         return this.adminRepository.findById(id).orElseThrow();
     }
+
+    public Admin updateAdmin(Long id, Admin updatedAdmin) throws Exception{
+        Admin admin = adminRepository.findById(id).orElseThrow();
+
+        admin.setFirstName(updatedAdmin.getFirstName());
+        admin.setLastName(updatedAdmin.getLastName());
+        admin.setEmail(updatedAdmin.getEmail());
+        admin.setPassword(updatedAdmin.getPassword());
+
+        return adminRepository.save(admin);
+    }
 }

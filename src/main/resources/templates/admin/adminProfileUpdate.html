@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Admin Profile</title>
+  <link rel="stylesheet" href="/cssStyles/adminProfileStyle.css"/>
+  <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
+<body>
+<div class="sidebar-logo">
+  <!--        <h2><span class="logo">Restaurant</span></h2>-->
+  <h2><span class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</span></h2>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <h2><span class="logo">Restaurant</span></h2>
+  </div>
+
+  <div class="sidebar-menu">
+    <ul>
+      <li>
+        <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
+          <span>Add Food Item</span></a>
+      </li>
+      <li>
+        <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
+          <span>View all meals</span></a>
+      </li>
+      <li>
+        <a th:href="@{/adminProfileView/{id}/adminProfileUpdate (id=${adminId})}"><span class="fa-solid fa-key"></span>
+          <span>Change Password</span></a>
+      </li>
+      <li>
+        <a href="/adminLogout"><span class="fa-solid fa-right-from-bracket"></span>
+          <span>Logout</span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-content">
+  <header>
+    <h2>
+      <label>
+        <span class="fa-solid fa-bars"></span>
+      </label>
+      Dashboard
+    </h2>
+
+    <div class="admin-wrapper">
+      <div>
+        <span>Welcome, <h3 th:text="${admin.getFirstName()}"></h3></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h3>Profile update</h3>
+    <div class="form-container">
+      <form class="form-flex" th:action="@{/adminProfileView/{id}/updateProfile (id=${adminId})}" method="post">
+        <input class="block" type="hidden" name="id" th:value="${adminId}">
+        <div class="box">
+          <input class="block" name="Admin id" type="number" placeholder="Admin id" th:value="${admin.id}">
+        </div>
+        <div class="box">
+          <input class="block" name="firstName" type="text" placeholder="First name" th:value="${admin.firstName}">
+        </div>
+        <div class="box">
+          <input class="block" name="lastName" type="text" placeholder="Last name" th:value="${admin.lastName}">
+        </div><div class="box">
+          <input class="block" name="password" type="password" placeholder="Password" th:value="${admin.password}">
+        </div><div class="box">
+          <input class="block" name="email" type="email" placeholder="Email" th:value="${admin.email}">
+        </div>
+        <div class="box">
+          <button class="form-button" type="submit">Submit</button>
+        </div>
+      </form>
+
+    </div>
+<!--    <div class="recent-grid">-->
+<!--      <div class="orders">-->
+
+<!--        <table width="100%">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--            <th>Id</th>-->
+<!--            <th>Cart id</th>-->
+<!--            <th>Customer id</th>-->
+<!--            <th>Status</th>-->
+<!--            <th>Created at</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr th:each="order : ${orders}">-->
+<!--            <td th:text="${order.id}"></td>-->
+<!--            <td th:text="${order.id}"></td>-->
+<!--            <td th:text="${order.id}"></td>-->
+<!--            <td th:text="${order.status}"></td>-->
+<!--            <td th:text="${order.createdAt}"></td>-->
+<!--            <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+<!--      </div>-->
+<!--    </div>-->
+
+  </main>
+</div>
+
+
+</body>
+</html>

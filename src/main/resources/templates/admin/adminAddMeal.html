@@ -28,11 +28,11 @@
                     <span>All meals</span></a>
             </li>
             <li>
-                <a href=""><span class="fa-solid fa-key"></span>
+                <a th:href="@{/adminProfileView/{id}/adminProfileUpdate (id=${adminId})}"><span class="fa-solid fa-key"></span>
                     <span>Change Password</span></a>
             </li>
             <li>
-                <a href="/login"><span class="fa-solid fa-right-from-bracket"></span>
+                <a href="/adminLogout"><span class="fa-solid fa-right-from-bracket"></span>
                     <span>Logout</span></a>
             </li>
         </ul>
@@ -49,6 +49,7 @@
 
         <div class="admin-wrapper">
             <div> <label>WELCOME  "ADMIN"  <-----HERE WILL BE ADMIN NAME!</label>
+                <h3 th:field="${adminId}"></h3>
                 <!--                <small><span th:value="${admin.getFirstName()}"></span>-->
                 <!--                    Admin</small>-->
             </div>
