@@ -6,80 +6,6 @@
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
-<style>
-
-    h2{
-        text-align: center;
-        color:var(--dark);
-
-    }
-
-    /*!* display: flex is Not working for this container *!*/
-    /*.form-container{*/
-    /*    align-items: center;*/
-    /*    !*background-color: yellow;*!*/
-    /*}*/
-
-    .form-flex{
-        margin:0 auto;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        /*background-color: #45a049;*/
-        width: 500px;
-        padding: 30px 20px 25px 20px;
-    }
-
-    .box {
-        height: 2rem;
-        width: 100%;
-        /*background: yellow;*/
-        margin-bottom: 1.2rem;
-        padding-bottom: 70px;
-        font-size: 20px; !important;
-    }
-
-    .block{
-        border: 1px solid var(--dark);
-        height: 2rem;
-        width: 100%;
-        border-radius: 5px;
-        margin-bottom: 2rem;
-        text-align: center;
-        background-color: var(--light-green);
-        font-size: 1.5rem;
-    }
-
-    .block:hover,.block:focus {
-        /*border: 1px solid var(--green);*/
-        box-shadow: 2px 2px 2px #ccc;
-        background-color: var(--light);
-        outline: none;
-    }
-
-    .form-button{
-        border: 25px solid var(--light-green);
-        border-radius: 10px;
-        text-align: center;
-        height: 100%;
-        width: 100%;
-        font-size: 1.2rem;
-        background-color: var(--light-green);
-        /*padding-bottom: 31px;*/
-        /*margin-top: 50px;*/
-    }
-
-    .form-button:hover,
-    .form-button:active{
-        box-shadow: 2px 2px 2px white;
-        /*background-color:gold;*/
-       border-color: var(--green);   /* buttton hover */
-    }
-
-</style>
-
 </head>
 <body>
     <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
@@ -101,11 +27,11 @@
 
         <div class="box">
             <label> First Name</label><br>
-            <input  class="block" type="text" name="firstName" required th:value="${customer.firstName}">
+            <input  class="block" type="text" name="firstName" maxlength="50" required th:value="${customer.firstName}">
         </div>
         <div class="box">
             <label> Last Name</label><br>
-            <input class="block" type="text" name="lastName" required minlength="4" th:value="${customer.lastName}">
+            <input class="block" type="text" name="lastName" maxlength="50" required minlength="4" th:value="${customer.lastName}">
         </div>
         <div class="box">
             <label> Date of birth</label><br>
@@ -117,7 +43,7 @@
         </div>
         <div class="box">
             <label> Email</label><br>
-            <input class="block"  type="email" name="email" th:value="${customer.email}">
+            <input class="block"  type="email" name="email" maxlength="50"  th:value="${customer.email}">
         </div>
         <div class="box">
             <label> Password</label><br>
@@ -127,7 +53,7 @@
 
 
         <div class="box">
-            <button  type="submit" value="Submit">Update</button>
+            <button class="buttonUpdate" type="submit" value="Submit">Update</button>
         </div>
 
         <div>
@@ -146,7 +72,7 @@
     </div>
 
 
-    <footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
+    <footer th:insert="~{fragments/footerFragment :: footerFragmentForProfileZone}"></footer>
 
 </body>
 </html>

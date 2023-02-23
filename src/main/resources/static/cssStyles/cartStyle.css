@@ -12,25 +12,24 @@
     width: 80%;
     height: 90%;
     background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 20px 50px #94d82d;
-
-
-
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px 10px #94d82d;
 
 }
 h3{
-    font-size: 20px;
-    text-align:center
+    font-size: 30px;
+    text-align:center;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 /*product details*/
-.Cart-Items{
-    margin: auto;
-    width: 90%;
-    /*display: flex;*/
-    justify-content: space-between;
-    align-items: center;
-}
+/*.Cart-Items{*/
+/*    margin: auto;*/
+/*    width: 80%;*/
+/*    !*display: flex;*!*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 .image-box{
     width: 15%;
     text-align: center;
@@ -65,5 +64,31 @@ h3{
     height: 25px;
     text-align: center;
 }
+
+
+/*boox titles*/
+.about{
+    height: 100%;
+}
+.title{
+    padding-top: 5px;
+    line-height: 10px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #202020;
+}
+
+.counter{
+    width: 15%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
 
 

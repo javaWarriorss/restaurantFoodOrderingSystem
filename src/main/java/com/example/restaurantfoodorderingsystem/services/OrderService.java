@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +32,11 @@ public class OrderService {
         for (CartItem cartItem : cartItems) {
             FoodItem foodItem = cartItem.getFoodItem();
             Order newOrder = new Order();
-            newOrder.setOrderTime(new Date());
+
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            newOrder.setOrderTime(dateFormat.format(new Date()));
+
             newOrder.setCustomer(customer);
             newOrder.setProductCost(foodItem.getPrice()); // cost for each product * quantity
             newOrder.setSubtotal(foodItem.getPrice()*cartItem.getQuantity()); // total cart price

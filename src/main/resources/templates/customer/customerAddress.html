@@ -19,28 +19,28 @@
 
 <section class="main">
     <h2>My Address</h2>
-    <form  th:action="@{/menu/{id}/address (id=${customerId})}" method="post" >
+    <form class="form-flex" th:action="@{/menu/{id}/address (id=${customerId})}" method="post" >
         <input type="hidden" name="id" th:value="${customerId}"/>
 
-        <div>
+        <div class="box">
             <label> Street</label><br>
-            <input type="text" name="street" required th:value="${customerAddress.street}">
+            <input class="block" type="text" name="street" maxlength="50" required th:value="${customerAddress.street}">
         </div>
-        <div>
+        <div class="box">
             <label> City</label><br>
-            <input type="text" name="city" required th:value="${customerAddress.city}">
+            <input class="block" type="text" name="city" maxlength="50" required th:value="${customerAddress.city}">
         </div>
-        <div>
+        <div class="box">
             <label> Country</label><br>
-            <input type="text" name="country" required th:value="${customerAddress.country}">
+            <input class="block" type="text" name="country" maxlength="50" required th:value="${customerAddress.country}">
         </div>
-        <div>
+        <div class="box">
             <label> Postal Code</label><br>
-            <input type="text" name="postCode" required th:value="${customerAddress.postCode}">
+            <input class="block" type="text" name="postCode"  maxlength="10" required th:value="${customerAddress.postCode}">
         </div>
 
-        <div>
-            <button type="submit" value="Submit">Update</button>
+        <div class="box">
+            <button class="buttonUpdate" type="submit" value="Submit">Update</button>
         </div>
 
         <div>
@@ -58,7 +58,7 @@
 </section>
 
 
-<footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
+<footer th:insert="~{fragments/footerFragment :: footerFragmentForProfileZone}"></footer>
 </body>
 </html>
 

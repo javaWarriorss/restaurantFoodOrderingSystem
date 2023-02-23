@@ -6,65 +6,105 @@
     <link rel="stylesheet" href="/cssStyles/cartStyle.css">
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 24px;
+
+        }
+        td {
+            text-align: center;
+            width: 1%;
+        }
+       .totalPriceBox{
+           font-size: 20px;
+           text-align:center;
+           font-weight: bold;
+       }
+    </style>
 </head>
 <body>
 <header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
 
+       <div class="cartContainer" >
+            <h3> Shopping Cart:</h3>
+           <table th:unless="${#lists.isEmpty(cartItems)}">
 
-    <div class="cartContainer">
-        <div ><h3> Shopping Cart:</h3></div>
-        <div class="Cart-Items">
-            <th:block th:each="item, status : ${cartItems}">
-           <div th:with="foodItem=${item.foodItem}">   <!-- declaring new variable-->
-                <div>
-<!--                    coll for number count-->
-                    <div>[[${status.count}]]</div>
-                </div>
-<!--                col for immage-->
-                <div class=”image-box”>
-                <img th:src="@{${foodItem.getFoodPhotoUrl() }}" class="picHeight"/>
-            </div>
-                <div>
-                    <div>
-<!--                        <a th:href="@{${foodItem.URI}}" th:title="${foodItem.foodName}" target="_blank">-->
-                            <b>[[${foodItem.foodName}]]</b>
+               <tr>
+                   <th>Nr.</th>
+                   <th> </th>
+                   <th>Name</th>
+                   <th>Price</th>
+                   <th>Quantity</th>
+                   <th>Total Price</th>
+                   <th>Description</th>
+                   <th> Remove Item</th>
+               </tr>
 
-                    </div>
-        <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/update'}" method="post">
-                    <input name="quantity" type="number" class="qty" th:value="${item.quantity}" th:id="${foodItem.id}" min="1"/>
-                    <div>
-                        <span>x</span>
-                        <span> [[${foodItem.price}]] &#x20AC</span>
-                    </div>
-                    <div><span>= </span><span class="productSubtotal">[[${item.getSubtotal()}]] &#x20AC</span></div>
-            <button type="submit" value="Submit" >Update changes</button>
-        </form>
+               <tr  style="width:80%" class="table-header" th:each="item, status : ${cartItems}"  th:with="foodItem=${item.foodItem}">
+                   <td>[[${status.count}]]</td>
+                   <td class=”image-box”> <img th:src="@{${foodItem.getFoodPhotoUrl() }}" class="picHeight"/> </td>
+                   <td>[[${foodItem.foodName}]]</td>
 
-                    <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/delete'}" method="post">
-                        <div><button type="submit" value="Submit">Delete</button>
-                        </div>
-                    </form>
-                </div>
 
-            </div>
+                       <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/update'}" method="post">
+
+                           <td> [[${foodItem.price}]] &#x20AC </td>
+                           <td>
+                           <input  name="quantity" type="number" class="qty" th:value="${item.quantity}" th:id="${foodItem.id}" min="1"/>
+                           <button type="submit" value="Submit" >Update Quantity</button></td>
+
+                           <td class="productSubtotal">[[${item.getSubtotal()}]] &#x20AC</td>
+
+                       </form>
+                   <td >[[${foodItem.description}]] </td>
+
+
+
+                   <td> <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/delete'}" method="post">
+                       <div><button type="submit" value="Submit">Remove</button></div>
+                   </form>
+                   </td>
+
+               </tr>
+
+           </table>
                 <hr>
-            </th:block>
+           <div class="totalPriceBox" th:unless="${#lists.isEmpty(cartItems)}">
+               <div ><span>Total Price:</span></div>
+               <div ><span id="totalAmount" >[[${totalAmount}]] &#x20AC</span></div>
+               <div>
+                   <form th:action="${'/menu/' +customerId+ '/cart/order'}" method="get">
+                       <button type="submit" class=”button” >Check Out</button>
+                   </form>
+                   <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Update Delivery Address</a>
+               </div>
+               <div>&nbsp;</div>    <!--adds space-->
+           </div>
+       </div>
 
 
-        <div th:unless="${#lists.isEmpty(cartItems)}">
-            <div><span>Total Price:</span></div>
-            <div ><span id="totalAmount" >[[${totalAmount}]]</span></div>
-            <div>
-                <form th:action="${'/menu/' +customerId+ '/cart/order'}" method="get">
-                <button type="submit" class=”button” >Check Out</button>
-                </form>
-                <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Update Delivery Address</a>
-            </div>
-            <div>&nbsp;</div>    <!--adds space-->
-        </div>
-        </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div th:if="${#lists.isEmpty(cartItems)}">
     <h3>You have not chosen any products yet.</h3>
 
