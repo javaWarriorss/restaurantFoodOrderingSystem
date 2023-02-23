@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/cssStyles/fragment-header.css">
     <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style=" padding-top: 0px; !important;">
 <header th:insert="~{fragments/header.html :: header}"></header>
 
 <div class="container">
@@ -17,11 +17,11 @@
             <form th:action="@{/register}"  method="post" th:object="${customer}">
                 <div class="row">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="firstName" required th:value="${customer?.getFirstName()}" placeholder="First name">
+                    <input type="text" name="firstName" required maxlength="50"  th:value="${customer?.getFirstName()}" placeholder="First name">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="lastName"  required th:value="${customer?.getLastName}" placeholder="Last name">
+                    <input type="text" name="lastName"  required maxlength="50"  th:value="${customer?.getLastName}" placeholder="Last name">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-cake-candles"></i>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" required th:value="${customer?.getEmail}" placeholder="Email">
+                    <input type="email" name="email" required maxlength="50"  th:value="${customer?.getEmail}" placeholder="Email">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-key"></i>
@@ -44,19 +44,19 @@
 
                 <div class="row">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <input type="text" name="street" required th:value="${customerAddress?.getStreet}" placeholder="Street">
+                    <input type="text" name="street" required maxlength="50"  th:value="${customerAddress?.getStreet}" placeholder="Street">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <input type="text" name="city" required th:value="${customerAddress?.getCity}" placeholder="City">
+                    <input type="text" name="city" required maxlength="50"  th:value="${customerAddress?.getCity}" placeholder="City">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <input type="text" name="country" required th:value="${customerAddress?.getCountry}" placeholder="Country">
+                    <input type="text" name="country" required maxlength="50"  th:value="${customerAddress?.getCountry}" placeholder="Country">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <input type="text" name="postCode" required th:value="${customerAddress?.getPostCode}" placeholder="Postal code">
+                    <input type="text" name="postCode" required maxlength="10"  th:value="${customerAddress?.getPostCode}" placeholder="Postal code">
                 </div>
 
                 <div>
