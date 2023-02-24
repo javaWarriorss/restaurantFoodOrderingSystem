@@ -6,10 +6,17 @@
 /*    margin:0;*/
 /*    padding:0;*/
 /*}*/
+:root{
+    --green: #94d82d;
+    --light-green: #eaf7d5;
+    --dark: #1e2b09;
+    --light: #ffffff;
+    --gray: #868e96;
+}
 .main {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 26px;
+    font-size: 16px;
     display:contents;
 
     padding: 17px 232px;
@@ -17,11 +24,11 @@
 .container {
     margin: 30px 20% 50px 20%;  /*TOP/L/DOWN/R*/
     border-radius: 5px;
-    background-color:#94d82d;;
+    background-color: var(--light-green);
     padding: 20px;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: var(--green);
 }
 input[type=submit] {
     background-color: #1e2b09;
@@ -30,6 +37,7 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
 input[type=email], select, textarea {
     width: 100%;
@@ -42,12 +50,13 @@ input[type=email], select, textarea {
     resize: vertical;
 
     background:white;;
-    color: black;
-    font-size: 20px;
+    color: var(--dark);
+    font-size: 16px;
 }
 
 section {
-    height: 100vh;
+    /*height: 100vh;*/
+    padding: 2rem 9%;
 }
 h2{
     text-align: center;
