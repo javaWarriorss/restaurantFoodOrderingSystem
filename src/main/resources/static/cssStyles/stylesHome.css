@@ -50,7 +50,7 @@
     font-family: 'Playfair Display', serif;
     text-decoration: none;
     outline: none;
-    /*border: none;*/
+    border: none;
     transition: all .2s linear;
 }
 
@@ -158,6 +158,7 @@ header .icons #nav-bar{
     flex-wrap: wrap;
     gap: 2rem;
     padding-top: 9rem;
+    margin-bottom: 7rem;
 }
 .home .home-slider .slide .content{
     flex:1 1 45rem;
@@ -204,7 +205,40 @@ header .icons #nav-bar{
 .swiper-pagination-bullet-active{
     background: var(--green);
 }
+.about-image{
+    margin-bottom: 5rem;
+}
+.about .about-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+.about h3{
+    color: var(--dark);
+    font-size: 2.5rem;
+}
+.about .about-row .about-image{
+    flex:1 1 40rem;
+}
 
+.about .about-row .about-image img{
+    width: 100%;
+}
+.about .about-row .about-content{
+    flex: 1 1 45rem;
+}
+.about .about-row .about-content h3{
+    color: var(--green);
+    font-size: 4rem;
+    padding: .5rem 0;
+}
+.about .about-row .about-content p{
+    color: var(--dark);
+    font-size: 1.4rem;
+    padding: .5rem 0;
+    line-height: 2;
+}
 
 
 /*FOOOOOTER*/
