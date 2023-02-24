@@ -198,6 +198,11 @@ main{
     color: var(--green);
 }
 
+.admin-id{
+    font-size: 18px;
+    font-weight: 600;
+    
+}
 /*.recent-grid{*/
 /*    background-color: yellow;*/
 /*    text-align: center;*/
@@ -278,7 +283,7 @@ h2{
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
-    background-color: var(--light);
+    background-color: var(--light-green);
 }
 
 .form-button:hover,
@@ -286,6 +291,7 @@ h2{
     box-shadow: 2px 2px 2px #ccc;
     background-color:#e9ecef;
     border-color: var(--gray);
+    background-color: var(--green);
 }
 
 

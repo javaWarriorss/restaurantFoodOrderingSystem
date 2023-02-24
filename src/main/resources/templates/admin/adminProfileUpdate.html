@@ -41,7 +41,7 @@
   <header>
     <header>
       <div>
-        <div class="admin-id"><label>Admin id <span class="id" th:text="${adminId}"></span></label>
+        <div class="admin-id"><label>Welcome,  <span class="id" th:text="${admin.firstName}"></span></label>
         </div>
       </div>
     </header>
@@ -51,7 +51,7 @@
     <h2>Profile/ Change password</h2>
 
     <div class="form-container">
-      <form class="form-flex" th:action="${'adminProfileView/' + adminId}" method="post">
+      <form class="form-flex" th:action="@{/adminProfileView/{id}/updateProfile (id=${adminId})}" method="post">
         <input class="block" type="hidden" name="id" th:value="${adminId}">
         <div class="box">
           <input class="block" name="Admin id" type="number" placeholder="Admin id" th:value="${admin.id}" readonly style="color: #767676">
@@ -69,6 +69,18 @@
         <div class="box">
           <button class="form-button" type="submit">Update</button>
         </div>
+
+        <div>
+          <p>
+                <span th:if="${messageForPasswordUpdate == 'password_updated'}">
+                    Password successfully changed.
+                </span>
+            <span th:if="${messageForPasswordUpdate == 'password_update_failed'}">
+                    Changes has not been made. Try again.
+                </span>
+          </p>
+        </div>
+
       </form>
     </div>
   </main>
