@@ -5,7 +5,9 @@ import com.example.restaurantfoodorderingsystem.entities.CustomerAddress;
 import com.example.restaurantfoodorderingsystem.services.CustomerAddressService;
 import com.example.restaurantfoodorderingsystem.services.CustomerService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -55,8 +57,15 @@ private  final CustomerAddressService customerAddressService;
     public String handleCustomerLogin(Customer customer, HttpServletResponse response){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
+//                    HttpSession session= request.getSession(true);
+//                    session.setAttribute("customerCookie",loggedInCustomer.getId().toString());
             Cookie cookie = new Cookie("customerCookie",loggedInCustomer.getId().toString());
             response.addCookie(cookie);
+
+
+
+
+
             return "redirect:menu/" +loggedInCustomer.getId();
         }catch (Exception e){
             return "redirect:/login?message=login_failed&error=" +e.getMessage();
@@ -66,14 +75,40 @@ private  final CustomerAddressService customerAddressService;
     @GetMapping("/")
     public String logoutCustomerAndDeleteCookies(HttpServletResponse response){
         try {
+
             Cookie deleteServletCookie = new Cookie("customerCookie", null);
             deleteServletCookie.setMaxAge(0);
+//            response.setHeader("Cache-Control","no-cache");
+//            response.setHeader("Cache-Control","no-store");
+//            response.setDateHeader("Expires", 0);
             response.addCookie(deleteServletCookie);
-            return "redirect:index.html";
-        }catch (Exception e){
-            return "redirect:/login";
-        }
 
+//
+//            Cookie[] cookies = request.getCookies();
+//            if(cookies != null){
+//                for(Cookie cookie : cookies){
+//                    if(cookie.getName().equals("JSESSIONID")){
+//                        System.out.println("JSESSIONID="+cookie.getValue());
+//                    }
+//                    cookie.setMaxAge(0);
+//                    response.addCookie(cookie);
+//                }
+//            }
+//            //invalidate the session if exists
+//            HttpSession session = request.getSession(false);
+//            System.out.println("User="+session.getAttribute("customerCookie"));
+//            if(session != null){
+//                session.invalidate();
+//            }
+//            //no encoding because we have invalidated the session
+//            response.sendRedirect("/login.html");
+
+
+            return   "redirect:index.html";
+        }catch (Exception e){
+                return "redirect:/login";
+        }
+       // return "redirect:/login";
 
     }
 }

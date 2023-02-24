@@ -6,6 +6,8 @@ import com.example.restaurantfoodorderingsystem.entities.Order;
 import com.example.restaurantfoodorderingsystem.services.CustomerAddressService;
 import com.example.restaurantfoodorderingsystem.services.CustomerService;
 import com.example.restaurantfoodorderingsystem.services.OrderService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,8 @@ public class ProfileController {
 
     // updating customer profile data
     @GetMapping("menu/{customerId}/profile")
-    public String updateCustomerShow( @RequestParam(name="messageTwo", required = false)String messageTwo, Model model, @PathVariable  Long customerId,@CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
+    public String updateCustomerShow(@RequestParam(name="messageTwo", required = false)String messageTwo, Model model,
+                                     @PathVariable  Long customerId, @CookieValue(value = "customerCookie")String customerIdFromCookie) throws Exception {
         model.addAttribute("customerId",customerIdFromCookie);
         model.addAttribute("customer",customerService.findAllCustomersById(Long.valueOf(customerIdFromCookie)));
         model.addAttribute("messageTwo", messageTwo);
