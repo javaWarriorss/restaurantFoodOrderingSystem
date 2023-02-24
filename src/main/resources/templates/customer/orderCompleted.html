@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OrderCompleted</title>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+    <style>
+        h2{
+            padding-top:20px ;
+            text-align:center;
+            font-size: 35px;
+            padding-bottom: 50px;
+        }
+        p{
+            padding-bottom: 50px;
+            text-align:center;
+            font-size: 20px;
+        }
+        .boxdiv{
+            margin: auto;
+            width: 80%;
+            height: 90%;
+            border-radius: 15px;
+            border: 1px solid black;
+            background: #eaf7d5;
+        }
+        .addressA{
+            padding-bottom: 50px;
+            text-align:center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+    <div class="boxdiv">
+    <h2> THANK YOU FOR ORDERING!</h2>
+    <p>Order will take approximetly 1-1.5 hours to be delivered.
+      The Carrier will contact you when Order will be on the way</p>
+    <div class="addressA">
+        <a  href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> View My Orders</a>
+    </div>
+
+</div>
+<footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
+</body>
+</html>

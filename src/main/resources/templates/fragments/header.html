@@ -1,0 +1,34 @@
+<div th:fragment="header" class="header">
+  <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+
+  <nav class="nav-bar">
+    <a href="/" class="active">Home</a>
+    <a href="/contactUs">Contact Us</a>
+  </nav>
+  <div class="icons">
+    <a href="/login" class="fa-regular fa-user"></a>
+  </div>
+</div>
+
+
+<!-- Menu page header -->
+<div th:fragment="headerAfterLogin" class="menu-header">
+  <div class="brand-logo">
+  <a class="menu-logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+  </div>
+
+<div class="menu-nav">
+  <nav class="menu-nav-bar">
+    <a href="/" class="active">Home</a>
+    <a href="#" th:href="@{/menu/{id} (id=${customerId})}">Menu</a>
+    <a href="#" th:href="@{/menu/{id}/contactUs (id=${customerId})}">Contact us</a>
+  </nav>
+  </div>
+
+  <div class="menu-icons">
+    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}" class="fa-solid fa-user"></a>
+    <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}" class="fa-solid fa-shopping-cart"></a>
+    <a href="/" class="fa-solid fa-right-from-bracket"></a>
+  </div>
+
+</div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
+    <link rel="stylesheet" href="/cssStyles/checkoutStyle.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
+<div class="mainDivBox">
+
+    <h2>Order details: </h2>
+    <div id="leftbox">
+        <div class="titlesInfo">Customer Information </div>
+        <hr>
+        <div class="nameAndAddressFont">
+            <div> <b>Name:</b> [[${customerName}]]</div>
+            <div><b>Shipping Address Information:</b> [[${shippingAddress}]]</div>
+        </div>
+        <hr>
+        <form th:action="${'/menu/' +customerId +'/cart/placeOrder'}" method="post">
+            <label class="titlesInfo select" for="payment">Payment Method on Delivery:</label>
+            <select name="paymentType" id="payment">
+                <option value="CASH">Cash</option>
+                <option value="CARD">Bank Card</option>
+            </select>
+            <div class="buttonDiv">
+            <button class="buttonCheckOut" type="submit"> Place Order</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <div id = "middlebox">
+        <div>
+            <h4 class="titlesInfo">Order Summary</h4>
+
+            <table>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+
+                </tr>
+                <th:block th:each="item : ${cartItems}">
+                    <tr>
+                        <td>[[${item.quantity}]] x</td>
+                        <td>[[${item.foodItem.foodName}]] </td>
+
+                        <td>[[${item.foodItem.price}]] &#x20AC</td>
+                        <td>[[${item.subtotal}]] &#x20AC</td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+
+        <div>
+            <div class="totalPrice"><b>Total Price:</b>
+            <div id="checkoutInfo"> [[${checkoutInfo.productTotal}]] &#x20AC</div></div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
+</body>
+</html>

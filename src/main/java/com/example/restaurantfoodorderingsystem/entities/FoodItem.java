@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class FoodItem {
     @Id // mark class as entity
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private String foodName;
@@ -22,5 +22,7 @@ public class FoodItem {
     private String type; // salads, pancakes, main dishes
     private boolean inStock;
     private String foodPhotoUrl;
+    @ManyToOne
+    private Admin admin;
 
 }

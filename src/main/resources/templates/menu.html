@@ -3,61 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Meal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Luckiest+Guy&family=Raleway:ital,wght@0,400;0,500;1,600&display=swap" rel="stylesheet">
-    <link href="/styleFoodItemTable.css" rel="stylesheet" >
-
+    <link rel="stylesheet" href="/cssStyles/stylesMenu.css"/>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-<header>
-<h1>Menu</h1>
-</header>
+<body style=" padding-top: 0px; !important;">
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
 
-<section class="cart-section">
+
+<!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
+<section class="cart-section" id="menu-section">
+
     <div class="flex-box">
+        <div class="flex-links-category">
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuBreakfast (id=${customerId})}">Breakfast</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuBusinessLunch (id=${customerId})}">Business Lunch</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuSpecialOffer (id=${customerId})}" >Special Offer</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>
+
+        </div>
         <div class="flex-links">
-<!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
-            <a href="/menuMeatMainDishes" class="menu-item">Meat main dishes</a>
-            <a href="/menuFishMainDishes" class="menu-item">Fish main dishes</a>
-            <a href="/menuVegetableDishes" class="menu-item">Vegetable dishes</a>
-            <a href="/menuSideDishes" class="menu-item">Side dishes</a>
-            <a href="/menuSoups" class="menu-item">Soups</a>
-            <a href="/menuSalads" class="menu-item">Salads</a>
-            <a href="/menuPancakes" class="menu-item">Pancakes</a>
-            <a href="/menuBurgers" class="menu-item">Burgers</a>
-            <a href="/menuSnacks" class="menu-item">Snacks</a>
-            <a href="/menuSauces" class="menu-item">Sauces</a>
-            <a href="/menuBread" class="menu-item">Bread</a>
-            <a href="/menuDesserts" class="menu-item">Desserts</a>
-            <a href="/menuBakery" class="menu-item">Bakery</a>
-            <a href="/menuDrinks" class="menu-item">Drinks</a>
-            <a href="/menuCutlery" class="menu-item">Cutlery</a>
+            <!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuMeatMainDishes (id=${customerId})}">Meat main dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuFishMainDishes (id=${customerId})}">Fish main dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuVegetableDishes (id=${customerId})}">Vegetable dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSideDishes (id=${customerId})}">Side dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSoups (id=${customerId})}">Soups</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSalads (id=${customerId})}">Salads</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuPancakes (id=${customerId})}">Pancakes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBurgers (id=${customerId})}">Burgers</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSnacks (id=${customerId})}">Snacks</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSauces (id=${customerId})}">Sauces</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBread (id=${customerId})}">Bread</a>
+            <!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBakery (id=${customerId})}">Bakery</a>
+            <!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
         </div>
 
-
-<!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
-<div class="food-item-cart-container">
-        <div th:each="foodItem:${foodItemList}" class="food-item-cart">
-            <div class="dish-img">
-                <img th:src="${foodItem.getFoodPhotoUrl()}" width="100px" alt="food image"/>
+        <!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
+        <div class="food-item-cart-container">
+            <div th:each="foodItem:${foodItemList}" th:if="${foodItem.inStock == true}" class="food-item-cart">
+                <div class="meal-img">
+                    <img th:src="${foodItem.getFoodPhotoUrl()}" width="220px" alt="food image"/>
+                </div>
+                <div class="meal-title">
+                    <h6 th:text="${foodItem.foodName}"></h6>
+                </div>
+                <div class="meal-description">
+                    <p th:text="${foodItem.description}"></p>
+                </div>
+                <div>
+                    <p><span class="price" th:text="${foodItem.price}"></span> &euro;</p>
+                </div>
+                <div>
+                    <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">
+                        <div>
+                            <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="1"/>
+                        </div>
+                        <div>
+                            <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="dish-title">
-                <h6 th:text="${foodItem.foodName}"></h6>
-            </div>
-            <div>
-                <p th:text="${foodItem.description}"></p>
-            </div>
-            <div>
-                <p>Price: <span th:text="${foodItem.price}"></span></p>
-            </div>
-             <div>
-                 <button>Buy now</button>
-             </div>
         </div>
     </div>
-    </div>
+
+
 </section>
+<!--</form>-->
+<section class="cart-section">
+
+</section>
+
+<!--<footer class="footer">-->
+
+<!--    <div class="footer-brand-logo">-->
+<!--        &lt;!&ndash;            <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>&ndash;&gt;-->
+<!--        <a href="#menu-section" class="footer-brand"> <i class="fa-solid fa-carrot"></i><span class="footer-brand-title">Restaurant</span></a>-->
+<!--    </div>-->
+<!--    <div class="footer-container">-->
+<!--        <div class="footer-logo-row">-->
+<!--            <a href="#" class="footer-logo">-->
+<!--                <i class="fa-brands fa-facebook"></i>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="footer-logo-row">-->
+<!--            <a href="#" class="footer-logo">-->
+<!--                <i class="fa-brands fa-instagram"></i>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="footer-logo-row">-->
+<!--            <a href="#" class="footer-logo">-->
+<!--                <i class="fa-brands fa-twitter"></i>-->
+<!--            </a>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <div>-->
+<!--        <p class="copyright">Copyright &copy; 2023 </br> by javaWarriors</p>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
 </body>
 </html>

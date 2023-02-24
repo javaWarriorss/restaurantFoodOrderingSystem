@@ -2,51 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <title>Login</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="cssStyles/stylesHome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/cssStyles/contactUsStyles.css">
 </head>
 <body>
-<section>
-<!--    <a href="/login">LOGIN PAGE</a>-->
-        <a href="">LOGIN PAGE</a>
-    <a href="/register">Register</a>
+<header>
+    <div class="header">
+        <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>
+        <nav class="nav-bar">
+            <a href="/" class="active">Home</a>
+            <a href="#contactSection">Contact Us</a>
+            <a href="/login" class="order-now">Order Now</a>
+        </nav>
+
+    </div>
+</header>
+<section class="home" id="home">
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper wrapper-main">
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Steak</h3>
+                    <p>Aged beef fillet steak</p>
+                    <a href="/login" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1606419420761-4f2aa891ed19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHN0ZWFrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Soup</h3>
+                    <p>Pumpkin soup</p>
+                    <a href="/login" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1554877938-3935ce2cd4ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Our special dish</span>
+                    <h3>Dessert</h3>
+                    <p>Meringue tart</p>
+                    <a href="/login" class="click">Order now</a>
+                </div>
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1561087548-94e6546744a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script src="javascriptFiles/main.js"></script>
 </section>
-<h1> Welcome to index page, here we need to think how to
-set login page because it did not worked if i return index so i made
-    login html in templates
-</h1>
+
+
+
+<section>
+    <p>INFORMATION ABOUT RESTOURANT/ADDRESS/PHONE NUMBER ??? SMTH MORE</p>
+</section>
+
+
+
+<section id="contactSection">
+    <div class="main">
+        <div class="container">
+            <form action="//contactUs.html" method="post">
+                <h2>Contact Us</h2>
+                <label for="email">Email</label>
+                <input id="email" name="email" placeholder="Enter email" type="email" required>
+
+                <label for="text">Text</label>
+                <textarea id="text" name="text" placeholder="Write something.." style="height:200px"></textarea>
+                <input type="submit" value="Send">
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
 <!-- Added your login form here --->
-<section>
-    <form action="/login" method="post">
-        <h4> ENTER EMAIL AND PASSWORD TO CONTINUE</h4>
-        <div >
-            <label> Email</label> <br>
-            <input type="text" name="email" placeholder="Email" REQUIRED>
-        </div><br>
+<footer class="footer">
 
-        <div>
-            <label> Password </label><br>
-            <input type="password" name="password" placeholder="Password" REQUIRED>
-        </div><br>
-
-        <div>
-            <button type="submit">Login</button>
+    <div class="footer-brand-logo">
+        <!--            <a href="#" class="logo"><i class="fa-solid fa-carrot"></i>Restaurant</a>-->
+        <a href="#menu-section" class="footer-brand"> <i class="fa-solid fa-carrot"></i><span class="footer-brand-title">Restaurant</span></a>
+    </div>
+    <div class="footer-container">
+        <div class="footer-logo-row">
+            <a href="#" class="footer-logo">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        </div>
+        <div class="footer-logo-row">
+            <a href="#" class="footer-logo">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <div class="footer-logo-row">
+            <a href="#" class="footer-logo">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
         </div>
 
-        <div>
-            <p>
-                <span th:if="${message == 'signup_success'}">
-                  Registration successful. Please enter your details to login
-                </span>
-                <span th:if="${message == 'login_failed'}">
-                   Unable to login with this email and password
-                </span>
-            </p>
-        </div>
-
-    </form>
-</section>
-
+    </div>
+    <div>
+        <p class="copyright">Copyright &copy; 2023 </br> by javaWarriors</p>
+    </div>
+</footer>
 
 </body>
 </html>
