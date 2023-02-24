@@ -58,5 +58,9 @@ public class OrderService {
     public List<Order> findOrderByCustomerId(Long CustomerId){
         return this.orderRepository.getOrdersByCustomerIdOrderByOrderTimeDesc(CustomerId);
     }
+//for admin to get all orders
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
 
 }
