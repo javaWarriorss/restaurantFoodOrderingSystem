@@ -19,6 +19,7 @@ import java.util.Set;
 public class OrderService {
 
     OrderRepository orderRepository;
+
     @Autowired
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
@@ -28,7 +29,7 @@ public class OrderService {
     public Order createOrder(Customer customer, CustomerAddress customerAddress,
                              List<CartItem> cartItems, PaymentMethod paymentMethod,
                              CheckOutInfo checkOutInfo) {
-        List<Order> listOfOrder =new ArrayList<>();
+        List<Order> listOfOrder = new ArrayList<>();
         for (CartItem cartItem : cartItems) {
             FoodItem foodItem = cartItem.getFoodItem();
             Order newOrder = new Order();
@@ -39,7 +40,7 @@ public class OrderService {
 
             newOrder.setCustomer(customer);
             newOrder.setProductCost(foodItem.getPrice()); // cost for each product * quantity
-            newOrder.setSubtotal(foodItem.getPrice()*cartItem.getQuantity()); // total cart price
+            newOrder.setSubtotal(foodItem.getPrice() * cartItem.getQuantity()); // total cart price
 
 
             newOrder.setPaymentMethod(paymentMethod);
@@ -52,10 +53,10 @@ public class OrderService {
             listOfOrder.add(orderRepository.save(newOrder));
         }
         System.out.println(listOfOrder);
-    return listOfOrder.get(0);
+        return listOfOrder.get(0);
     }
 
-    public List<Order> findOrderByCustomerId(Long CustomerId){
+    public List<Order> findOrderByCustomerId(Long CustomerId) {
         return this.orderRepository.getOrdersByCustomerIdOrderByOrderTimeDesc(CustomerId);
     }
 //for admin to get all orders
@@ -63,4 +64,7 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
 }

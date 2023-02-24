@@ -3,6 +3,7 @@ package com.example.restaurantfoodorderingsystem.controllers;
 import com.example.restaurantfoodorderingsystem.entities.FoodItem;
 import com.example.restaurantfoodorderingsystem.services.AdminService;
 import com.example.restaurantfoodorderingsystem.services.FoodItemService;
+import com.example.restaurantfoodorderingsystem.services.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -16,11 +17,29 @@ public class FoodItemController {
     private final FoodItemService foodItemService;
     private final AdminService adminService;
 
-    public FoodItemController(FoodItemService foodItemService, AdminService adminService) {
+    private final OrderService orderService;
+
+
+//    public FoodItemController(FoodItemService foodItemService, AdminService adminService) {
+//        this.foodItemService = foodItemService;
+//        this.adminService = adminService;
+//    }
+
+    public FoodItemController(FoodItemService foodItemService, AdminService adminService, OrderService orderService) {
         this.foodItemService = foodItemService;
         this.adminService = adminService;
-
+        this.orderService= orderService;
     }
+
+
+    @GetMapping("/adminProfileView/{adminId}/adminAllOrder")
+    public String showAllOrders(@CookieValue(value = "adminCookie") String adminIdCookie, @PathVariable("adminId") Long adminId, Model model){
+        model.addAttribute("adminId", adminIdCookie);
+        model.addAttribute("orderList", this.orderService.getAllOrders());
+        return "admin/adminAllOrder";
+    }
+
+
     @GetMapping("/adminProfileView/{adminId}/adminAddMeal")
     public String displayAdminAddMeal(@CookieValue(value = "adminCookie") String adminIdCookie, @PathVariable("adminId") Long adminId, Model model){
         model.addAttribute("adminId", adminIdCookie);

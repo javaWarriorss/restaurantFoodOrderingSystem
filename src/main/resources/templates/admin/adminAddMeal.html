@@ -14,8 +14,8 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-<!--                <a href="" class="active"><span class="fa-solid fa-caret-down"></span>-->
-<!--                    <span>Dashboard</span></a>-->
+                <a th:href="@{/adminProfileView/{id}/adminAllOrder (id=${adminId})}" class="active"><span class="fa-solid fa-caret-down"></span>
+                    <span>All Orders</span></a>
             </li>
             <li>
                 <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
