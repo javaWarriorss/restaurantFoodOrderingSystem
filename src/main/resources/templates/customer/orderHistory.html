@@ -18,9 +18,18 @@
 </section>
 
 
-<section class="main" style="  font-size: 24px; padding: 0px 90px; !important; overflow-x: auto;>">
+<section class="main" style="  font-size: 21px; padding: 0px 90px; !important; overflow-x: auto;>">
     <h2>My orders:</h2>
-        <table style="width:75%" class="table-header">
+    <div th:if="${#lists.isEmpty(orderList)}">
+        <h3>You have not purchased any products yet.</h3>
+        <h4>Check out our tasty deals now:</h4>
+        <div class="centerLink"><a  href="#" th:href="@{/menu/{id} (id=${customerId})}">Go to menu page</a></div>
+
+
+
+
+    </div>
+        <table th:unless="${#lists.isEmpty(orderList)}" style="width:75%" class="table-header">
             <tr>
                 <th>Order Time</th>
                 <th>Country</th>
@@ -47,6 +56,7 @@
             </tr>
         </table>
 </section>
+
 
 <footer th:insert="~{fragments/footerFragment :: footerFragmentForProfileZone}"></footer>
 </body>

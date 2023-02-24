@@ -11,26 +11,34 @@ table {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color:lightgray;
+    background-color:#d3d3d378;
     color: black;
 
 }
 .table-header, th, td {
     border: 1px solid black ;
-    padding: 8px;
+    padding: 24px;
 }
 
 .table-header tr:nth-child(even){background-color: white;}
 
-.table-header tr:hover {background-color:darkgrey ;}
+.table-header tr:hover {background-color: #c7c6c6;}
 
 .table-header th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #5c9326;
-    color: white;
+    background-color: #82c442;
+    color: black;
 }
-h2{
+h2,h3,h4{
     text-align: center;
+}
+h3{
+    padding-top: 20px;
+}
+.centerLink{
+    padding-top:  50px;
+    text-align:center;
+    font-size: 20px;
 }
