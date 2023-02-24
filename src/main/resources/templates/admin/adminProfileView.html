@@ -17,9 +17,9 @@
 
   <div class="sidebar-menu">
     <ul>
-      <li>
-        <a href="" class="active"><span class="fa-solid fa-caret-down"></span>
-        <span>Dashboard</span></a>
+        <li>
+        <a th:href="@{/adminProfileView/{id}/adminAllOrder (id=${adminId})}" class="active"><span class="fa-solid fa-caret-down"></span>
+        <span>All Orders</span></a>
       </li>
       <li>
         <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
@@ -97,13 +97,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="order : ${orders}">
-                  <td th:text="${order.id}"></td>
-                  <td th:text="${order.id}"></td>
-                  <td th:text="${order.id}"></td>
-                  <td th:text="${order.status}"></td>
-                  <td th:text="${order.createdAt}"></td>
-                  <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>
+                <tr th:each="order : ${orderList}">
+                  <td th:text="${order.orderTime}"></td>
+                  <td th:text="${order.productCost}"></td>
+                  <td th:text="${order.subtotal}"></td>
+                  <td th:text="${order.customer.id}"></td>
+                  <td th:text="${order.customer.firstName}"></td>
+                  <td th:text="${order.customer.lastName}"></td>
+                  <td th:text="${order.foodItem}"></td>
+                  <td th:text="${order.paymentMethod}"></td>
+
+<!--                  <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>-->
                 </tr>
                 </tbody>
               </table>

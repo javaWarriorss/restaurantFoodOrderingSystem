@@ -315,7 +315,13 @@ h2{
     font-weight: normal;
 }
 
-/* ALL MEALS TABLE */
+/* ALL MEALS/ORDERS TABLE */
+
+.all-order-table-box{
+    margin-left: 0;
+    text-align: center;
+    margin-top: -2rem;
+}
 
 .all-meal-table-box{
     /*background-color: palevioletred;*/
@@ -338,14 +344,14 @@ h2{
 /*.table-section{*/
 /*    height: 100vh;*/
 /*}*/
-.foodItem-table{
+.admin-table{
     /*margin: 4rem auto 0;*/
     width: 100%;
     border-collapse: collapse; /* remove the default spacing between table cells */
     font-size: 1.2rem;
 }
 
-.foodItem-table th, .foodItem-table td {
+.admin-table th, .admin-table td {
     width: 10%;
     padding: 0.8rem;
     text-align: center;
@@ -353,7 +359,7 @@ h2{
     /*font-size: 1.5rem;*/
 }
 
-.foodItem-table th {
+.admin-table th {
     /*border-bottom: #c2c4c6;*/
     background-color: #f1f3f5;
     color: var(--dark);
@@ -364,7 +370,7 @@ h2{
     /*width: auto;*/
 }
 
-.foodItem-table tr:nth-child(even) { /* every even-number column, set color */
+.admin-table tr:nth-child(even) { /* every even-number column, set color */
     background-color: #f1f3f5;
 }
 

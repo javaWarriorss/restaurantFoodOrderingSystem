@@ -11,18 +11,16 @@
 
         <h2 class="logo-header"><i class="fa-solid fa-carrot"></i>Restaurant</h2>
     </div>
-
     <div class="sidebar-menu">
         <ul>
             <li>
-                <!--                <a href="" class="active"><span class="fa-solid fa-caret-down"></span>-->
-                <!--                    <span>Dashboard</span></a>-->
+                <a th:href="@{/adminProfileView/{id}/adminAllOrder (id=${adminId})}" class="active"><span class="fa-solid fa-bars"></span>
+                    <span>All Orders</span></a>
             </li>
             <li>
                 <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
                     <span>Add new meal</span></a>
             </li>
-            <!--            <li><a href="category.html">Category</a></li>-->
             <li>
                 <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
                     <span>All meals</span></a>
@@ -60,7 +58,6 @@
         <a th:href="@{/adminProfileView/{id}/water (id=${adminId})}" class="menu-item">Water</a>
         <a th:href="@{/adminProfileView/{id}/juice (id=${adminId})}" class="menu-item">Juice</a>
         <a th:href="@{/adminProfileView/{id}/cutlery (id=${adminId})}" class="menu-item">Cutlery</a>
-
     </div>
 </div>
 <div class="main-content">
@@ -70,15 +67,12 @@
             </div>
         </div>
     </header>
-
     <main>
-<!--        <h2> ALL MEAL</h2>-->
-
         <div class="all-meal-table-box">
                 <div>
                     <h1 class="no-items" th:if="${foodItemList.isEmpty()}">There are no items to display.</h1>
                     <!--table-->
-                    <table class="foodItem-table">
+                    <table class="admin-table">
                         <thead>
                         <tr>
                             <th>Id</th>
@@ -94,7 +88,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!--        <tr th:each="foodItem : ${foodItemList}" th:if="${foodItem.category == 'Meat main dishes'}">-->
                         <tr th:each="foodItem:${foodItemList}">
                             <td th:text="${foodItem.id}"></td>
                             <!--            <td th:text="${foodItem.foodPhotoUrl}"></td>-->
@@ -104,7 +97,6 @@
                             <td th:text="${foodItem.category}"></td>
                             <td th:text="${foodItem.type}"></td>
                             <td th:text="${foodItem.price}"></td>
-<!--                            <td th:text="${foodItem.inStock}"></td>-->
                             <td th:text="${foodItem.inStock ? 'Yes' : 'No'}"></td>
                             <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/adminViewAllMeal/delete/' + ${foodItem.getId()}"><span class="delete-edit"><i class="fa-solid fa-trash"></i></span></a></td>
                             <td><a class="delete-edit-link" th:href="'/adminProfileView/' + ${adminId} + '/edit/' + ${foodItem.getId}"><span class="delete-edit"><i class="fa-solid fa-pen-to-square"></i></span></a></td>
