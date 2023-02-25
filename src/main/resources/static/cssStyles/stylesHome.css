@@ -241,16 +241,12 @@ header .icons #nav-bar{
 }
 
 
-/*FOOOOOTER*/
+/*FOOTER*/
 
 .footer {
     border-top: 1px solid #eee;
-    /*background-color:gray;*/
     text-align: center;
     margin-top: 4rem;
-    /*position: fixed;*/
-    /*overflow: hidden;*/
-
 }
 
 .footer-container{
@@ -259,7 +255,6 @@ header .icons #nav-bar{
     align-items: center;
     width: 8rem;
     height: 4rem;
-    /*background-color: white;*/
     margin: 0 auto;
 }
 
@@ -267,22 +262,23 @@ header .icons #nav-bar{
     margin-top: 6rem;
     color: #767676;
     padding-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .footer-brand-logo{
     font-size: 2rem;
     font-weight: bolder;
     padding-top: 4rem;
-    /*background-color: #c2c4c6;*/
-
 }
+
 .footer-brand-title{
     color: var(--dark);
-
 }
+
 .footer-brand{
     color: var(--green);
 }
+
 .footer-logo{
     font-size: 1.6rem;
     color: #343a40;

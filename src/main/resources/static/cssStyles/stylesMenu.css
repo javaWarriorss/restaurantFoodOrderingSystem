@@ -1,6 +1,4 @@
-/* Menu page */
 
-/* Styles from main page */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
 
@@ -98,26 +96,26 @@
 /*}*/
 
 
-.wrapper{
-    padding-top: 160px;
-    position: fixed;
-    display: grid;
-    grid-template-columns: 1.5fr 3fr;
-    grid-gap: 1rem;
-}
+/*.wrapper{*/
+/*    padding-top: 160px;*/
+/*    position: fixed;*/
+/*    display: grid;*/
+/*    grid-template-columns: 1.5fr 3fr;*/
+/*    grid-gap: 1rem;*/
+/*}*/
 
-.our-history{
-    background-color: var(--light-green);
-}
+/*.our-history{*/
+/*    background-color: var(--light-green);*/
+/*}*/
 
-.main-pic{
-    background-color: var(--light);
-}
+/*.main-pic{*/
+/*    background-color: var(--light);*/
+/*}*/
 /**************************************/
 .cart-section{
     height: 100vh;
     /*margin-top: 8rem;*/
-    margin-top: 10%;
+    margin-top: 8%;
     /*margin-bottom: 8rem;*/
     margin-bottom: 5%;
     /*background-color: blueviolet;*/
@@ -156,7 +154,7 @@
     text-decoration: none;
     display: flex;
     justify-content: center;
-    margin-top:1rem;
+    /*margin-top:1rem;*/
     /*position: fixed;*/
     /*top: 5.9rem;*/
     padding-bottom: 1rem;
@@ -311,7 +309,7 @@ input.qty:hover, input.qty:focus {
 }
 
 .add-to-cart-button:hover {
-    background-color:#4a6c17;
+    background-color:#76ad24;
     /*border: 1px solid #94d82d;*/
     /*background-color: var(--light);*/
 }
@@ -320,10 +318,6 @@ input.qty:hover, input.qty:focus {
     width: 100%;
     display: block;
     transition: all 0.4s;
-
-
-
-
 }
 
 .meal-img:hover {

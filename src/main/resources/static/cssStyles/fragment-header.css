@@ -190,29 +190,19 @@ body{
 
 
 
-/*FOOOTER*/
-
+/*FOOTER*/
 
 .footer {
     border-top: 1px solid #eee;
-    /*background-color:gray;*/
     text-align: center;
-    /*margin-top: 4rem;*/
     margin-top: 10%;
-    /*position: fixed;*/
-    /*overflow: hidden;*/
-
 }
+
 .footerForProfileZonecss {
     border-top: 1px solid #eee;
-    /*background-color:gray;*/
     text-align: center;
     margin-top: 4rem;
     margin-left: 230px;
-    /*position: fixed;*/
-    /*overflow: hidden;*/
-    /*padding-left: 0px;*/
-
 }
 
 .footer-container{
@@ -221,7 +211,6 @@ body{
     align-items: center;
     width: 8rem;
     height: 4rem;
-    /*background-color: red;*/
     margin: 0 auto;
 }
 
@@ -235,16 +224,16 @@ body{
     font-size: 2rem;
     font-weight: bolder;
     padding-top: 4rem;
-    /*background-color: #c2c4c6;*/
-
 }
+
 .footer-brand-title{
     color: var(--dark);
-
 }
+
 .footer-brand{
     color: var(--green);
 }
+
 .footer-logo{
     font-size: 1.6rem;
     color: #343a40;
