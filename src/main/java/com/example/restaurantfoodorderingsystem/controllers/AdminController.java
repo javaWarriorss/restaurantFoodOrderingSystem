@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AdminController {
-
     @Autowired
     private final AdminService adminService;
     @Autowired
@@ -63,23 +62,29 @@ public class AdminController {
 
             return "redirect:adminProfileView/" + loggedInAdmin.getId();
         } catch (Exception e) {
-
             return "redirect:adminLogin?message=login_failed&error=" + e.getMessage();
         }
     }
     @GetMapping("/adminProfileView/{adminId}/updateProfile")
-    public String updateAdminPasswordForm(@PathVariable Long adminId, @CookieValue("adminCookie") String adminIdCookie, Model model){
+    public String updateAdminPasswordForm(@PathVariable Long adminId, @CookieValue("adminCookie") String adminIdCookie, Model model, @RequestParam(name = "messageForPasswordUpdate", required = false) String message){
         model.addAttribute("adminId", adminIdCookie);
         model.addAttribute("admin", adminService.findAdminById(Long.valueOf(adminIdCookie)));
+        model.addAttribute("messageForPasswordUpdate", message);
         return "admin/adminProfileUpdate";
     }
 
     @PostMapping("/adminProfileView/{adminId}/updateProfile")
     public String updateAdmin(@PathVariable Long adminId, Model model, @CookieValue(value = "adminCookie") String adminIdCookie, Admin updatedAdmin) throws Exception {
-        model.addAttribute("adminId", adminIdCookie);
-        this.adminService.updateAdmin(Long.valueOf(adminIdCookie),updatedAdmin);
-        this.adminService.createAdmin(updatedAdmin);
-        return "redirect:/adminProfileView/{adminId}";
+        try {
+            model.addAttribute("adminId", adminIdCookie);
+            this.adminService.updateAdmin(Long.valueOf(adminIdCookie), updatedAdmin);
+            this.adminService.createAdmin(updatedAdmin);
+        }catch (Exception e) {
+            model.addAttribute("messageForPasswordUpdate","password_update_failed");
+            model.addAttribute("error", e.getMessage());
+            return "redirect:/adminProfileView/{adminId}/updateProfile/";
+        }
+        return "redirect:updateProfile?messageForPasswordUpdate=password_updated";
     }
 
     @GetMapping("/adminProfileView/{adminId}")
