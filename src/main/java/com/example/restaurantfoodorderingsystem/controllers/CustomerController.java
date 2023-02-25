@@ -72,7 +72,7 @@ private  final CustomerAddressService customerAddressService;
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/logout")
     public String logoutCustomerAndDeleteCookies(HttpServletResponse response){
         try {
 
@@ -104,7 +104,7 @@ private  final CustomerAddressService customerAddressService;
 //            response.sendRedirect("/login.html");
 
 
-            return   "redirect:index.html";
+            return   "redirect:/";
         }catch (Exception e){
                 return "redirect:/login";
         }
