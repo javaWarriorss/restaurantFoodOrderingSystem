@@ -14,8 +14,8 @@
   <div class="sidebar-menu">
     <ul>
       <li>
-        <!--                <a href="" class="active"><span class="fa-solid fa-caret-down"></span>-->
-        <!--                    <span>Dashboard</span></a>-->
+        <a th:href="@{/adminProfileView/{id}/adminAllOrder (id=${adminId})}" class="active"><span class="fa-solid fa-bars"></span>
+          <span>All Orders</span></a>
       </li>
       <li>
         <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
@@ -38,14 +38,14 @@
   </div>
 </div>
 <div class="main-content">
-  <header>
+<!--  <header>-->
     <header>
       <div>
         <div class="admin-id"><label>Welcome,  <span class="id" th:text="${admin.firstName}"></span></label>
         </div>
       </div>
     </header>
-  </header>
+<!--  </header>-->
 
   <main>
     <h2>Profile/ Change password</h2>

@@ -128,7 +128,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .flex-links-category{
@@ -215,7 +214,7 @@
     overflow: auto;
     margin-bottom: 2rem;
     /*max-height: 200vh; !* should change *!*/
-    max-height: 100%; /* so we dont have one more scroll bar like with 200vh */
+    /*max-height: 100%; !* so we dont have one more scroll bar like with 200vh *!*/
 }
 .food-item-cart{
     display: flex;
