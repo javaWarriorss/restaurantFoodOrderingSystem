@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,5 +65,12 @@ public class OrderService {
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
+
+
+
+    // get orders with today's date
+//    public List<Order> getOrdersByDate(LocalDate date){
+//        return this.orderRepository.getOrdersByOrderTimeOrderByOrderTimeDesc(String.valueOf(date));
+//    }
 
 }

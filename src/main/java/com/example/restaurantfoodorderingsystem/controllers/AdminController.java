@@ -3,12 +3,16 @@ package com.example.restaurantfoodorderingsystem.controllers;
 import com.example.restaurantfoodorderingsystem.entities.Admin;
 import com.example.restaurantfoodorderingsystem.services.AdminService;
 import com.example.restaurantfoodorderingsystem.services.FoodItemService;
+import com.example.restaurantfoodorderingsystem.services.OrderService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class AdminController {
@@ -17,11 +21,22 @@ public class AdminController {
     @Autowired
     private final FoodItemService foodItemService;
 
+//    private final OrderService orderService;
+
+
+
     @Autowired
     public AdminController(AdminService adminService, FoodItemService foodItemService) {
         this.adminService = adminService;
         this.foodItemService = foodItemService;
     }
+
+//        public AdminController(AdminService adminService,FoodItemService foodItemService, OrderService orderService) {
+//        this.adminService = adminService;
+//        this.foodItemService = foodItemService;
+//        this.orderService = orderService;
+//    }
+
 
     @GetMapping("/adminRegister")
     public String createAdminRegistrationForm() {
@@ -87,12 +102,30 @@ public class AdminController {
         return "redirect:updateProfile?messageForPasswordUpdate=password_updated";
     }
 
+
+
     @GetMapping("/adminProfileView/{adminId}")
     public String displayAdminPage(@PathVariable Long adminId, Model model, Admin admin) {
         model.addAttribute("adminId", adminId);
         model.addAttribute("admin", admin);
         return "admin/adminProfileView";
     }
+
+
+    // Get orders by today's date
+
+//    @GetMapping("/adminProfileView/{adminId}")
+//    public String displayAdminPage(@PathVariable Long adminId, Model model, Admin admin) {
+//        LocalDateTime date = LocalDateTime.now();
+//        model.addAttribute("adminId", adminId);
+//        model.addAttribute("admin", admin);
+//        model.addAttribute("orderList", this.orderService.getOrdersByDate(date));
+//
+//
+//        return "admin/adminProfileView";
+//    }
+
+
 
     @GetMapping("/adminLogout")
     public String adminLogout(HttpServletResponse response) {

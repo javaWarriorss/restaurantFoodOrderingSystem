@@ -56,61 +56,45 @@
 <!--      </div>-->
 <!--    </header>-->
     <main>
-<!--      <div class="cards">-->
-<!--        <div class="card-single">-->
-
-<!--          <div>-->
-<!--            <h1>20</h1>-->
-<!--            <span>Customers</span>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <span class="fa-solid fa-users"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="card-single">-->
-<!--          <div>-->
-<!--            <h1>35</h1>-->
-<!--            <span>Orders</span>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <span class="fa-solid fa-cart-arrow-down"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="recent-grid">-->
-<!--        <div class="orders">-->
-
-<!--              <table width="100%">-->
-<!--                <thead>-->
-<!--                <tr>-->
-<!--                  <th>Id</th>-->
-<!--                  <th>Cart id</th>-->
-<!--                  <th>Customer id</th>-->
-<!--                  <th>Status</th>-->
-<!--                  <th>Created at</th>-->
-<!--                </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                <tr th:each="order : ${orderList}">-->
-<!--                  <td th:text="${order.orderTime}"></td>-->
-<!--                  <td th:text="${order.productCost}"></td>-->
-<!--                  <td th:text="${order.subtotal}"></td>-->
-<!--                  <td th:text="${order.customer.id}"></td>-->
-<!--                  <td th:text="${order.customer.firstName}"></td>-->
-<!--                  <td th:text="${order.customer.lastName}"></td>-->
-<!--                  <td th:text="${order.foodItem}"></td>-->
-<!--                  <td th:text="${order.paymentMethod}"></td>-->
-
-<!--                  <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>-->
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--              </table>-->
-
-<!--        </div>-->
-<!--      </div>-->
-
+      <div class="all-order-table-box">
+        <div>
+          <h1 class="no-items" th:if="${orderList.isEmpty()}">There are no orders to display.</h1>
+          <table class="admin-table">
+            <h2 class="">Today's orders.</h2>
+            <thead>
+            <tr>
+              <th>Order Id</th>
+              <th>Date, Time</th>
+              <th>Customer Id</th>
+              <th>First name</th>
+              <th>Lastname</th>
+              <th>Meal title</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Cost</th>
+              <th>Total Cost</th>
+              <th>Payment</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${orderList}">
+              <td th:text="${order.id}"></td>
+              <td th:text="${order.orderTime}"></td>
+              <td th:text="${order.customer.id}"></td>
+              <td th:text="${order.customer.firstName}"></td>
+              <td th:text="${order.customer.lastName}"></td>
+              <td th:text="${order.foodItem.foodName}"></td>
+              <td th:text="${order.foodItem.price}"></td>
+              <td th:text="${order.quantity}"></td>
+              <td th:text="${order.productCost}"></td>
+              <td th:text="${order.subtotal}"></td>
+              <td th:text="${order.paymentMethod}"></td>
+              <!--                  <td><a class="button-update" th:href="@{order-update/{id}(id=${order.id})}">Edit</a></td>-->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
 </div>
 
