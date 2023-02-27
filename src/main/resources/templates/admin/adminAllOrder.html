@@ -40,14 +40,12 @@
   </div>
 </div>
 <div class="main-content">
-  <header>
-      <div class="admin-home-id-box">
-        <div class="home-icon-box"><a class="home-icon" th:href="@{/adminProfileView/{id} (id=${adminId})}"><span class="delete-edit-home"><i class="fa-solid fa-home"></i>
-         </span></a>
+    <header>
+        <div class="admin-id">
+          <label> <a class="home-link" th:href="@{/adminProfileView/{id} (id=${adminId})}"><span class="delete-edit-home"><i class="fa-solid fa-home"></i></span></a> Admin id <span class="id" th:text="${adminId}"></span></label>
         </div>
-        <div class="admin-id-box"><p>Admin id <span class="id" th:text="${adminId}"></span></p></div>
-    </div>
-  </header>
+    </header>
+
   <!-- This part doesn't work!-->
 
 <!--  <header>-->

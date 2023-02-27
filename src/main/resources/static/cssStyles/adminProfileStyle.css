@@ -70,26 +70,9 @@
     color: var(--light);
 }
 
-.home-icon-box{
+.admin-id{
     /*background-color: #b42121;*/
-
-}
-.admin-id-box{
-    /*background-color: cadetblue;*/
-}
-
-.home-icon{
-    padding-bottom: 0;
-}
-.admin-home-id-box{
-    background-color: #767676;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    padding-top: .5rem;
-    font-size: 1.2rem;
-    width: 10rem;
-    margin-left: 2rem;
+    margin-top: 1rem;
 }
 .id{
     font-size: 1.4rem;
