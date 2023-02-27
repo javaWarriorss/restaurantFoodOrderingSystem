@@ -19,12 +19,6 @@ public class FoodItemController {
 
     private final OrderService orderService;
 
-
-//    public FoodItemController(FoodItemService foodItemService, AdminService adminService) {
-//        this.foodItemService = foodItemService;
-//        this.adminService = adminService;
-//    }
-
     public FoodItemController(FoodItemService foodItemService, AdminService adminService, OrderService orderService) {
         this.foodItemService = foodItemService;
         this.adminService = adminService;
@@ -315,12 +309,6 @@ public class FoodItemController {
         model.addAttribute("customerId",customerIdFromCookie);
         return "customer/contactUs";
     }
-
-//    @GetMapping("/contactUs")
-//    public String displayContactUsOnIndexPage(){
-//
-//        return "customer/contactUs";
-//    }
 
     //________________Menu_Page_Liga_________________________________________
 
