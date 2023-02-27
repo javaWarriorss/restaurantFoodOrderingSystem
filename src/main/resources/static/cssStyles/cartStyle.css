@@ -54,7 +54,7 @@ hr{
 
 }
 table, th, td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-collapse: collapse;
     font-size: 24px;
 
@@ -82,6 +82,7 @@ td {
     margin-right: 5px;
     font-size: 20px;
     margin-top: 20px;
+    border: white;
 }
 
 .buttonDelete:hover {
@@ -96,6 +97,7 @@ td {
     text-decoration: none;
     margin-right: 5px;
     font-size: 20px;
+    border: white;
 }
 .buttonCheckOut:hover {
     background-color:greenyellow;
@@ -110,6 +112,7 @@ td {
     margin-right: 5px;
     font-size: 20px;
     margin-bottom: 20px;
+    border: white;
 }
 
 

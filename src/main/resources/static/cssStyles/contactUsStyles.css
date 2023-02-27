@@ -1,11 +1,4 @@
-/** {*/
-/*    box-sizing: border-box;*/
-/*}*/
-/*body{*/
-/*    background: #e8afaf;*/
-/*    margin:0;*/
-/*    padding:0;*/
-/*}*/
+
 :root{
     --green: #94d82d;
     --light-green: #eaf7d5;
@@ -28,17 +21,18 @@
     padding: 20px;
 }
 input[type=submit]:hover {
-    background-color: var(--green);
+    background-color: greenyellow;
 }
 input[type=submit] {
-    background-color: #1e2b09;
-    color: white;
+    background-color:#94d82d;
+    color: black;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 20%;
     margin-left: 38%; /*centers button*/
+    font-size: 20px;
 }
 input[type=email], select, textarea {
     width: 100%;

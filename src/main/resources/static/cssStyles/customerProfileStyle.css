@@ -35,6 +35,7 @@ CheckOutView AS FRAGMENT*/
     font-size: 25px;
     color: black;
     display: block;
+    font-weight: bold;
 }
 .menu a:hover {
     color: #3a5b00;
@@ -73,7 +74,7 @@ h2{
 }
 
 .block{
-    border: 1px solid var(--dark);
+    border: 1px solid var(--green);
     height: 2rem;
     width: 100%;
     border-radius: 5px;
@@ -104,4 +105,5 @@ h2{
     text-decoration: none;
     margin-right: 5px;
     font-size: 20px;
+    border: white;
 }

@@ -3,7 +3,8 @@
 
   <nav class="nav-bar">
     <a href="/" class="active">Home</a>
-    <a href="/contactUs">Contact Us</a>
+<!--    <a href="/contactUs">Contact Us</a>-->   <!--    we dont have this path for this metod-->
+
   </nav>
   <div class="icons">
     <a href="/login" class="fa-regular fa-user"></a>
@@ -28,7 +29,9 @@
   <div class="menu-icons">
     <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}" class="fa-solid fa-user"></a>
     <a href="#" th:href="@{/menu/{id}/cart (id=${customerId})}" class="fa-solid fa-shopping-cart"></a>
-    <a href="/logout" class="fa-solid fa-right-from-bracket"></a>
+<!--    <a href="/logout" class="fa-solid fa-right-from-bracket"></a>  &lt;!&ndash;    logout button&ndash;&gt;-->
+    <a href="/" class="fa-solid fa-right-from-bracket"></a>  <!--    logout button-->
+
   </div>
 
 </div>
