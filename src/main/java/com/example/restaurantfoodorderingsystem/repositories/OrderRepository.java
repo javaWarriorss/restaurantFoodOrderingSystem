@@ -23,7 +23,8 @@ public interface OrderRepository extends CrudRepository<Order,Long> {
     List<Order> getOrdersByCustomerIdOrderByOrderTimeDesc(Long customerId);
 
 
+    // Method should be improved because for now I'm using today's date, and this not the best solution.
+    @Query("SELECT a FROM Order a WHERE a.orderTime LIKE '2023-02-27%' ORDER By a.orderTime DESC")
+     ArrayList<Order> findAllByDate();
 
-
-//    List<Order>getOrdersByOrderTimeOrderByOrderTimeDesc(String orderTime);
 }

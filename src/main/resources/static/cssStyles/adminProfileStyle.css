@@ -69,15 +69,31 @@
 .fa-carrot{
     color: var(--light);
 }
-.admin-home{
-    display: flex;
+
+.home-icon-box{
+    /*background-color: #b42121;*/
+
 }
-.admin-id{
+.admin-id-box{
+    /*background-color: cadetblue;*/
+}
+
+.home-icon{
+    padding-bottom: 0;
+}
+.admin-home-id-box{
+    background-color: #767676;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
     padding-top: .5rem;
     font-size: 1.2rem;
+    width: 10rem;
+    margin-left: 2rem;
 }
 .id{
     font-size: 1.4rem;
+    padding-bottom: 0;
 }
 /* style for links */
 .sidebar-menu a:link,
@@ -444,10 +460,16 @@ h2{
 /*    transition: all 0.3s;*/
 /*}*/
 
-.delete-edit{
+/*.home-icon{*/
+/*    font-size: 1rem;*/
+/*}*/
+
+.delete-edit-home{
     color:#868e96;
 }
-.delete-edit:hover,
-.delete-edit:active{
+
+
+.delete-edit-home:hover,
+.delete-edit-home:active{
     color:#343a40;
 }

@@ -67,10 +67,9 @@ public class OrderService {
     }
 
 
-
     // get orders with today's date
-//    public List<Order> getOrdersByDate(LocalDate date){
-//        return this.orderRepository.getOrdersByOrderTimeOrderByOrderTimeDesc(String.valueOf(date));
-//    }
+    public List<Order> getOrdersByDate(){
+        return this.orderRepository.findAllByDate();
+    }
 
 }
