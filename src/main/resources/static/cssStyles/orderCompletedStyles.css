@@ -1,0 +1,25 @@
+
+h2{
+    padding-top:20px ;
+    text-align:center;
+    font-size: 35px;
+    padding-bottom: 50px;
+}
+p{
+    padding-bottom: 50px;
+    text-align:center;
+    font-size: 20px;
+}
+.boxdiv{
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    border-radius: 15px;
+    /*border: 1px solid black;*/
+    background: #eaf7d5;
+}
+.addressA{
+    padding-bottom: 50px;
+    text-align:center;
+    font-size: 20px;
+}

@@ -1,0 +1,213 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.cart-section{
+    /*height: 100vh;*/
+    /*margin-top: 8rem;*/
+    margin-top: 8%;
+    /*margin-bottom: 8rem;*/
+    margin-bottom: 5%;
+    /*background-color: blueviolet;*/
+
+}
+
+.flex-box{
+    /*background-color: #04AA6D;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-links-category{
+    color: var(--dark);
+    text-decoration: none;
+    /*position: fixed;*/
+    /*top: 5rem;*/
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /*margin-bottom: 1rem;*/
+    font-size: 1.8rem;
+    /*width:100%;*/
+    /*background-color: var(--light);*/
+    /*background-color: var(--green);*/
+
+}
+
+.flex-links{
+    color: var(--dark);
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    /*margin-top:1rem;*/
+    /*position: fixed;*/
+    /*top: 5.9rem;*/
+    padding-bottom: 1rem;
+    width:100%;
+    background-color: var(--light);
+    overflow: hidden;
+    /*background-color: palevioletred;*/
+}
+.item{
+    padding-left: .5rem;
+    padding-right: .5rem;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+
+.category:link,
+.category:visited{
+    text-decoration: none;
+    font-weight: 500;
+    color: #343a40;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.category:hover,
+.category:active{
+    border-bottom-color: #94d82d;
+}
+
+.type:link,
+.type:visited{
+    text-decoration: none;
+    /*font-weight: 500;*/
+    border-bottom: 2px solid transparent;
+    /*color: #343a40;*/
+    /*transition: all 0.3s;*/
+}
+
+.type:hover,
+.type:active{
+   color: var(--dark);
+    border-bottom-color: #94d82d;
+   /* font-weight: bolder;*/
+}
+
+/* Menu item cart */
+
+.food-item-cart-container {
+    text-align: center;
+    width:90%;
+    /*background-color: #45a049;*/
+    /*padding-top:6rem;*/
+    display: grid;
+    /*display: flex;*/
+    grid-template-columns: repeat(5, 1fr);   /*makes how much rows there will be*/
+    grid-column-gap: 1rem;
+    overflow: auto;
+    /*margin-bottom: 2rem;*/
+    /*max-height: 200vh; !* should change *!*/
+    max-height: 100%; /* so we dont have one more scroll bar like with 200vh */
+}
+.food-item-cart{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /*background-color: yellow;*/
+    box-shadow: 0 2.4rem 4.8rem rgba(0,0,0,0.075);
+    border-radius: 11px;
+    text-align: center;
+    width: 14rem;
+    margin: 1.5rem auto;
+    padding-bottom: 1rem;
+   /* padding: 1rem;*/
+    overflow: hidden; /* whatever overflows this container should be hidden */
+
+}
+
+
+.meal-title{
+    font-size: 1.8rem;
+    color: var(--dark);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-transform: capitalize;
+
+}
+
+.meal-description{
+    font-size:1.2rem;
+    color: var(--dark);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-transform: capitalize;
+}
+.price{
+    font-weight: bolder;
+}
+
+.qty-button{
+    display:flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.qty{
+    width:3rem;
+}
+
+input.qty {
+    width: 3rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border: 1px solid #94d82d;
+    border-radius: 11px; /* here should apply the same style as main nav links */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    background-color:var(--light);
+    box-shadow: 2px 2px 2px #eee;
+    transition: all 0.2s ease-in-out;
+}
+
+input.qty:hover, input.qty:focus {
+    border: 1px solid #3e8e41;;
+    box-shadow: 2px 2px 2px #ccc;
+    background-color: var(--light);
+    outline: none;
+}
+
+.add-to-cart-button {
+    width: 6rem;
+    height: 2rem;
+    background-color: #94d82d;
+    /*background-color: #2f9e44;*/
+    border-radius: 11px;
+    border: none;
+    /*color: white;*/
+    color: var(--dark);
+    /*color: #3B5612;*/
+    /*padding-top: 0.2rem;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    /*margin: 0.5rem;*/
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #eee;
+    transition: all 0.2s ease-in-out;
+}
+
+.add-to-cart-button:hover {
+    background-color:#76ad24;
+    /*border: 1px solid #94d82d;*/
+    /*background-color: var(--light);*/
+}
+
+.meal-img{
+    width: 100%;
+    display: block;
+    transition: all 0.4s;
+}
+
+.meal-img:hover {
+    transform: scale(1.1);
+}

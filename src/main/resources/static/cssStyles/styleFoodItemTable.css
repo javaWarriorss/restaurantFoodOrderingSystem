@@ -1,0 +1,92 @@
+/*MARIJA*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+:root{
+    --green: #94d82d;
+    --light-green: #eaf7d5;
+    --dark: #1e2b09;
+    --light: #ffffff;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,1);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    outline: none;
+    /*border: none;*/
+    /*text-transform: capitalize;*/
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 100%;
+    /*overflow: hidden;*/
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+/* LIGA */
+/*FoodItem table*/
+.nav-box .nav-link-view-all{
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    padding: .5rem 1.5rem;
+    color: var(--dark);
+}
+body{
+    padding-top: 160px;
+    font-size: 1.2rem;
+}
+
+.table-section{
+    height: 100vh;
+}
+.foodItem-table{
+    margin: 4rem auto 0;
+    width: 90%;
+    border-collapse: collapse; /* remove the default spacing between table cells */
+}
+
+.foodItem-table th, .foodItem-table td {
+    width: 10%;
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    /*font-size: 1.5rem;*/
+}
+
+.foodItem-table th {
+    background-color: #c2c4c6;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    /*width: auto;*/
+}
+
+.foodItem-table tr:nth-child(even) { /* every even-number column, set color */
+    background-color: #f9f9f9;
+}
+
+.th{
+    text-align: center;
+}
+
+.flex-box{
+    display:flex;
+}
+
+.flex-links{
+    display:flex;
+    flex-direction: column;
+}
+.menu-item{
+    margin-bottom: 0.5rem;
+}
+.nav-box{
+    margin-bottom: 2rem;
+}
+.nav-link-view-all{
+    margin-bottom: 1rem;
+}
+

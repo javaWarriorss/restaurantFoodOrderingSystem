@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address</title>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
+    <link rel="stylesheet" href="/cssStyles/customerProfileStyle.css">
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
+<section  class="menu">
+    <a href="#" th:href="@{/menu/{id}/profile (id=${customerId})}">My Profile</a>
+    <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Address</a>
+    <a href="#" th:href="@{/menu/{id}/orderHistory (id=${customerId})}"> My Orders</a>
+</section>
+
+
+<section class="main">
+    <h2>My Address</h2>
+    <form class="form-flex" th:action="@{/menu/{id}/address (id=${customerId})}" method="post" >
+        <input type="hidden" name="id" th:value="${customerId}"/>
+
+        <div class="box">
+            <label> Street</label><br>
+            <input class="block" type="text" name="street" maxlength="50" required th:value="${customerAddress.street}">
+        </div>
+        <div class="box">
+            <label> City</label><br>
+            <input class="block" type="text" name="city" maxlength="50" required th:value="${customerAddress.city}">
+        </div>
+        <div class="box">
+            <label> Country</label><br>
+            <input class="block" type="text" name="country" maxlength="50" required th:value="${customerAddress.country}">
+        </div>
+        <div class="box">
+            <label> Postal Code</label><br>
+            <input class="block" type="text" name="postCode"  maxlength="10" required th:value="${customerAddress.postCode}">
+        </div>
+
+        <div class="box">
+            <button class="buttonUpdate" type="submit" value="Submit">Update</button>
+        </div>
+
+        <div>
+            <p>
+                <span th:if="${messageForAddress == 'addressUpdate_success'}">
+                    Address Information updated successfully
+                </span>
+                <span th:if="${messageForAddress == 'addressUpdate_failed'}">
+                    Address was not updated,please try again
+                </span>
+            </p>
+        </div>
+    </form>
+
+</section>
+
+
+<footer th:insert="~{fragments/footerFragment :: footerFragmentForProfileZone}"></footer>
+</body>
+</html>
+

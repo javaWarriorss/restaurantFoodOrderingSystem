@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Meal</title>
+    <link rel="stylesheet" href="/cssStyles/stylesMenu.css"/>
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+</head>
+
+<body style=" padding-top: 0px; !important;">
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+
+
+<!--<form th:action="@{/menu/{id}/ (id=${customerId})}" method="post">-->
+<section class="cart-section" id="menu-section">
+
+    <div class="flex-box">
+        <div class="flex-links-category">
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuBreakfast (id=${customerId})}">Breakfast</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuBusinessLunch (id=${customerId})}">Business Lunch</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuSpecialOffer (id=${customerId})}" >Special Offer</a>
+            <a class="item category" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>
+
+        </div>
+        <div class="flex-links">
+            <!--            <a class="nav-link-view-all" href="/menuAllMeals">All meals</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuMeatMainDishes (id=${customerId})}">Meat main dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuFishMainDishes (id=${customerId})}">Fish main dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuVegetableDishes (id=${customerId})}">Vegetable dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSideDishes (id=${customerId})}">Side dishes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSoups (id=${customerId})}">Soups</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSalads (id=${customerId})}">Salads</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuPancakes (id=${customerId})}">Pancakes</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBurgers (id=${customerId})}">Burgers</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSnacks (id=${customerId})}">Snacks</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuSauces (id=${customerId})}">Sauces</a>
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBread (id=${customerId})}">Bread</a>
+            <!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDesserts (id=${customerId})}">Desserts</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuBakery (id=${customerId})}">Bakery</a>
+            <!--            <a class="menu-item" href="#" th:href="@{/menu/{id}/menuDrinks (id=${customerId})}">Drinks</a>-->
+            <a class="item type" href="#" th:href="@{/menu/{id}/menuCutlery (id=${customerId})}">Cutlery</a>
+        </div>
+
+        <!--        <h5 th:if="${foodItemList.isEmpty()}">There are no Food items to display</h5>-->
+        <div class="food-item-cart-container">
+            <div th:each="foodItem:${foodItemList}" th:if="${foodItem.inStock == true}" class="food-item-cart">
+                <div class="meal-img">
+                    <img th:src="${foodItem.getFoodPhotoUrl()}" width="220px" alt="food image"/>
+                </div>
+                <div class="meal-title">
+                    <h6 th:text="${foodItem.foodName}"></h6>
+                </div>
+                <div class="meal-description">
+                    <p th:text="${foodItem.description}"></p>
+                </div>
+                <div>
+                    <p><span class="price" th:text="${foodItem.price}"></span> &euro;</p>
+                </div>
+                <div>
+                    <form class="qty-button" th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart'}" method="post">
+                        <div>
+                            <input name="quantity" type="number" class="qty" th:value="${1}" th:id="${foodItem.id}" min="1"/>
+                        </div>
+                        <div>
+                            <button class="add-to-cart-button"type="submit" value="Submit" >Add to Cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<section><footer  th:insert="~{fragments/footerFragment :: footerFragment}"></footer></section>
+
+</body>
+</html>

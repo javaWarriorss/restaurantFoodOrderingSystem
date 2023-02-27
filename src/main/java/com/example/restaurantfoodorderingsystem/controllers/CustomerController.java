@@ -4,13 +4,14 @@ import com.example.restaurantfoodorderingsystem.entities.Customer;
 import com.example.restaurantfoodorderingsystem.entities.CustomerAddress;
 import com.example.restaurantfoodorderingsystem.services.CustomerAddressService;
 import com.example.restaurantfoodorderingsystem.services.CustomerService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CustomerController {
@@ -21,26 +22,26 @@ private  final CustomerAddressService customerAddressService;
         this.customerService = customerService;
         this.customerAddressService = customerAddressService;
     }
-
     @GetMapping("/register")
     public String showRegistrationPage(){
-        return "register";
+        return "customer/register";
     }
-
-    // REPAIR NEEDED: IT SENDS CUSTOMERADDRESS ANYWAY IF EMAILS ARE THE SAME,
-    // BUT CUSTOMER DATA IS NOT SENDING IN TABLE WHICH IS CORRECT IN CASE WHEN EMAILS ARE THE SAME
     @PostMapping("/register")
-    public String handleCustomerRegistration( Model model,Customer customer, CustomerAddress customerAddress){
-        try {
+    public String handleCustomerRegistration(Customer customer, BindingResult result, Model model, CustomerAddress customerAddress) {
+       try {
+           Customer existingCustomer = customerService.findCustomerByEmail(customer.getEmail());
+           if(existingCustomer != null && existingCustomer.getEmail() != null && !existingCustomer.getEmail().isEmpty()){
+               result.rejectValue("email", null,
+                       "There is already an account registered with the same email");
+           }
             this.customerAddressService.createCustomerAddress(customerAddress);
             this.customerService.createCustomer(customer,customerAddress);
         }catch (Exception e){
             model.addAttribute("message","signup_failed");
             model.addAttribute("error",e.getMessage());
             model.addAttribute("customer",customer);
-            return "register";
+            return "customer/register";
         }
-
         return "redirect:login?message=signup_success";
     }
 
@@ -49,22 +50,32 @@ private  final CustomerAddressService customerAddressService;
       @RequestParam(name="message", required = false)String message
     ){
         model.addAttribute("message", message);
-
-        return "login";
+        return "customer/login";
     }
-
 
     @PostMapping("/login")
-    public String handleUserLogin(Customer customer){
+    public String handleCustomerLogin(Customer customer, HttpServletResponse response){
         try {
             Customer loggedInCustomer =customerService.verifyCustomer(customer);
-            return "redirect:customerPageAfterLogin/" +loggedInCustomer.getId();
+            Cookie cookie = new Cookie("customerCookie",loggedInCustomer.getId().toString());
+            response.addCookie(cookie);
 
+            return "redirect:menu/" +loggedInCustomer.getId();
         }catch (Exception e){
-            return "redirect:login?message=login_failed&error=" +e.getMessage();
+            return "redirect:/login?message=login_failed&error=" +e.getMessage();
         }
-
     }
 
+    @GetMapping("/")
+    public String logoutCustomerAndDeleteCookies(HttpServletResponse response){
+        try {
+            Cookie deleteServletCookie = new Cookie("customerCookie", null);
+            deleteServletCookie.setMaxAge(0);
+            response.addCookie(deleteServletCookie);
 
+            return   "redirect:index.html";
+        }catch (Exception e){
+                return "redirect:/login";
+        }
+    }
 }

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="/cssStyles/adminProfileStyle.css"/>
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script></head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-logo">
+        <h2 class="logo-header"><i class="fa-solid fa-carrot"></i>Restaurant</h2>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a th:href="@{/adminProfileView/{id}/adminAllOrder (id=${adminId})}" class="active"><span class="fa-solid fa-bars"></span>
+                    <span>All Orders</span></a>
+            </li>
+
+            <li>
+                <a th:href="@{/adminProfileView/{id}/adminAddMeal (id=${adminId})}"><span class="fa-solid fa-plus"></span>
+                    <span>Add new Meal</span></a>
+            </li>
+            <li>
+                <a th:href="@{/adminProfileView/{id}/adminViewAllMeal (id=${adminId})}"><span class="fa-solid fa-bars"></span>
+                    <span>All meals</span></a>
+            </li>
+            <li>
+            <li>
+                <a th:href="@{/adminProfileView/{id}/updateProfile (id=${adminId})}"><span class="fa-solid fa-key"></span>
+                    <span>Change Password</span></a>
+            </li>
+            <li>
+                <a href="/adminLogout"><span class="fa-solid fa-right-from-bracket"></span>
+                    <span>Logout</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<main class="main-content">
+    <header>
+        <header>
+            <div class="admin-id">
+                <label> <a class="home-link" th:href="@{/adminProfileView/{id} (id=${adminId})}"><span class="delete-edit-home"><i class="fa-solid fa-home"></i></span></a> Admin id <span class="id" th:text="${adminId}"></span></label>
+            </div>
+        </header>
+    </header>
+    <!--    <header>-->
+    <!--        <div>-->
+    <!--            <div class="admin-id"><label>Welcome,  <span class="id" th:text="${admin.firstName}"></span></label>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </header>-->
+
+<!--    <main>-->
+        <h2>UPDATE INFORMATION ABOUT MEAL</h2>
+
+
+        <div class="grid-container-update">
+            <div class="img-box">
+          <img class="meal-img" th:src="${foodItem.getFoodPhotoUrl()}"
+               width="400px"/>
+            </div>
+
+            <div>
+            <div class="form-container">
+                <!--    <form action="/updateMeal/{foodItemId}" method="post">-->
+                <form class="form-flex" th:action="${'/adminProfileView/'+ adminId + '/updateMeal/'+ foodItem.id }" method="post">
+                    <input type="hidden" name="id" th:value="${foodItem.id}"/>
+                    <div class="box">
+                        <input class="block" name="foodName" type="text" placeholder="Meal title" th:value="${foodItem.foodName}">
+                    </div>
+
+                    <div class="box">
+                        <!--                <label>Select category:</label>-->
+                        <select class="block" name="category" th:field="*{foodItem.category}">
+                            <option value="">Select category</option>
+                            <option value="Breakfast" th:value="'Breakfast'">Breakfast</option>
+                            <option value="Business Lunch" th:value="'Business Lunch'">Business Lunch</option>
+                            <option value="Dinner" th:value="'Dinner'">Dinner</option>
+                            <option value="Special offer" th:value="'Special Offer'">Special Offer</option>
+                            <option value="Desserts" th:value="'Desserts'">Desserts</option>
+                            <option value="Bakery" th:value="'Bakery'">Bakery</option>
+                            <option value="Drinks" th:value="'Drinks'">Drinks</option>
+                            <option value="Cutlery" th:value="'Cutlery'">Cutlery</option>
+                        </select>
+                    </div>
+
+                    <div class="box">
+                        <!--                <label>Select type:</label>-->
+                        <select class="block" name="type" th:field="*{foodItem.type}" >
+                            <option value="">Select type</option>
+                            <option value="Meat main dishes" th:value="'Meat main dishes'">Meat main dishes</option>
+                            <option value="Fish main dishes" th:value="'Fish main dishes'">Fish main dishes</option>
+                            <option value="Vegetable dishes" th:value="'Vegetable dishes'">Vegetable dishes</option>
+                            <option value="Side dishes" th:value="'Side dishes'">Side dishes</option>
+                            <option value="Soups" th:value="'Soups'">Soups</option>
+                            <option value="Salads" th:value="'Salads'">Salads</option>
+                            <option value="Pancakes"th:value="'Pancakes'" >Pancakes</option>
+                            <option value="Burgers" th:value="'Burgers'">Burgers</option>
+                            <option value="Snacks" th:value="'Snacks'">Snacks</option>
+                            <option value="Sauces" th:value="'Sauces'">Sauces</option>
+                            <option value="Bread" th:value="'Bread'">Bread</option>
+                            <option value="Desserts" th:value="'Desserts'" >Desserts</option>
+                            <option value="Bakery" th:value="'Bakery'">Bakery</option>
+                            <option value="Water" th:value="'Water'">Water</option>
+                            <option value="Coffee" th:value="'Coffee'">Coffee</option>
+                            <option value="Tea" th:value="'Tea'">Tea</option>
+                            <option value="Juice" th:value="'Juice'">Juice</option>
+                            <option value="Cutlery" th:value="'Cutlery'">Cutlery</option>
+                        </select>
+                    </div>
+
+                    <div class="box">
+                        <input class="block" name="description" type="text" placeholder="Description" th:value="${foodItem.description}">
+                    </div>
+
+                    <div class="box">
+                        <input class="block" name="price" step="0.01" type="number" placeholder="Price" th:value="${foodItem.price}">
+                    </div>
+
+                    <div class="box">
+                        <span class="inStock">In stock </span><input class="checkbox" type="checkbox" name="inStock" th:checked="${foodItem.inStock}">
+                    </div>
+
+                    <div class="box">
+                        <input class="block" name="foodPhotoUrl" type="url" placeholder="Add picture" th:value="${foodItem.foodPhotoUrl}" >
+                    </div>
+
+                    <div class="box">
+                        <button class="form-button" type="submit">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+                </div>
+        </div>
+</main>
+</body>
+</html>

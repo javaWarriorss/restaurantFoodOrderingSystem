@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/cssStyles/cartStyle.css">
+    <link rel="stylesheet" href="/cssStyles/fragment-header.css">
+    <script src="https://kit.fontawesome.com/cc68b5781c.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header th:insert="~{fragments/header.html :: headerAfterLogin}"></header>
+       <div class="cartContainer" >
+            <h3> Shopping Cart:</h3>
+           <table th:unless="${#lists.isEmpty(cartItems)}">
+
+               <tr>
+                   <th>Nr.</th>
+                   <th> </th>
+                   <th>Name</th>
+                   <th>Price</th>
+                   <th>Quantity</th>
+                   <th>Total Price</th>
+                   <th>Description</th>
+                   <th> Remove Item</th>
+               </tr>
+
+               <tr  style="width:80%" class="table-header" th:each="item, status : ${cartItems}"  th:with="foodItem=${item.foodItem}">
+                   <td>[[${status.count}]]</td>
+                   <td class=”image-box”> <img th:src="@{${foodItem.getFoodPhotoUrl() }}" class="picHeight"/> </td>
+                   <td>[[${foodItem.foodName}]]</td>
+                       <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/update'}" method="post">
+                           <td> [[${foodItem.price}]] &#x20AC </td>
+                           <td>
+                           <input  name="quantity" type="number" class="qty" th:value="${item.quantity}" th:id="${foodItem.id}" min="1"/>
+                           <div><button type="submit" value="Submit" class="buttonUpdate">Update</button></div></td>
+
+                           <td class="productSubtotal">[[${item.getSubtotal()}]] &#x20AC</td>
+                       </form>
+                   <td >[[${foodItem.description}]] </td>
+                   <td> <form th:action="${'/menu/' +customerId+ '/' +foodItem.id+'/cart/delete'}" method="post">
+                       <button class="buttonDelete" type="submit" value="Submit">Remove</button>
+                   </form>
+                   </td>
+               </tr>
+           </table>
+
+           <div class="totalPriceBox" th:unless="${#lists.isEmpty(cartItems)}">
+               <hr>
+               <div ><span>Total Price:</span></div>
+               <div ><span id="totalAmount" >[[${totalAmount}]] &#x20AC</span></div>
+               <div>
+                   <form th:action="${'/menu/' +customerId+ '/cart/order'}" method="get">
+                       <button type="submit" class="buttonCheckOut" >Check Out</button>
+                   </form>
+                   <a href="#" th:href="@{/menu/{id}/address (id=${customerId})}"> Update Delivery Address</a>
+               </div>
+               <div>&nbsp;</div>    <!--adds space-->
+           </div>
+       </div>
+<div th:if="${#lists.isEmpty(cartItems)}">
+    <h3>You have not chosen any products yet.</h3>
+
+</div>
+<footer th:insert="~{fragments/footerFragment :: footerFragment}"></footer>
+</body>
+</html>
