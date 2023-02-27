@@ -295,7 +295,7 @@ h2{
 .form-button:hover,
 .form-button:active{
     box-shadow: 2px 2px 2px #ccc;
-    background-color:#e9ecef;
+    /*background-color:#e9ecef;*/
     border-color: var(--gray);
     background-color: var(--green);
 }
@@ -330,9 +330,9 @@ h2{
 /* ALL MEALS/ORDERS TABLE */
 
 .all-order-table-box{
-    margin-left: 0;
+    margin-left: 2rem;
     text-align: center;
-    margin-top: -2rem;
+    margin-top: 1rem;
 }
 
 .all-meal-table-box{
