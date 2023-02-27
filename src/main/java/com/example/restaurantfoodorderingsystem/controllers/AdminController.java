@@ -74,7 +74,6 @@ public class AdminController {
             Cookie cookie = new Cookie("adminCookie", loggedInAdmin.getId().toString());
 
             response.addCookie(cookie);
-            response.addCookie(new Cookie("adminIsLoggedIn", "true"));
 
             return "redirect:adminProfileView/" + loggedInAdmin.getId();
         } catch (Exception e) {
