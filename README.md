@@ -29,7 +29,35 @@ For Customer:
 - MySQL - for database
 
 ## Project screenshots:
+*Home page*
+<div>
+  <img src="images/home-page.png" alt="Screenshot of Home page" width="600" style="display: inline-block;">
+ </div>
+ 
+ *Menu page*
+<div>
+  <img src="images/menu-page.png" alt="Screenshot of Menu page" width="600" style="display: inline-block;">
+</div>
 
+ *Order page*
+<div>
+  <img src="images/order-page.png" alt="Screenshot of Order page" width="600" style="display: inline-block;">
+</div>
+
+ *Shopping cart page*
+<div>
+  <img src="images/shopping-cart-page.png" alt="Screenshot of Shopping cart page" width="600" style="display: inline-block;">
+</div>
+
+ *Customer order history page*
+<div>
+  <img src="images/order-history-page.png" alt="Screenshot of Order history page" width="600" style="display: inline-block;">
+</div>
+
+ *Admin registration page*
+<div>
+  <img src="images/admin-registration-page.png" alt="Screenshot of Admin registration page" width="600" style="display: inline-block;">
+</div>
 
 ## Setup Instructions:
 
