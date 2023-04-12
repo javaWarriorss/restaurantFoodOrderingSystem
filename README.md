@@ -29,6 +29,7 @@ For Customer:
 - MySQL - for database
 
 ## Project screenshots:
+
 *Home page*
 <div>
   <img src="images/home-page.png" alt="Screenshot of Home page" width="600" style="display: inline-block;">
@@ -58,6 +59,27 @@ For Customer:
 <div>
   <img src="images/admin-registration-page.png" alt="Screenshot of Admin registration page" width="600" style="display: inline-block;">
 </div>
+
+ *Admin page*
+<div>
+  <img src="images/admin-page.png" alt="Screenshot of Admin page" width="600" style="display: inline-block;">
+</div>
+
+ *Add meal page*
+<div>
+  <img src="images/add-meal-page.png" alt="Screenshot of Admin add meal page" width="600" style="display: inline-block;">
+</div>
+
+ *Admin all meal page*
+<div>
+  <img src="images/admin-all-meals.png" alt="Screenshot of Admin all meal page" width="600" style="display: inline-block;">
+</div>
+
+ *Update meal page*
+<div>
+  <img src="images/update-meal-page.png" alt="Screenshot of Admin update meal page" width="600" style="display: inline-block;">
+</div>
+
 
 ## Setup Instructions:
 
